@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+  x:Class="XF.Material.Themer.Views.ThemePreviewPage"
+  xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:models="clr-namespace:XF.Material.Themer.Models"
+  xmlns:viewModels="clr-namespace:XF.Material.Themer.ViewModels"
+  xmlns:views="clr-namespace:XF.Material.Themer.Views"
+  Title="Palette"
+  x:DataType="viewModels:ThemePreviewViewModel"
+  mc:Ignorable="d">
+  <ContentPage.BindingContext>
+    <viewModels:ThemePreviewViewModel />
+  </ContentPage.BindingContext>
+
+  <Grid
+    ColumnSpacing="0"
+    HorizontalOptions="Fill"
+    VerticalOptions="Fill">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <!--  containing the CollectionView within a grid so we can achieve external padding  -->
+    <Label
+      Grid.Row="0"
+      Grid.Column="0"
+      Style="{StaticResource ThemeHeader}"
+      Text="Light Theme" />
+    <Grid
+      Grid.Row="1"
+      Grid.Column="0"
+      Padding="16"
+      BackgroundColor="#20000000"
+      HorizontalOptions="Fill"
+      VerticalOptions="Fill">
+      <CollectionView ItemsSource="{Binding LightThemeColorElements}">
+        <CollectionView.ItemTemplate>
+          <DataTemplate>
+            <views:ThemeElementColorView
+              x:DataType="models:ThemeColorElement"
+              Caption="{Binding Caption}"
+              ColorHex="{Binding ThemeColor, Converter={StaticResource ColorToHex}}"
+              HeightRequest="100"
+              HorizontalOptions="Fill"
+              ThemeColor="{Binding ThemeColor}" />
+          </DataTemplate>
+        </CollectionView.ItemTemplate>
+      </CollectionView>
+    </Grid>
+
+    <Label
+      Grid.Row="0"
+      Grid.Column="1"
+      Style="{StaticResource ThemeHeader}"
+      Text="Dark Theme" />
+    <Grid
+      Grid.Row="1"
+      Grid.Column="1"
+      Padding="16"
+      BackgroundColor="#272423"
+      HorizontalOptions="Fill"
+      VerticalOptions="Fill">
+      <CollectionView ItemsSource="{Binding DarkThemeColorElements}">
+        <CollectionView.ItemTemplate>
+          <DataTemplate>
+            <views:ThemeElementColorView
+              x:DataType="models:ThemeColorElement"
+              Caption="{Binding Caption}"
+              ColorHex="{Binding ThemeColor, Converter={StaticResource ColorToHex}}"
+              HeightRequest="100"
+              HorizontalOptions="Fill"
+              ThemeColor="{Binding ThemeColor}" />
+          </DataTemplate>
+        </CollectionView.ItemTemplate>
+      </CollectionView>
+    </Grid>
+  </Grid>
+</ContentPage>

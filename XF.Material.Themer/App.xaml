@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+  x:Class="XF.Material.Themer.App"
+  xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:converters="clr-namespace:XF.Material.Themer.Converters;assembly=XF.Material.Themer"
+  xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  mc:Ignorable="d">
+  <Application.Resources>
+    <ResourceDictionary>
+      <converters:ColorToHexConverter x:Key="ColorToHex" />
+
+      <Style x:Key="ThemeHeader" TargetType="Label">
+        <Setter Property="Padding" Value="8" />
+        <Setter Property="BackgroundColor" Value="#282828" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="HeightRequest" Value="50" />
+        <Setter Property="HorizontalOptions" Value="Fill" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="VerticalOptions" Value="Fill" />
+      </Style>
+    </ResourceDictionary>
+  </Application.Resources>
+</Application>

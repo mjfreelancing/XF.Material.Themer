@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+  x:Class="XF.Material.Themer.Views.ThemeElevationsPage"
+  xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:converters="clr-namespace:XF.Material.Themer.Converters;assembly=XF.Material.Themer"
+  xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:models="clr-namespace:XF.Material.Themer.Models"
+  xmlns:viewModels="clr-namespace:XF.Material.Themer.ViewModels"
+  xmlns:views="clr-namespace:XF.Material.Themer.Views"
+  Title="Elevations"
+  x:DataType="viewModels:ThemeElevationsViewModel"
+  mc:Ignorable="d">
+  <ContentPage.BindingContext>
+    <viewModels:ThemeElevationsViewModel />
+  </ContentPage.BindingContext>
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <converters:EnumToStringConverter x:Key="ElevationLevelConverter" x:TypeArguments="models:ElevationLevel" />
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <Grid
+    ColumnSpacing="0"
+    HorizontalOptions="Fill"
+    RowSpacing="0"
+    VerticalOptions="Fill">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <!--  containing the CollectionView within a grid so we can achieve external padding  -->
+    <Label
+      Grid.Row="0"
+      Grid.Column="0"
+      Style="{StaticResource ThemeHeader}"
+      Text="Surface" />
+    <Grid
+      Grid.Row="1"
+      Grid.Column="0"
+      Padding="16"
+      BackgroundColor="#272423"
+      HorizontalOptions="Fill"
+      VerticalOptions="Fill">
+      <CollectionView HeightRequest="150" ItemsSource="{Binding DarkElevations}">
+        <CollectionView.ItemTemplate>
+          <DataTemplate>
+            <views:ThemeElementColorView
+              x:DataType="models:SurfaceElevation"
+              Caption="{Binding Elevation, Converter={StaticResource ElevationLevelConverter}}"
+              ColorHex="{Binding SurfaceColor, Converter={StaticResource ColorToHex}}"
+              HeightRequest="100"
+              HorizontalOptions="Fill"
+              ThemeColor="{Binding SurfaceColor}" />
+          </DataTemplate>
+        </CollectionView.ItemTemplate>
+      </CollectionView>
+    </Grid>
+
+    <Label
+      Grid.Row="0"
+      Grid.Column="1"
+      Style="{StaticResource ThemeHeader}"
+      Text="Branded Surface" />
+    <Grid
+      Grid.Row="1"
+      Grid.Column="1"
+      Padding="16"
+      BackgroundColor="#272423"
+      HorizontalOptions="Fill"
+      VerticalOptions="Fill">
+      <CollectionView HeightRequest="150" ItemsSource="{Binding DarkElevations}">
+        <CollectionView.ItemTemplate>
+          <DataTemplate>
+            <views:ThemeElementColorView
+              x:DataType="models:SurfaceElevation"
+              Caption="{Binding Elevation, Converter={StaticResource ElevationLevelConverter}}"
+              ColorHex="{Binding BrandedSurfaceColor, Converter={StaticResource ColorToHex}}"
+              HeightRequest="100"
+              HorizontalOptions="Fill"
+              ThemeColor="{Binding BrandedSurfaceColor}" />
+          </DataTemplate>
+        </CollectionView.ItemTemplate>
+      </CollectionView>
+    </Grid>
+  </Grid>
+</ContentPage>
