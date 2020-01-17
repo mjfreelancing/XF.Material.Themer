@@ -1717,7 +1717,7 @@
     //public const string StopCircle = "\uf666";
     //public const string StopCircleOutline = "\uf667";
     //public const string TestTube = "\uf668";
-    //public const string TextShadow = "\uf669";
+    public const string TextShadow = "\uf669";
     //public const string TuneVertical = "\uf66a";
     //public const string CartOff = "\uf66b";
     //public const string ChartGantt = "\uf66c";

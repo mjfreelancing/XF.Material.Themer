@@ -11,13 +11,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\ThemePalettePage.xaml.cs">
-      <DependentUpon>ThemePalettePage.xaml</DependentUpon>
+    <Compile Update="Views\Theme\ElementColorView.xaml.cs">
+      <DependentUpon>ElementColorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Theme\ElevationsPage.xaml.cs">
+      <DependentUpon>ElevationsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Theme\PalettePage.xaml.cs">
+      <DependentUpon>PalettePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\ThemeElevationsPage.xaml">
+    <EmbeddedResource Update="Views\Theme\SurfaceTextPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Theme\ElevationsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

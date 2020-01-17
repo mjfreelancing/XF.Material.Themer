@@ -3,18 +3,18 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.Material.Themer.Helpers;
 
-namespace XF.Material.Themer.Views
+namespace XF.Material.Themer.Views.Theme
 {
   [XamlCompilation(XamlCompilationOptions.Compile)]
-  public partial class ThemeElementColorView : Grid
+  public partial class ElementColorView : Grid
   {
-    public static readonly BindableProperty CaptionProperty = BindableProperty.Create(nameof(Caption), typeof(string), typeof(ThemeElementColorView), default(string), propertyChanged: OnCaptionPropertyChanged);
-    public static readonly BindableProperty ColorHexProperty = BindableProperty.Create(nameof(ColorHex), typeof(string), typeof(ThemeElementColorView), default(string), propertyChanged: OnColorHexPropertyChanged);
-    public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(ThemeElementColorView), default(Color), propertyChanged: OnTextColorPropertyChanged);
+    public static readonly BindableProperty CaptionProperty = BindableProperty.Create(nameof(Caption), typeof(string), typeof(ElementColorView), default(string), propertyChanged: OnCaptionPropertyChanged);
+    public static readonly BindableProperty ColorHexProperty = BindableProperty.Create(nameof(ColorHex), typeof(string), typeof(ElementColorView), default(string), propertyChanged: OnColorHexPropertyChanged);
+    public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(ElementColorView), default(Color), propertyChanged: OnTextColorPropertyChanged);
     
     // ThemeColor auto-sets the TextColor that produces the greatest contrast. For manual
     // setting of TextColor use BackgroundColor instead of ThemeColor.
-    public static readonly BindableProperty ThemeColorProperty = BindableProperty.Create(nameof(ThemeColor), typeof(Color), typeof(ThemeElementColorView), default(Color), propertyChanged: OnThemeColorPropertyChanged);
+    public static readonly BindableProperty ThemeColorProperty = BindableProperty.Create(nameof(ThemeColor), typeof(Color), typeof(ElementColorView), default(Color), propertyChanged: OnThemeColorPropertyChanged);
 
     public string Caption
     {
@@ -40,7 +40,7 @@ namespace XF.Material.Themer.Views
       set => SetValue(ThemeColorProperty, value);
     }
 
-    public ThemeElementColorView()
+    public ElementColorView()
     {
       InitializeComponent();
     }
@@ -90,9 +90,9 @@ namespace XF.Material.Themer.Views
         });
     }
 
-    private static void SetProperty<TPropertyType>(BindableObject bindable, object newValue, Action<ThemeElementColorView, TPropertyType> propertyAssigner)
+    private static void SetProperty<TPropertyType>(BindableObject bindable, object newValue, Action<ElementColorView, TPropertyType> propertyAssigner)
     {
-      if (!(bindable is ThemeElementColorView view) || !(newValue is TPropertyType propertyValue))
+      if (!(bindable is ElementColorView view) || !(newValue is TPropertyType propertyValue))
       {
         return;
       }

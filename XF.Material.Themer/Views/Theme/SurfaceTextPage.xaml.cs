@@ -1,12 +1,12 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace XF.Material.Themer.Views
+namespace XF.Material.Themer.Views.Theme
 {
   [XamlCompilation(XamlCompilationOptions.Compile)]
-  public partial class ThemePalettePage : ContentPage
+  public partial class SurfaceTextPage : ContentPage
   {
-    public ThemePalettePage()
+    public SurfaceTextPage()
     {
       InitializeComponent();
     }

@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-  x:Class="XF.Material.Themer.Views.ThemeElevationsPage"
+  x:Class="XF.Material.Themer.Views.Theme.ElevationsPage"
   xmlns="http://xamarin.com/schemas/2014/forms"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:converters="clr-namespace:XF.Material.Themer.Converters;assembly=XF.Material.Themer"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:models="clr-namespace:XF.Material.Themer.Models"
+  xmlns:theme="clr-namespace:XF.Material.Themer.Views.Theme;assembly=XF.Material.Themer"
   xmlns:viewModels="clr-namespace:XF.Material.Themer.ViewModels"
-  xmlns:views="clr-namespace:XF.Material.Themer.Views"
   Title="Elevations"
   x:DataType="viewModels:ThemeElevationsViewModel"
   mc:Ignorable="d">
@@ -51,7 +51,7 @@
       <CollectionView HeightRequest="150" ItemsSource="{Binding DarkElevations}">
         <CollectionView.ItemTemplate>
           <DataTemplate>
-            <views:ThemeElementColorView
+            <theme:ElementColorView
               x:DataType="models:SurfaceElevation"
               Caption="{Binding Elevation, Converter={StaticResource ElevationLevelConverter}}"
               ColorHex="{Binding SurfaceColor, Converter={StaticResource ColorToHex}}"
@@ -78,7 +78,7 @@
       <CollectionView HeightRequest="150" ItemsSource="{Binding DarkElevations}">
         <CollectionView.ItemTemplate>
           <DataTemplate>
-            <views:ThemeElementColorView
+            <theme:ElementColorView
               x:DataType="models:SurfaceElevation"
               Caption="{Binding Elevation, Converter={StaticResource ElevationLevelConverter}}"
               ColorHex="{Binding BrandedSurfaceColor, Converter={StaticResource ColorToHex}}"
