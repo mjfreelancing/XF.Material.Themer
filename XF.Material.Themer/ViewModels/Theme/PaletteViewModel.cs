@@ -2,9 +2,9 @@
 using Xamarin.Forms;
 using XF.Material.Themer.Models;
 
-namespace XF.Material.Themer.ViewModels
+namespace XF.Material.Themer.ViewModels.Theme
 {
-  public class ThemePaletteViewModel : ViewModelBase
+  public class PaletteViewModel : ViewModelBase
   {
     private IDictionary<int, Color> _primaryTones = new Dictionary<int, Color>
     {
@@ -50,7 +50,7 @@ namespace XF.Material.Themer.ViewModels
 
     // dark theme testing
 
-    public ThemePaletteViewModel()
+    public PaletteViewModel()
     {
       _lightTheme = new LightThemeColors();
 

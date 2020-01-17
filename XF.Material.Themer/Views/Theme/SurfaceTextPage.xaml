@@ -5,14 +5,15 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:viewModel="clr-namespace:XF.Material.Themer.ViewModels.Theme;assembly=XF.Material.Themer"
   Title="Surface Text"
   mc:Ignorable="d">
+  <ContentPage.BindingContext>
+    <viewModel:SurfaceTextViewModel />
+  </ContentPage.BindingContext>
   <ContentPage.Content>
-    <StackLayout>
-      <Label
-        HorizontalOptions="CenterAndExpand"
-        Text="Welcome to Xamarin.Forms!"
-        VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <CarouselView>
+      <!--  insert here  -->
+    </CarouselView>
   </ContentPage.Content>
 </ContentPage>

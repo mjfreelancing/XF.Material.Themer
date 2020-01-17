@@ -6,13 +6,13 @@
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:models="clr-namespace:XF.Material.Themer.Models"
-  xmlns:theme="clr-namespace:XF.Material.Themer.Views.Theme;assembly=XF.Material.Themer"
-  xmlns:viewModels="clr-namespace:XF.Material.Themer.ViewModels"
+  xmlns:view="clr-namespace:XF.Material.Themer.Views.Theme;assembly=XF.Material.Themer"
+  xmlns:viewModel="clr-namespace:XF.Material.Themer.ViewModels.Theme;assembly=XF.Material.Themer"
   Title="Palette"
-  x:DataType="viewModels:ThemePaletteViewModel"
+  x:DataType="viewModel:PaletteViewModel"
   mc:Ignorable="d">
   <ContentPage.BindingContext>
-    <viewModels:ThemePaletteViewModel />
+    <viewModel:PaletteViewModel />
   </ContentPage.BindingContext>
 
   <Grid
@@ -44,7 +44,7 @@
       <CollectionView ItemsSource="{Binding LightThemeColorElements}">
         <CollectionView.ItemTemplate>
           <DataTemplate>
-            <theme:ElementColorView
+            <view:ElementColorView
               x:DataType="models:ThemeColorElement"
               Caption="{Binding Caption}"
               ColorHex="{Binding ThemeColor, Converter={StaticResource ColorToHex}}"
@@ -71,7 +71,7 @@
       <CollectionView ItemsSource="{Binding DarkThemeColorElements}">
         <CollectionView.ItemTemplate>
           <DataTemplate>
-            <theme:ElementColorView
+            <view:ElementColorView
               x:DataType="models:ThemeColorElement"
               Caption="{Binding Caption}"
               ColorHex="{Binding ThemeColor, Converter={StaticResource ColorToHex}}"

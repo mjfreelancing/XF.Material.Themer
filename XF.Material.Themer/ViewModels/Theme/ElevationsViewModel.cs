@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using XF.Material.Themer.Models;
 
-namespace XF.Material.Themer.ViewModels
+namespace XF.Material.Themer.ViewModels.Theme
 {
-  public class ThemeElevationsViewModel : ViewModelBase
+  public class ElevationsViewModel : ViewModelBase
   {
     public IList<SurfaceElevation> DarkElevations { get; }
 
-    public ThemeElevationsViewModel()
+    public ElevationsViewModel()
     {
       // temp for now
       var elevations = ((ElevationLevel[])Enum.GetValues(typeof(ElevationLevel)));
