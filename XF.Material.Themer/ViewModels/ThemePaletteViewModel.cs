@@ -4,7 +4,7 @@ using XF.Material.Themer.Models;
 
 namespace XF.Material.Themer.ViewModels
 {
-  public class ThemePreviewViewModel : ViewModelBase
+  public class ThemePaletteViewModel : ViewModelBase
   {
     private IDictionary<int, Color> _primaryTones = new Dictionary<int, Color>
     {
@@ -50,7 +50,7 @@ namespace XF.Material.Themer.ViewModels
 
     // dark theme testing
 
-    public ThemePreviewViewModel()
+    public ThemePaletteViewModel()
     {
       _lightTheme = new LightThemeColors();
 

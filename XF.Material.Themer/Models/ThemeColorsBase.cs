@@ -7,15 +7,15 @@ namespace XF.Material.Themer.Models
   {
     public abstract Color Primary { get; set; }
     public abstract Color PrimaryVariant { get; set; }
-    public abstract Color OnPrimary { get; set; }
     public abstract Color Secondary { get; set; }
     public abstract Color SecondaryVariant { get; set; }
-    public abstract Color OnSecondary { get; set; }
     public abstract Color Background { get; set; }
-    public abstract Color OnBackground { get; set; }
     public abstract Color Surface { get; set; }
-    public abstract Color OnSurface { get; set; }
     public abstract Color Error { get; set; }
+    public abstract Color OnPrimary { get; set; }
+    public abstract Color OnSecondary { get; set; }
+    public abstract Color OnBackground { get; set; }
+    public abstract Color OnSurface { get; set; }
     public abstract Color OnError { get; set; }
 
     // need to allow the opacity to be user-defined

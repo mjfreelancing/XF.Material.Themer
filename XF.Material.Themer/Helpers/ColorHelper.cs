@@ -18,7 +18,6 @@ namespace XF.Material.Themer.Helpers
       }
 
       var combinedColor = CombineColors(backgroundColor, foregroundColor, foregroundColor.A);
-
       var luminance1 = GetRelativeLuminance(combinedColor);
       var luminance2 = GetRelativeLuminance(backgroundColor);
 
@@ -36,11 +35,11 @@ namespace XF.Material.Themer.Helpers
           : Math.Pow((value + 0.055) / 1.055, 2.4);
       }
 
-      var r = GetComponent(color.R);
-      var g = GetComponent(color.G);
-      var b = GetComponent(color.B);
+      var red = GetComponent(color.R);
+      var green = GetComponent(color.G);
+      var blue = GetComponent(color.B);
 
-      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+      return 0.2126 * red + 0.7152 * green + 0.0722 * blue;
     }
 
     // combines two opaque colors, with the overlay having a specified opacity (0-1)

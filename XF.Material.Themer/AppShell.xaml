@@ -40,20 +40,6 @@
     </ResourceDictionary>
   </Shell.Resources>
 
-  <!--<TabBar>
-    <Tab Title="Palette" Icon="tab_feed.png">
-      <ShellContent ContentTemplate="{DataTemplate local:ThemePreviewPage}" />
-    </Tab>
-    <Tab Title="Next Page" Icon="tab_feed.png">
-      <ShellContent ContentTemplate="{DataTemplate local:ThemePreviewPage}" />
-    </Tab>
-  </TabBar>-->
-
-  <!--
-  <ShellContent Title="Palette" ContentTemplate="{DataTemplate local:ThemePreviewPage}" />
-  <ShellContent Title="Elevations" ContentTemplate="{DataTemplate local:ThemeElevationsPage}" />
-  -->
-
   <Shell.ItemTemplate>
     <DataTemplate>
       <Grid HeightRequest="{x:OnPlatform Android=50}">
@@ -116,7 +102,7 @@
 
   <!--  the icons do not appear without using 'AsMultipleItems'  -->
   <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-    <ShellContent Title="Palette" ContentTemplate="{DataTemplate local:ThemePreviewPage}">
+    <ShellContent Title="Palette" ContentTemplate="{DataTemplate local:ThemePalettePage}">
       <ShellContent.Icon>
         <FontImageSource
           FontFamily="{StaticResource MaterialFontFamily}"

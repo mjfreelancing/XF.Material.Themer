@@ -15,6 +15,4 @@ namespace XF.Material.Themer.Models
       BrandedSurfaceColor = themeColors.GetBrandedSurfaceColor(elevation);
     }
   }
-
-
 }
