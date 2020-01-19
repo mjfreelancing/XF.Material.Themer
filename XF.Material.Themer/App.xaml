@@ -11,6 +11,15 @@
     <ResourceDictionary>
       <converters:ColorToHexConverter x:Key="ColorToHex" />
 
+      <Color x:Key="NavigationPrimary">#2c2928</Color>
+      <Color x:Key="HighEmphasis">#DEFFFFFF</Color>
+      <Color x:Key="MediumEmphasis">#99FFFFFF</Color>
+      <Color x:Key="DisabledEmphasis">#61FFFFFF</Color>
+
+      <!--  20000000 overlaying FFFFFF  -->
+      <Color x:Key="GridLightBackgroundColor">#DFDFDF</Color>
+      <Color x:Key="GridDarkBackgroundColor">#272423</Color>
+
       <Style x:Key="ThemeHeader" TargetType="Label">
         <Setter Property="Padding" Value="8" />
         <Setter Property="BackgroundColor" Value="#282828" />

@@ -5,15 +5,108 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:models="clr-namespace:XF.Material.Themer.Models;assembly=XF.Material.Themer"
+  xmlns:theme="clr-namespace:XF.Material.Themer.Views.Theme;assembly=XF.Material.Themer"
   xmlns:viewModel="clr-namespace:XF.Material.Themer.ViewModels.Theme;assembly=XF.Material.Themer"
   Title="Surface Text"
+  x:DataType="viewModel:SurfaceTextViewModel"
   mc:Ignorable="d">
   <ContentPage.BindingContext>
     <viewModel:SurfaceTextViewModel />
   </ContentPage.BindingContext>
-  <ContentPage.Content>
-    <CarouselView>
-      <!--  insert here  -->
-    </CarouselView>
-  </ContentPage.Content>
+
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <!--<ColumnDefinition Width="40" />-->
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <!--<Label
+      Grid.Row="0"
+      Grid.Column="0"
+      Margin="0"
+      Padding="0"
+      BackgroundColor="Gray"
+      FontAttributes="Bold"
+      FontSize="24"
+      HorizontalOptions="Center"
+      HorizontalTextAlignment="Center"
+      Rotation="-90"
+      Text="Light Theme"
+      VerticalOptions="Center" />-->
+    <Grid
+      Grid.Row="0"
+      Grid.Column="0"
+      Padding="0,20"
+      BackgroundColor="{StaticResource GridLightBackgroundColor}">
+      <CarouselView ItemsSource="{Binding LightItems}" PeekAreaInsets="100">
+        <CarouselView.ItemsLayout>
+          <LinearItemsLayout ItemSpacing="20" Orientation="Horizontal" />
+        </CarouselView.ItemsLayout>
+        <CarouselView.ItemTemplate>
+          <DataTemplate>
+            <theme:SurfaceItemView
+              Title="{Binding Title}"
+              x:DataType="models:SurfaceItem"
+              BackgroundColor="{Binding BackgroundColor}"
+              Caption="{Binding Caption}"
+              CaptionColor="{Binding CaptionColor}"
+              ErrorBackgroundColor="{Binding ErrorBackgroundColor}"
+              ErrorTextColor="{Binding ErrorTextColor}"
+              HorizontalOptions="Fill"
+              TitleBackgroundColor="White"
+              TitleColor="Black" />
+          </DataTemplate>
+        </CarouselView.ItemTemplate>
+      </CarouselView>
+    </Grid>
+
+    <!--<Label
+      Grid.Row="1"
+      Grid.Column="0"
+      Margin="0"
+      Padding="0"
+      BackgroundColor="Gray"
+      FontAttributes="Bold"
+      FontSize="24"
+      HorizontalOptions="Center"
+      HorizontalTextAlignment="Center"
+      Rotation="-90"
+      Text="Dark Theme"
+      VerticalOptions="Center" />-->
+    <Grid
+      Grid.Row="1"
+      Grid.Column="0"
+      Padding="0,20"
+      BackgroundColor="{StaticResource GridDarkBackgroundColor}">
+      <CarouselView ItemsSource="{Binding DarkItems}" PeekAreaInsets="100">
+        <CarouselView.ItemsLayout>
+          <LinearItemsLayout ItemSpacing="20" Orientation="Horizontal" />
+        </CarouselView.ItemsLayout>
+        <CarouselView.ItemTemplate>
+          <DataTemplate>
+            <theme:SurfaceItemView
+              Title="{Binding Title}"
+              x:DataType="models:SurfaceItem"
+              BackgroundColor="{Binding BackgroundColor}"
+              Caption="{Binding Caption}"
+              CaptionColor="{Binding CaptionColor}"
+              ErrorBackgroundColor="{Binding ErrorBackgroundColor}"
+              ErrorTextColor="{Binding ErrorTextColor}"
+              HeightRequest="100"
+              HorizontalOptions="Fill"
+              TitleBackgroundColor="Black"
+              TitleColor="White" />
+          </DataTemplate>
+        </CarouselView.ItemTemplate>
+      </CarouselView>
+    </Grid>
+  </Grid>
+
+
+
 </ContentPage>

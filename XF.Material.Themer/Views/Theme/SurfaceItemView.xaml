@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid
+  x:Class="XF.Material.Themer.Views.Theme.SurfaceItemView"
+  xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  BackgroundColor="{StaticResource GridDarkBackgroundColor}"
+  mc:Ignorable="d">
+  <Grid.RowDefinitions>
+    <RowDefinition Height="Auto" />
+    <RowDefinition Height="Auto" />
+    <RowDefinition Height="Auto" />
+    <RowDefinition Height="Auto" />
+    <RowDefinition Height="Auto" />
+    <RowDefinition Height="Auto" />
+    <RowDefinition Height="*" />
+  </Grid.RowDefinitions>
+  <StackLayout
+    d:Grid.Row="0"
+    Orientation="Vertical"
+    Spacing="0">
+    <Label
+      x:Name="TitleLabel"
+      Padding="10,4"
+      FontAttributes="Bold"
+      FontSize="24"
+      HorizontalOptions="Fill"
+      VerticalTextAlignment="Center" />
+    <BoxView
+      x:Name="TitleLine"
+      Margin="0,0,0,4"
+      HeightRequest="1" />
+  </StackLayout>
+  <Label
+    x:Name="CaptionLabel"
+    Grid.Row="1"
+    Padding="10,4"
+    FontAttributes="Bold"
+    FontSize="18"
+    HorizontalOptions="Fill"
+    VerticalTextAlignment="Center" />
+  <Label
+    x:Name="CaptionHighEmphasisLabel"
+    Grid.Row="2"
+    Padding="10,4"
+    FontAttributes="Bold"
+    FontSize="18"
+    HorizontalOptions="Fill"
+    VerticalTextAlignment="Center" />
+  <Label
+    x:Name="CaptionMediumEmphasisLabel"
+    Grid.Row="3"
+    Padding="10,4"
+    FontAttributes="Bold"
+    FontSize="18"
+    HorizontalOptions="Fill"
+    VerticalTextAlignment="Center" />
+  <Label
+    x:Name="CaptionDisabledEmphasisLabel"
+    Grid.Row="4"
+    Padding="10,4"
+    FontAttributes="Bold"
+    FontSize="18"
+    HorizontalOptions="Fill"
+    VerticalTextAlignment="Center" />
+  <Label
+    x:Name="ErrorLabel"
+    Grid.Row="5"
+    Padding="10,4"
+    FontAttributes="Bold"
+    FontSize="18"
+    HorizontalOptions="Fill"
+    Text="Sample Error Text"
+    VerticalTextAlignment="Center" />
+  <!--<Label
+    x:Name="ColorHexLabel"
+    Grid.Row="2"
+    Padding="0,0,10,10"
+    FontAttributes="Bold"
+    FontSize="16"
+    HorizontalOptions="EndAndExpand"
+    HorizontalTextAlignment="End"
+    VerticalOptions="End" />-->
+</Grid>

@@ -5,22 +5,36 @@ namespace XF.Material.Themer.Helpers
 {
   public static class ColorHelper
   {
-    // foreground must be the lighter color and background must be the darker color
-    // not auto-switching based on luminosity because the foreground color may have an
-    // alpha / opacity that needs to be applied.
+    public static Color GetHighestContrastColor(Color backgroundColor, Color color1, Color color2)
+    {
+      var color1Contrast = ColorHelper.GetContrastRatio(color1, backgroundColor);
+      var color2Contrast = ColorHelper.GetContrastRatio(color2, backgroundColor);
+
+     return color1Contrast > color2Contrast
+        ? color1
+        : color2;
+    }
+
+    // if the foreground color contains a non-zero alpha  that will be applied against the background color
+    // before determining the contrast ratio.
     public static double GetContrastRatio(Color foregroundColor, Color backgroundColor)
     {
       // https://medium.muz.li/the-science-of-color-contrast-an-expert-designers-guide-33e84c41d156
 
-      if (foregroundColor.Luminosity < backgroundColor.Luminosity)
-      {
-        throw new ArgumentOutOfRangeException(nameof(foregroundColor), "The foreground color must be lighter than the background color");
-      }
-
       var combinedColor = CombineColors(backgroundColor, foregroundColor, foregroundColor.A);
-      var luminance1 = GetRelativeLuminance(combinedColor);
-      var luminance2 = GetRelativeLuminance(backgroundColor);
 
+      var lighter = combinedColor.Luminosity > backgroundColor.Luminosity
+        ? combinedColor
+        : backgroundColor;
+
+      var darker = lighter == combinedColor
+        ? backgroundColor
+        : combinedColor;
+
+      var luminance1 = GetRelativeLuminance(lighter);
+      var luminance2 = GetRelativeLuminance(darker);
+
+      // luminance1 must be lighter than luminance2
       return Math.Round((luminance1 + 0.05) / (luminance2 + 0.05), 2);
     }
 
@@ -68,7 +82,11 @@ namespace XF.Material.Themer.Helpers
     public static Color FromHexWithOpacity(string colorHex, double opacity)
     {
       var color = Color.FromHex(colorHex);
+      return FromColorWithOpacity(color, opacity);
+    }
 
+    public static Color FromColorWithOpacity(Color color, double opacity)
+    {
       return Color.FromRgba(color.R, color.G, color.B, opacity);
     }
 

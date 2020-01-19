@@ -38,13 +38,13 @@
       Grid.Row="1"
       Grid.Column="0"
       Padding="16"
-      BackgroundColor="#20000000"
+      BackgroundColor="{StaticResource GridLightBackgroundColor}"
       HorizontalOptions="Fill"
       VerticalOptions="Fill">
       <CollectionView ItemsSource="{Binding LightThemeColorElements}">
         <CollectionView.ItemTemplate>
           <DataTemplate>
-            <view:ElementColorView
+            <view:PaletteItemView
               x:DataType="models:ThemeColorElement"
               Caption="{Binding Caption}"
               ColorHex="{Binding ThemeColor, Converter={StaticResource ColorToHex}}"
@@ -65,13 +65,13 @@
       Grid.Row="1"
       Grid.Column="1"
       Padding="16"
-      BackgroundColor="#272423"
+      BackgroundColor="{StaticResource GridDarkBackgroundColor}"
       HorizontalOptions="Fill"
       VerticalOptions="Fill">
       <CollectionView ItemsSource="{Binding DarkThemeColorElements}">
         <CollectionView.ItemTemplate>
           <DataTemplate>
-            <view:ElementColorView
+            <view:PaletteItemView
               x:DataType="models:ThemeColorElement"
               Caption="{Binding Caption}"
               ColorHex="{Binding ThemeColor, Converter={StaticResource ColorToHex}}"
