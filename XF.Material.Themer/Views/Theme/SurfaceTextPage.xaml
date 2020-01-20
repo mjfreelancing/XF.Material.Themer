@@ -15,6 +15,8 @@
     <viewModel:SurfaceTextViewModel />
   </ContentPage.BindingContext>
 
+  <!--  yet to work out if there is a workaround to rotating text in a grid column without it truncating  -->
+
   <Grid>
     <Grid.ColumnDefinitions>
       <!--<ColumnDefinition Width="40" />-->
@@ -45,19 +47,15 @@
       BackgroundColor="{StaticResource GridLightBackgroundColor}">
       <CarouselView ItemsSource="{Binding LightItems}" PeekAreaInsets="100">
         <CarouselView.ItemsLayout>
-          <LinearItemsLayout ItemSpacing="20" Orientation="Horizontal" />
+          <LinearItemsLayout ItemSpacing="15" Orientation="Horizontal" />
         </CarouselView.ItemsLayout>
         <CarouselView.ItemTemplate>
           <DataTemplate>
             <theme:SurfaceItemView
               Title="{Binding Title}"
               x:DataType="models:SurfaceItem"
-              BackgroundColor="{Binding BackgroundColor}"
-              Caption="{Binding Caption}"
-              CaptionColor="{Binding CaptionColor}"
-              ErrorBackgroundColor="{Binding ErrorBackgroundColor}"
-              ErrorTextColor="{Binding ErrorTextColor}"
               HorizontalOptions="Fill"
+              SurfaceCaptions="{Binding SurfaceCaptions}"
               TitleBackgroundColor="White"
               TitleColor="Black" />
           </DataTemplate>
@@ -85,20 +83,16 @@
       BackgroundColor="{StaticResource GridDarkBackgroundColor}">
       <CarouselView ItemsSource="{Binding DarkItems}" PeekAreaInsets="100">
         <CarouselView.ItemsLayout>
-          <LinearItemsLayout ItemSpacing="20" Orientation="Horizontal" />
+          <LinearItemsLayout ItemSpacing="15" Orientation="Horizontal" />
         </CarouselView.ItemsLayout>
         <CarouselView.ItemTemplate>
           <DataTemplate>
             <theme:SurfaceItemView
               Title="{Binding Title}"
               x:DataType="models:SurfaceItem"
-              BackgroundColor="{Binding BackgroundColor}"
-              Caption="{Binding Caption}"
-              CaptionColor="{Binding CaptionColor}"
-              ErrorBackgroundColor="{Binding ErrorBackgroundColor}"
-              ErrorTextColor="{Binding ErrorTextColor}"
               HeightRequest="100"
               HorizontalOptions="Fill"
+              SurfaceCaptions="{Binding SurfaceCaptions}"
               TitleBackgroundColor="Black"
               TitleColor="White" />
           </DataTemplate>
@@ -106,7 +100,4 @@
       </CarouselView>
     </Grid>
   </Grid>
-
-
-
 </ContentPage>
