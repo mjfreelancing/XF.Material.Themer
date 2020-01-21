@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 using XF.Material.Themer.Models;
 
-namespace XF.Material.Themer.ViewModels.Theme
+namespace XF.Material.Themer.ViewModels
 {
   public class PaletteViewModel : ViewModelBase
   {

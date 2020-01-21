@@ -20,7 +20,7 @@
     <Compile Update="Views\ElevationsPage.xaml.cs">
       <DependentUpon>ElevationsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Theme\PalettePage.xaml.cs">
+    <Compile Update="Views\PalettePage.xaml.cs">
       <DependentUpon>PalettePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>

@@ -6,7 +6,6 @@
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:font="clr-namespace:XF.Material.Themer.Helpers"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-  xmlns:theme="clr-namespace:XF.Material.Themer.Views.Theme;assembly=XF.Material.Themer"
   xmlns:views="clr-namespace:XF.Material.Themer.Views;assembly=XF.Material.Themer"
   Title="XF.Material.Themer"
   FlyoutBackgroundColor="#232323"
@@ -102,7 +101,7 @@
 
   <!--  the icons do not appear without using 'AsMultipleItems'  -->
   <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-    <ShellContent Title="Palette" ContentTemplate="{DataTemplate theme:PalettePage}">
+    <ShellContent Title="Palette" ContentTemplate="{DataTemplate views:PalettePage}">
       <ShellContent.Icon>
         <FontImageSource
           FontFamily="{StaticResource MaterialFontFamily}"

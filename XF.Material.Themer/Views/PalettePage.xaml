@@ -1,19 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-  x:Class="XF.Material.Themer.Views.Theme.PalettePage"
+  x:Class="XF.Material.Themer.Views.PalettePage"
   xmlns="http://xamarin.com/schemas/2014/forms"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:controls="clr-namespace:XF.Material.Themer.Controls;assembly=XF.Material.Themer"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:models="clr-namespace:XF.Material.Themer.Models"
-  xmlns:view="clr-namespace:XF.Material.Themer.Views.Theme;assembly=XF.Material.Themer"
-  xmlns:viewModel="clr-namespace:XF.Material.Themer.ViewModels.Theme;assembly=XF.Material.Themer"
+  xmlns:viewModels="clr-namespace:XF.Material.Themer.ViewModels;assembly=XF.Material.Themer"
   Title="Palette"
-  x:DataType="viewModel:PaletteViewModel"
+  x:DataType="viewModels:PaletteViewModel"
   mc:Ignorable="d">
   <ContentPage.BindingContext>
-    <viewModel:PaletteViewModel />
+    <viewModels:PaletteViewModel />
   </ContentPage.BindingContext>
 
   <Grid
