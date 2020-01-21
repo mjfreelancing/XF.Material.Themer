@@ -21,35 +21,20 @@
     </ResourceDictionary>
   </ContentPage.Resources>
 
-  <Grid
-    ColumnSpacing="0"
-    HorizontalOptions="Fill"
-    RowSpacing="0"
-    VerticalOptions="Fill">
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="*" />
-      <ColumnDefinition Width="*" />
-    </Grid.ColumnDefinitions>
+  <Grid>
     <Grid.RowDefinitions>
-      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
       <RowDefinition Height="*" />
     </Grid.RowDefinitions>
-
-    <!--  containing the CollectionView within a grid so we can achieve external padding  -->
-    <Label
-      Grid.Row="0"
-      Grid.Column="0"
-      Style="{StaticResource ThemeHeader}"
-      Text="Surface" />
     <Grid
-      Grid.Row="1"
-      Grid.Column="0"
-      Padding="16"
-      BackgroundColor="{StaticResource GridDarkBackgroundColor}"
-      HorizontalOptions="Fill"
-      VerticalOptions="Fill">
-      <CollectionView HeightRequest="150" ItemsSource="{Binding DarkElevations}">
-        <CollectionView.ItemTemplate>
+      Grid.Row="0"
+      Padding="16,28"
+      BackgroundColor="{StaticResource GridLightBackgroundColor}">
+      <CarouselView ItemsSource="{Binding DarkElevations}" PeekAreaInsets="350">
+        <CarouselView.ItemsLayout>
+          <LinearItemsLayout ItemSpacing="15" Orientation="Horizontal" />
+        </CarouselView.ItemsLayout>
+        <CarouselView.ItemTemplate>
           <DataTemplate>
             <controls:PaletteItemView
               x:DataType="models:SurfaceElevation"
@@ -59,24 +44,20 @@
               HorizontalOptions="Fill"
               ThemeColor="{Binding SurfaceColor}" />
           </DataTemplate>
-        </CollectionView.ItemTemplate>
-      </CollectionView>
+        </CarouselView.ItemTemplate>
+      </CarouselView>
     </Grid>
 
-    <Label
-      Grid.Row="0"
-      Grid.Column="1"
-      Style="{StaticResource ThemeHeader}"
-      Text="Branded Surface" />
     <Grid
       Grid.Row="1"
-      Grid.Column="1"
-      Padding="16"
-      BackgroundColor="{StaticResource GridDarkBackgroundColor}"
-      HorizontalOptions="Fill"
-      VerticalOptions="Fill">
-      <CollectionView HeightRequest="150" ItemsSource="{Binding DarkElevations}">
-        <CollectionView.ItemTemplate>
+      Grid.Column="0"
+      Padding="16,28"
+      BackgroundColor="{StaticResource GridDarkBackgroundColor}">
+      <CarouselView ItemsSource="{Binding DarkElevations}" PeekAreaInsets="350">
+        <CarouselView.ItemsLayout>
+          <LinearItemsLayout ItemSpacing="15" Orientation="Horizontal" />
+        </CarouselView.ItemsLayout>
+        <CarouselView.ItemTemplate>
           <DataTemplate>
             <controls:PaletteItemView
               x:DataType="models:SurfaceElevation"
@@ -86,8 +67,8 @@
               HorizontalOptions="Fill"
               ThemeColor="{Binding BrandedSurfaceColor}" />
           </DataTemplate>
-        </CollectionView.ItemTemplate>
-      </CollectionView>
+        </CarouselView.ItemTemplate>
+      </CarouselView>
     </Grid>
   </Grid>
 </ContentPage>

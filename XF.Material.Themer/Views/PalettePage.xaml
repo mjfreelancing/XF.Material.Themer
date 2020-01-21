@@ -15,34 +15,20 @@
     <viewModels:PaletteViewModel />
   </ContentPage.BindingContext>
 
-  <Grid
-    ColumnSpacing="0"
-    HorizontalOptions="Fill"
-    VerticalOptions="Fill">
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="*" />
-      <ColumnDefinition Width="*" />
-    </Grid.ColumnDefinitions>
+  <Grid>
     <Grid.RowDefinitions>
-      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
       <RowDefinition Height="*" />
     </Grid.RowDefinitions>
-
-    <!--  containing the CollectionView within a grid so we can achieve external padding  -->
-    <Label
-      Grid.Row="0"
-      Grid.Column="0"
-      Style="{StaticResource ThemeHeader}"
-      Text="Light Theme" />
     <Grid
-      Grid.Row="1"
-      Grid.Column="0"
-      Padding="16"
-      BackgroundColor="{StaticResource GridLightBackgroundColor}"
-      HorizontalOptions="Fill"
-      VerticalOptions="Fill">
-      <CollectionView ItemsSource="{Binding LightThemeColorElements}">
-        <CollectionView.ItemTemplate>
+      Grid.Row="0"
+      Padding="16,28"
+      BackgroundColor="{StaticResource GridLightBackgroundColor}">
+      <CarouselView ItemsSource="{Binding LightThemeColorElements}" PeekAreaInsets="350">
+        <CarouselView.ItemsLayout>
+          <LinearItemsLayout ItemSpacing="15" Orientation="Horizontal" />
+        </CarouselView.ItemsLayout>
+        <CarouselView.ItemTemplate>
           <DataTemplate>
             <controls:PaletteItemView
               x:DataType="models:PaletteElement"
@@ -52,24 +38,20 @@
               HorizontalOptions="Fill"
               ThemeColor="{Binding ThemeColor}" />
           </DataTemplate>
-        </CollectionView.ItemTemplate>
-      </CollectionView>
+        </CarouselView.ItemTemplate>
+      </CarouselView>
     </Grid>
 
-    <Label
-      Grid.Row="0"
-      Grid.Column="1"
-      Style="{StaticResource ThemeHeader}"
-      Text="Dark Theme" />
     <Grid
       Grid.Row="1"
-      Grid.Column="1"
-      Padding="16"
-      BackgroundColor="{StaticResource GridDarkBackgroundColor}"
-      HorizontalOptions="Fill"
-      VerticalOptions="Fill">
-      <CollectionView ItemsSource="{Binding DarkThemeColorElements}">
-        <CollectionView.ItemTemplate>
+      Grid.Column="0"
+      Padding="16,28"
+      BackgroundColor="{StaticResource GridDarkBackgroundColor}">
+      <CarouselView ItemsSource="{Binding DarkThemeColorElements}" PeekAreaInsets="350">
+        <CarouselView.ItemsLayout>
+          <LinearItemsLayout ItemSpacing="15" Orientation="Horizontal" />
+        </CarouselView.ItemsLayout>
+        <CarouselView.ItemTemplate>
           <DataTemplate>
             <controls:PaletteItemView
               x:DataType="models:PaletteElement"
@@ -79,8 +61,8 @@
               HorizontalOptions="Fill"
               ThemeColor="{Binding ThemeColor}" />
           </DataTemplate>
-        </CollectionView.ItemTemplate>
-      </CollectionView>
+        </CarouselView.ItemTemplate>
+      </CarouselView>
     </Grid>
   </Grid>
 </ContentPage>

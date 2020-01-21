@@ -15,31 +15,11 @@
     <viewModels:SurfaceTextViewModel />
   </ContentPage.BindingContext>
 
-  <!--  yet to work out if there is a workaround to rotating text in a grid column without it truncating  -->
-
   <Grid>
-    <Grid.ColumnDefinitions>
-      <!--<ColumnDefinition Width="40" />-->
-      <ColumnDefinition Width="*" />
-    </Grid.ColumnDefinitions>
     <Grid.RowDefinitions>
       <RowDefinition Height="*" />
       <RowDefinition Height="*" />
     </Grid.RowDefinitions>
-
-    <!--<Label
-      Grid.Row="0"
-      Grid.Column="0"
-      Margin="0"
-      Padding="0"
-      BackgroundColor="Gray"
-      FontAttributes="Bold"
-      FontSize="24"
-      HorizontalOptions="Center"
-      HorizontalTextAlignment="Center"
-      Rotation="-90"
-      Text="Light Theme"
-      VerticalOptions="Center" />-->
     <Grid
       Grid.Row="0"
       Grid.Column="0"
@@ -63,19 +43,6 @@
       </CarouselView>
     </Grid>
 
-    <!--<Label
-      Grid.Row="1"
-      Grid.Column="0"
-      Margin="0"
-      Padding="0"
-      BackgroundColor="Gray"
-      FontAttributes="Bold"
-      FontSize="24"
-      HorizontalOptions="Center"
-      HorizontalTextAlignment="Center"
-      Rotation="-90"
-      Text="Dark Theme"
-      VerticalOptions="Center" />-->
     <Grid
       Grid.Row="1"
       Grid.Column="0"
@@ -94,7 +61,8 @@
               HorizontalOptions="Fill"
               SurfaceCaptions="{Binding Captions}"
               TitleBackgroundColor="Black"
-              TitleColor="White" />
+              TitleColor="White"
+              VerticalOptions="Center" />
           </DataTemplate>
         </CarouselView.ItemTemplate>
       </CarouselView>
