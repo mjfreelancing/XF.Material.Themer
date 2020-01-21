@@ -3,7 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.Material.Themer.Helpers;
 
-namespace XF.Material.Themer.Views.Theme
+namespace XF.Material.Themer.Controls
 {
   [XamlCompilation(XamlCompilationOptions.Compile)]
   public partial class PaletteItemView : Grid
@@ -12,8 +12,8 @@ namespace XF.Material.Themer.Views.Theme
     public static readonly BindableProperty ColorHexProperty = BindableProperty.Create(nameof(ColorHex), typeof(string), typeof(PaletteItemView), default(string), propertyChanged: OnColorHexPropertyChanged);
     public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(PaletteItemView), default(Color), propertyChanged: OnTextColorPropertyChanged);
     
-    // ThemeColor auto-sets the TextColor that produces the greatest contrast. For manual
-    // setting of TextColor use BackgroundColor instead of ThemeColor.
+    // ThemeColor auto-sets the TextColor that produces the greatest contrast.
+    // For manual setting of TextColor use BackgroundColor instead of ThemeColor.
     public static readonly BindableProperty ThemeColorProperty = BindableProperty.Create(nameof(ThemeColor), typeof(Color), typeof(PaletteItemView), default(Color), propertyChanged: OnThemeColorPropertyChanged);
 
     public string Caption
@@ -79,14 +79,7 @@ namespace XF.Material.Themer.Views.Theme
         (view, propertyValue) =>
         {
           view.BackgroundColor = propertyValue;
-
-          // determine which of Black / White produces the best contrast
-          var whiteContrast = ColorHelper.GetContrastRatio(Color.White, propertyValue);
-          var blackContrast = ColorHelper.GetContrastRatio(propertyValue, Color.Black);
-
-          view.TextColor = whiteContrast > blackContrast
-            ? Color.White
-            : Color.Black;
+          view.TextColor = ColorHelper.GetHighestContrastColor(propertyValue, Color.White, Color.Black);
         });
     }
 

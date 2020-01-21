@@ -113,7 +113,7 @@
   </FlyoutItem>
 
   <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-    <ShellContent Title="Elevations" ContentTemplate="{DataTemplate theme:ElevationsPage}">
+    <ShellContent Title="Elevations" ContentTemplate="{DataTemplate views:ElevationsPage}">
       <ShellContent.Icon>
         <FontImageSource
           FontFamily="{StaticResource MaterialFontFamily}"

@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-  x:Class="XF.Material.Themer.Views.Theme.ElevationsPage"
+  x:Class="XF.Material.Themer.Views.ElevationsPage"
   xmlns="http://xamarin.com/schemas/2014/forms"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:controls="clr-namespace:XF.Material.Themer.Controls;assembly=XF.Material.Themer"
   xmlns:converters="clr-namespace:XF.Material.Themer.Converters;assembly=XF.Material.Themer"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:models="clr-namespace:XF.Material.Themer.Models"
-  xmlns:view="clr-namespace:XF.Material.Themer.Views.Theme;assembly=XF.Material.Themer"
-  xmlns:viewModel="clr-namespace:XF.Material.Themer.ViewModels.Theme;assembly=XF.Material.Themer"
+  xmlns:viewModels="clr-namespace:XF.Material.Themer.ViewModels;assembly=XF.Material.Themer"
   Title="Elevations"
-  x:DataType="viewModel:ElevationsViewModel"
+  x:DataType="viewModels:ElevationsViewModel"
   mc:Ignorable="d">
   <ContentPage.BindingContext>
-    <viewModel:ElevationsViewModel />
+    <viewModels:ElevationsViewModel />
   </ContentPage.BindingContext>
   <ContentPage.Resources>
     <ResourceDictionary>
@@ -51,7 +51,7 @@
       <CollectionView HeightRequest="150" ItemsSource="{Binding DarkElevations}">
         <CollectionView.ItemTemplate>
           <DataTemplate>
-            <view:PaletteItemView
+            <controls:PaletteItemView
               x:DataType="models:SurfaceElevation"
               Caption="{Binding Elevation, Converter={StaticResource ElevationLevelConverter}}"
               ColorHex="{Binding SurfaceColor, Converter={StaticResource ColorToHex}}"
@@ -78,7 +78,7 @@
       <CollectionView HeightRequest="150" ItemsSource="{Binding DarkElevations}">
         <CollectionView.ItemTemplate>
           <DataTemplate>
-            <view:PaletteItemView
+            <controls:PaletteItemView
               x:DataType="models:SurfaceElevation"
               Caption="{Binding Elevation, Converter={StaticResource ElevationLevelConverter}}"
               ColorHex="{Binding BrandedSurfaceColor, Converter={StaticResource ColorToHex}}"

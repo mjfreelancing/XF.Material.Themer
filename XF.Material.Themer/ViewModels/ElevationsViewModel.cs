@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using XF.Material.Themer.Models;
 
-namespace XF.Material.Themer.ViewModels.Theme
+namespace XF.Material.Themer.ViewModels
 {
   public class ElevationsViewModel : ViewModelBase
   {
