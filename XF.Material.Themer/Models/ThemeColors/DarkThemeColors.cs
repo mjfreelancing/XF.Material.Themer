@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace XF.Material.Themer.Models
+namespace XF.Material.Themer.Models.ThemeColors
 {
   // initialized with the 'dark theme baseline palette'.
   public class DarkThemeColors : ThemeColorsBase

@@ -53,9 +53,9 @@
           <DataTemplate>
             <controls:SurfaceCaptionsView
               Title="{Binding Title}"
-              x:DataType="models:SurfaceItem"
+              x:DataType="models:SurfaceCaptions"
               HorizontalOptions="Fill"
-              SurfaceCaptions="{Binding SurfaceCaptions}"
+              SurfaceCaptions="{Binding Captions}"
               TitleBackgroundColor="White"
               TitleColor="Black" />
           </DataTemplate>
@@ -89,10 +89,10 @@
           <DataTemplate>
             <controls:SurfaceCaptionsView
               Title="{Binding Title}"
-              x:DataType="models:SurfaceItem"
+              x:DataType="models:SurfaceCaptions"
               HeightRequest="100"
               HorizontalOptions="Fill"
-              SurfaceCaptions="{Binding SurfaceCaptions}"
+              SurfaceCaptions="{Binding Captions}"
               TitleBackgroundColor="Black"
               TitleColor="White" />
           </DataTemplate>

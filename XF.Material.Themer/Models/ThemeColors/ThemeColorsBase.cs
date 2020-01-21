@@ -1,7 +1,7 @@
 ﻿using Xamarin.Forms;
 using XF.Material.Themer.Helpers;
 
-namespace XF.Material.Themer.Models
+namespace XF.Material.Themer.Models.ThemeColors
 {
   public abstract class ThemeColorsBase : IThemeColors
   {
@@ -17,10 +17,10 @@ namespace XF.Material.Themer.Models
     public abstract Color OnBackground { get; set; }
     public abstract Color OnSurface { get; set; }
     public abstract Color OnError { get; set; }
+    public double BrandOpacity { get; set; } = 0.075d;
 
-    // need to allow the opacity to be user-defined
-    public Color BrandedBackground => ColorHelper.CombineColors(Background, Primary, 0.075);
-    public Color BrandedSurface => ColorHelper.CombineColors(Surface, Primary, 0.075);
+    public Color BrandedBackground => ColorHelper.CombineColors(Background, Primary, BrandOpacity);
+    public Color BrandedSurface => ColorHelper.CombineColors(Surface, Primary, BrandOpacity);
 
     protected static Color CreateColor(string hex)
     {

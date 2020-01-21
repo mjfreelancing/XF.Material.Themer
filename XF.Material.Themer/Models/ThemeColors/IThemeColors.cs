@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace XF.Material.Themer.Models
+namespace XF.Material.Themer.Models.ThemeColors
 {
   // applying material all explained at: https://www.youtube.com/watch?v=FSxgFKlbV9Y
   // colour theming complexities explained here: https://uxplanet.org/designing-systematic-colors-b5d2605b15c
@@ -35,6 +35,9 @@ namespace XF.Material.Themer.Models
     Color OnBackground { get; }
     Color OnSurface { get; }
     Color OnError { get; }
+
+    // 0-1
+    double BrandOpacity { get; }
 
     Color GetSurfaceColor(ElevationLevel elevation);
     Color GetBrandedSurfaceColor(ElevationLevel elevation);

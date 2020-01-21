@@ -3,13 +3,14 @@ using System.Drawing;
 using System.Linq;
 using XF.Material.Themer.Helpers;
 using XF.Material.Themer.Models;
+using XF.Material.Themer.Models.ThemeColors;
 
 namespace XF.Material.Themer.ViewModels
 {
   public class SurfaceTextViewModel : ViewModelBase
   {
-    public IList<SurfaceItem> LightItems { get; }
-    public IList<SurfaceItem> DarkItems { get; }
+    public IList<SurfaceCaptions> LightItems { get; }
+    public IList<SurfaceCaptions> DarkItems { get; }
 
     public SurfaceTextViewModel()
     {
@@ -21,7 +22,7 @@ namespace XF.Material.Themer.ViewModels
       DarkItems = CreateSurfaceItems(darkTheme);
     }
 
-    private static IList<SurfaceItem> CreateSurfaceItems(IThemeColors themeColors)
+    private static IList<SurfaceCaptions> CreateSurfaceItems(IThemeColors themeColors)
     {
       var errorCaption = new SurfaceCaption
       {
@@ -32,37 +33,24 @@ namespace XF.Material.Themer.ViewModels
         ContrastRatioColor = themeColors.OnError
       };
 
-      return new List<SurfaceItem>
+      return new List<SurfaceCaptions>
       {
-        new SurfaceItem
-        {
-          Title = "Default Surface",
-          SurfaceCaptions = CreateGeneralCaptions("OnSurface Text", themeColors.OnSurface, themeColors.Surface, themeColors.Surface)
-            .Concat(new[] {errorCaption})
-            .ToList()
-        },
-        new SurfaceItem
-        {
-          Title = "Default Surface",
-          SurfaceCaptions = CreateGeneralCaptions("Branded Text", themeColors.Primary, themeColors.Surface, themeColors.Surface)
-            .Concat(new[] {errorCaption})
-            .ToList()
-        },
-        new SurfaceItem
-        {
-          Title = "Branded Surface",
-          SurfaceCaptions = CreateGeneralCaptions("OnSurface Text", themeColors.OnSurface, themeColors.BrandedSurface, themeColors.BrandedSurface)
-            .Concat(new[] {errorCaption})
-            .ToList()
-        },
-        new SurfaceItem
-        {
-          Title = "Branded Surface",
-          SurfaceCaptions = CreateGeneralCaptions("Branded Text", themeColors.Primary, themeColors.BrandedSurface, themeColors.BrandedSurface)
-            .Concat(new[] {errorCaption})
-            .ToList()
-        }
+        CreateSurfaceItems("Default Surface", "OnSurface Text", themeColors.OnSurface, themeColors.Surface, themeColors.Surface, errorCaption),
+        CreateSurfaceItems("Default Surface", "Branded Text", themeColors.Primary, themeColors.Surface, themeColors.Surface, errorCaption),
+        CreateSurfaceItems("Branded Surface", "OnSurface Text", themeColors.OnSurface, themeColors.BrandedSurface, themeColors.BrandedSurface, errorCaption),
+        CreateSurfaceItems("Branded Surface", "Branded Text", themeColors.Primary, themeColors.BrandedSurface, themeColors.BrandedSurface, errorCaption)
       };
+    }
+
+    private static SurfaceCaptions CreateSurfaceItems(string title, string caption, Color captionColor,
+      Color captionBackgroundColor, Color backgroundColor, SurfaceCaption errorCaption)
+    {
+      return new SurfaceCaptions(
+        title,
+        CreateGeneralCaptions(caption, captionColor, captionBackgroundColor, backgroundColor)
+          .Concat(new[] {errorCaption})
+          .ToList()
+      );
     }
 
     private static IEnumerable<SurfaceCaption> CreateGeneralCaptions(string caption, Color captionColor, Color captionBackgroundColor, Color backgroundColor)
