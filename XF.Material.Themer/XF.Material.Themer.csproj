@@ -11,6 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Controls\SurfaceCaptionsView.xaml.cs">
+      <DependentUpon>SurfaceCaptionsView.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Theme\PaletteItemView.xaml.cs">
       <DependentUpon>PaletteItemView.xaml</DependentUpon>
     </Compile>
@@ -23,10 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\Theme\SurfaceItemView.xaml">
+    <EmbeddedResource Update="Controls\SurfaceCaptionsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Theme\SurfaceTextPage.xaml">
+    <EmbeddedResource Update="Views\SurfaceTextPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Theme\ElevationsPage.xaml">

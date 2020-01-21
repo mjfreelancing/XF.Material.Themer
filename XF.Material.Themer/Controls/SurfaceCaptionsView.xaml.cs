@@ -4,15 +4,15 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.Material.Themer.Models;
 
-namespace XF.Material.Themer.Views.Theme
+namespace XF.Material.Themer.Controls
 {
   [XamlCompilation(XamlCompilationOptions.Compile)]
-  public partial class SurfaceItemView : Grid
+  public partial class SurfaceCaptionsView : Grid
   {
-    public static readonly BindableProperty TitleProperty = BindableProperty.Create(nameof(Title), typeof(string), typeof(SurfaceItemView), default(string), propertyChanged: OnTitlePropertyChanged);
-    public static readonly BindableProperty TitleColorProperty = BindableProperty.Create(nameof(TitleColor), typeof(Color), typeof(SurfaceItemView), default(Color), propertyChanged: OnTitleColorPropertyChanged);
-    public static readonly BindableProperty TitleBackgroundColorProperty = BindableProperty.Create(nameof(TitleBackgroundColor), typeof(Color), typeof(SurfaceItemView), default(Color), propertyChanged: OnTitleBackgroundColorPropertyChanged);
-    public static readonly BindableProperty SurfaceCaptionsProperty = BindableProperty.Create(nameof(SurfaceCaptions), typeof(IList<SurfaceCaption>), typeof(SurfaceItemView), default(IList<SurfaceCaption>), propertyChanged: OnSurfaceCaptionsPropertyChanged);
+    public static readonly BindableProperty TitleProperty = BindableProperty.Create(nameof(Title), typeof(string), typeof(SurfaceCaptionsView), default(string), propertyChanged: OnTitlePropertyChanged);
+    public static readonly BindableProperty TitleColorProperty = BindableProperty.Create(nameof(TitleColor), typeof(Color), typeof(SurfaceCaptionsView), default(Color), propertyChanged: OnTitleColorPropertyChanged);
+    public static readonly BindableProperty TitleBackgroundColorProperty = BindableProperty.Create(nameof(TitleBackgroundColor), typeof(Color), typeof(SurfaceCaptionsView), default(Color), propertyChanged: OnTitleBackgroundColorPropertyChanged);
+    public static readonly BindableProperty SurfaceCaptionsProperty = BindableProperty.Create(nameof(SurfaceCaptions), typeof(IList<SurfaceCaption>), typeof(SurfaceCaptionsView), default(IList<SurfaceCaption>), propertyChanged: OnSurfaceCaptionsPropertyChanged);
 
     public string Title
     {
@@ -38,7 +38,7 @@ namespace XF.Material.Themer.Views.Theme
       set => SetValue(SurfaceCaptionsProperty, value);
     }
 
-    public SurfaceItemView()
+    public SurfaceCaptionsView()
     {
       InitializeComponent();
     }
@@ -81,9 +81,9 @@ namespace XF.Material.Themer.Views.Theme
         });
     }
 
-    private static void SetProperty<TPropertyType>(BindableObject bindable, object newValue, Action<SurfaceItemView, TPropertyType> propertyAssigner)
+    private static void SetProperty<TPropertyType>(BindableObject bindable, object newValue, Action<SurfaceCaptionsView, TPropertyType> propertyAssigner)
     {
-      if (!(bindable is SurfaceItemView view) || !(newValue is TPropertyType propertyValue))
+      if (!(bindable is SurfaceCaptionsView view) || !(newValue is TPropertyType propertyValue))
       {
         return;
       }

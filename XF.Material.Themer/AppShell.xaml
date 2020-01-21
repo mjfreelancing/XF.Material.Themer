@@ -6,7 +6,8 @@
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:font="clr-namespace:XF.Material.Themer.Helpers"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-  xmlns:theme="clr-namespace:XF.Material.Themer.Views.Theme"
+  xmlns:theme="clr-namespace:XF.Material.Themer.Views.Theme;assembly=XF.Material.Themer"
+  xmlns:views="clr-namespace:XF.Material.Themer.Views;assembly=XF.Material.Themer"
   Title="XF.Material.Themer"
   FlyoutBackgroundColor="#232323"
   FlyoutBehavior="Flyout"
@@ -123,7 +124,7 @@
   </FlyoutItem>
 
   <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-    <ShellContent Title="Surface Text" ContentTemplate="{DataTemplate theme:SurfaceTextPage}">
+    <ShellContent Title="Surface Text" ContentTemplate="{DataTemplate views:SurfaceTextPage}">
       <ShellContent.Icon>
         <FontImageSource
           FontFamily="{StaticResource MaterialFontFamily}"

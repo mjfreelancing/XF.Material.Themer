@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-  x:Class="XF.Material.Themer.Views.Theme.SurfaceTextPage"
+  x:Class="XF.Material.Themer.Views.SurfaceTextPage"
   xmlns="http://xamarin.com/schemas/2014/forms"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:controls="clr-namespace:XF.Material.Themer.Controls;assembly=XF.Material.Themer"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:models="clr-namespace:XF.Material.Themer.Models;assembly=XF.Material.Themer"
-  xmlns:theme="clr-namespace:XF.Material.Themer.Views.Theme;assembly=XF.Material.Themer"
-  xmlns:viewModel="clr-namespace:XF.Material.Themer.ViewModels.Theme;assembly=XF.Material.Themer"
+  xmlns:viewModels="clr-namespace:XF.Material.Themer.ViewModels;assembly=XF.Material.Themer"
   Title="Surface Text"
-  x:DataType="viewModel:SurfaceTextViewModel"
+  x:DataType="viewModels:SurfaceTextViewModel"
   mc:Ignorable="d">
   <ContentPage.BindingContext>
-    <viewModel:SurfaceTextViewModel />
+    <viewModels:SurfaceTextViewModel />
   </ContentPage.BindingContext>
 
   <!--  yet to work out if there is a workaround to rotating text in a grid column without it truncating  -->
@@ -51,7 +51,7 @@
         </CarouselView.ItemsLayout>
         <CarouselView.ItemTemplate>
           <DataTemplate>
-            <theme:SurfaceItemView
+            <controls:SurfaceCaptionsView
               Title="{Binding Title}"
               x:DataType="models:SurfaceItem"
               HorizontalOptions="Fill"
@@ -87,7 +87,7 @@
         </CarouselView.ItemsLayout>
         <CarouselView.ItemTemplate>
           <DataTemplate>
-            <theme:SurfaceItemView
+            <controls:SurfaceCaptionsView
               Title="{Binding Title}"
               x:DataType="models:SurfaceItem"
               HeightRequest="100"
