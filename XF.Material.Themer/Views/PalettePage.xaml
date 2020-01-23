@@ -14,6 +14,42 @@
   <ContentPage.BindingContext>
     <viewModels:PaletteViewModel />
   </ContentPage.BindingContext>
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="GridStyle" TargetType="Grid">
+        <Setter Property="Padding" Value="16,28" />
+      </Style>
+
+      <Style
+        x:Key="PaletteItemStyle"
+        x:DataType="models:PaletteElement"
+        TargetType="controls:PaletteItemView">
+        <Setter Property="Caption" Value="{Binding Caption}" />
+        <Setter Property="ThemeColor" Value="{Binding ThemeColor}" />
+        <Setter Property="ColorHex" Value="{Binding ThemeColor, Converter={StaticResource ColorToHex}}" />
+      </Style>
+
+      <LinearItemsLayout
+        x:Key="CarouselItemsLayout"
+        ItemSpacing="12"
+        Orientation="Horizontal"
+        SnapPointsAlignment="Center"
+        SnapPointsType="Mandatory" />
+
+      <Style x:Key="CarouselStyle" TargetType="CarouselView">
+        <Setter Property="PeekAreaInsets" Value="40" />
+        <!--  This should work, but doesn't : https://github.com/xamarin/Xamarin.Forms/issues/9280  -->
+        <!--<Setter Property="ItemsLayout" Value="{StaticResource CarouselItemsLayout}" />-->
+        <Setter Property="ItemTemplate">
+          <Setter.Value>
+            <DataTemplate>
+              <controls:PaletteItemView Style="{StaticResource PaletteItemStyle}" />
+            </DataTemplate>
+          </Setter.Value>
+        </Setter>
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
 
   <Grid>
     <Grid.RowDefinitions>
@@ -22,24 +58,12 @@
     </Grid.RowDefinitions>
     <Grid
       Grid.Row="0"
-      Padding="16,28"
-      BackgroundColor="{StaticResource GridLightBackgroundColor}">
-      <CarouselView ItemsSource="{Binding LightThemeColorElements}" PeekAreaInsets="350">
-        <CarouselView.ItemsLayout>
-          <LinearItemsLayout ItemSpacing="15" Orientation="Horizontal" />
-        </CarouselView.ItemsLayout>
-        <CarouselView.ItemTemplate>
-          <DataTemplate>
-            <controls:PaletteItemView
-              x:DataType="models:PaletteElement"
-              Caption="{Binding Caption}"
-              ColorHex="{Binding ThemeColor, Converter={StaticResource ColorToHex}}"
-              HeightRequest="100"
-              HorizontalOptions="Fill"
-              ThemeColor="{Binding ThemeColor}" />
-          </DataTemplate>
-        </CarouselView.ItemTemplate>
-      </CarouselView>
+      BackgroundColor="{StaticResource GridLightBackgroundColor}"
+      Style="{StaticResource GridStyle}">
+      <CarouselView
+        ItemsLayout="{StaticResource CarouselItemsLayout}"
+        ItemsSource="{Binding LightThemeColorElements}"
+        Style="{StaticResource CarouselStyle}" />
     </Grid>
 
     <Grid
@@ -47,22 +71,10 @@
       Grid.Column="0"
       Padding="16,28"
       BackgroundColor="{StaticResource GridDarkBackgroundColor}">
-      <CarouselView ItemsSource="{Binding DarkThemeColorElements}" PeekAreaInsets="350">
-        <CarouselView.ItemsLayout>
-          <LinearItemsLayout ItemSpacing="15" Orientation="Horizontal" />
-        </CarouselView.ItemsLayout>
-        <CarouselView.ItemTemplate>
-          <DataTemplate>
-            <controls:PaletteItemView
-              x:DataType="models:PaletteElement"
-              Caption="{Binding Caption}"
-              ColorHex="{Binding ThemeColor, Converter={StaticResource ColorToHex}}"
-              HeightRequest="100"
-              HorizontalOptions="Fill"
-              ThemeColor="{Binding ThemeColor}" />
-          </DataTemplate>
-        </CarouselView.ItemTemplate>
-      </CarouselView>
+      <CarouselView
+        ItemsLayout="{StaticResource CarouselItemsLayout}"
+        ItemsSource="{Binding DarkThemeColorElements}"
+        Style="{StaticResource CarouselStyle}" />
     </Grid>
   </Grid>
 </ContentPage>

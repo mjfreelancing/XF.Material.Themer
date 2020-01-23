@@ -9,20 +9,20 @@
   mc:Ignorable="d">
   <Grid.RowDefinitions>
     <RowDefinition Height="*" />
-    <RowDefinition Height="*" />
   </Grid.RowDefinitions>
   <Label
     x:Name="CaptionLabel"
     Padding="10,10,0,0"
     FontAttributes="Bold"
-    FontSize="24" />
+    FontSize="24"
+    HorizontalOptions="Start"
+    VerticalOptions="Start" />
   <Label
     x:Name="ColorHexLabel"
-    Grid.Row="1"
     Padding="0,0,10,10"
     FontAttributes="Bold"
     FontSize="18"
-    HorizontalOptions="EndAndExpand"
+    HorizontalOptions="End"
     HorizontalTextAlignment="End"
     VerticalOptions="End" />
 </Grid>

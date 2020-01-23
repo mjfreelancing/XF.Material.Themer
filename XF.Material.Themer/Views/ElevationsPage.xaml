@@ -18,6 +18,23 @@
   <ContentPage.Resources>
     <ResourceDictionary>
       <converters:EnumToStringConverter x:Key="ElevationLevelConverter" x:TypeArguments="models:ElevationLevel" />
+
+      <Style x:Key="GridStyle" TargetType="Grid">
+        <Setter Property="Padding" Value="16,28" />
+      </Style>
+
+      <LinearItemsLayout
+        x:Key="CarouselItemsLayout"
+        ItemSpacing="12"
+        Orientation="Horizontal"
+        SnapPointsAlignment="Center"
+        SnapPointsType="Mandatory" />
+
+      <Style x:Key="CarouselStyle" TargetType="CarouselView">
+        <Setter Property="PeekAreaInsets" Value="40" />
+        <Setter Property="ItemsSource" Value="{Binding DarkElevations}" />
+        <!--<Setter Property="ItemsLayout" Value="{StaticResource CarouselItemsLayout}" />-->
+      </Style>
     </ResourceDictionary>
   </ContentPage.Resources>
 
@@ -28,20 +45,15 @@
     </Grid.RowDefinitions>
     <Grid
       Grid.Row="0"
-      Padding="16,28"
-      BackgroundColor="{StaticResource GridLightBackgroundColor}">
-      <CarouselView ItemsSource="{Binding DarkElevations}" PeekAreaInsets="350">
-        <CarouselView.ItemsLayout>
-          <LinearItemsLayout ItemSpacing="15" Orientation="Horizontal" />
-        </CarouselView.ItemsLayout>
+      BackgroundColor="{StaticResource GridLightBackgroundColor}"
+      Style="{StaticResource GridStyle}">
+      <CarouselView ItemsLayout="{StaticResource CarouselItemsLayout}" Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>
             <controls:PaletteItemView
               x:DataType="models:SurfaceElevation"
               Caption="{Binding Elevation, Converter={StaticResource ElevationLevelConverter}}"
               ColorHex="{Binding SurfaceColor, Converter={StaticResource ColorToHex}}"
-              HeightRequest="100"
-              HorizontalOptions="Fill"
               ThemeColor="{Binding SurfaceColor}" />
           </DataTemplate>
         </CarouselView.ItemTemplate>
@@ -51,20 +63,15 @@
     <Grid
       Grid.Row="1"
       Grid.Column="0"
-      Padding="16,28"
-      BackgroundColor="{StaticResource GridDarkBackgroundColor}">
-      <CarouselView ItemsSource="{Binding DarkElevations}" PeekAreaInsets="350">
-        <CarouselView.ItemsLayout>
-          <LinearItemsLayout ItemSpacing="15" Orientation="Horizontal" />
-        </CarouselView.ItemsLayout>
+      BackgroundColor="{StaticResource GridDarkBackgroundColor}"
+      Style="{StaticResource GridStyle}">
+      <CarouselView ItemsLayout="{StaticResource CarouselItemsLayout}" Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>
             <controls:PaletteItemView
               x:DataType="models:SurfaceElevation"
               Caption="{Binding Elevation, Converter={StaticResource ElevationLevelConverter}}"
               ColorHex="{Binding BrandedSurfaceColor, Converter={StaticResource ColorToHex}}"
-              HeightRequest="100"
-              HorizontalOptions="Fill"
               ThemeColor="{Binding BrandedSurfaceColor}" />
           </DataTemplate>
         </CarouselView.ItemTemplate>

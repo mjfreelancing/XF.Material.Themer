@@ -14,6 +14,34 @@
   <ContentPage.BindingContext>
     <viewModels:SurfaceTextViewModel />
   </ContentPage.BindingContext>
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="GridStyle" TargetType="Grid">
+        <Setter Property="Padding" Value="0,20" />
+      </Style>
+
+      <Style
+        x:Key="SurfaceCaptionsStyle"
+        x:DataType="models:SurfaceCaptions"
+        TargetType="controls:SurfaceCaptionsView">
+        <Setter Property="Title" Value="{Binding Title}" />
+        <Setter Property="HorizontalOptions" Value="Fill" />
+        <Setter Property="SurfaceCaptions" Value="{Binding Captions}" />
+      </Style>
+
+      <LinearItemsLayout
+        x:Key="CarouselItemsLayout"
+        ItemSpacing="12"
+        Orientation="Horizontal"
+        SnapPointsAlignment="Center"
+        SnapPointsType="Mandatory" />
+
+      <Style x:Key="CarouselStyle" TargetType="CarouselView">
+        <Setter Property="PeekAreaInsets" Value="40" />
+        <!--<Setter Property="ItemsLayout" Value="{StaticResource CarouselItemsLayout}" />-->
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
 
   <Grid>
     <Grid.RowDefinitions>
@@ -23,19 +51,16 @@
     <Grid
       Grid.Row="0"
       Grid.Column="0"
-      Padding="0,20"
-      BackgroundColor="{StaticResource GridLightBackgroundColor}">
-      <CarouselView ItemsSource="{Binding LightItems}" PeekAreaInsets="100">
-        <CarouselView.ItemsLayout>
-          <LinearItemsLayout ItemSpacing="15" Orientation="Horizontal" />
-        </CarouselView.ItemsLayout>
+      BackgroundColor="{StaticResource GridLightBackgroundColor}"
+      Style="{StaticResource GridStyle}">
+      <CarouselView
+        ItemsLayout="{StaticResource CarouselItemsLayout}"
+        ItemsSource="{Binding LightItems}"
+        Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>
             <controls:SurfaceCaptionsView
-              Title="{Binding Title}"
-              x:DataType="models:SurfaceCaptions"
-              HorizontalOptions="Fill"
-              SurfaceCaptions="{Binding Captions}"
+              Style="{StaticResource SurfaceCaptionsStyle}"
               TitleBackgroundColor="White"
               TitleColor="Black" />
           </DataTemplate>
@@ -46,23 +71,18 @@
     <Grid
       Grid.Row="1"
       Grid.Column="0"
-      Padding="0,20"
-      BackgroundColor="{StaticResource GridDarkBackgroundColor}">
-      <CarouselView ItemsSource="{Binding DarkItems}" PeekAreaInsets="100">
-        <CarouselView.ItemsLayout>
-          <LinearItemsLayout ItemSpacing="15" Orientation="Horizontal" />
-        </CarouselView.ItemsLayout>
+      BackgroundColor="{StaticResource GridDarkBackgroundColor}"
+      Style="{StaticResource GridStyle}">
+      <CarouselView
+        ItemsLayout="{StaticResource CarouselItemsLayout}"
+        ItemsSource="{Binding DarkItems}"
+        Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>
             <controls:SurfaceCaptionsView
-              Title="{Binding Title}"
-              x:DataType="models:SurfaceCaptions"
-              HeightRequest="100"
-              HorizontalOptions="Fill"
-              SurfaceCaptions="{Binding Captions}"
+              Style="{StaticResource SurfaceCaptionsStyle}"
               TitleBackgroundColor="Black"
-              TitleColor="White"
-              VerticalOptions="Center" />
+              TitleColor="White" />
           </DataTemplate>
         </CarouselView.ItemTemplate>
       </CarouselView>
