@@ -21,7 +21,7 @@
       x:Name="TitleLabel"
       Padding="10,4"
       FontAttributes="Bold"
-      FontSize="32"
+      FontSize="24"
       HorizontalOptions="Fill"
       VerticalOptions="Fill"
       VerticalTextAlignment="Center" />
@@ -37,7 +37,7 @@
     Margin="0,8,0,0">
     <CollectionView.Resources>
       <ResourceDictionary>
-        <Style TargetType="Label">
+        <Style x:DataType="models:SurfaceCaption" TargetType="Label">
           <Setter Property="Padding" Value="10,10" />
           <Setter Property="FontAttributes" Value="Bold" />
           <Setter Property="FontSize" Value="18" />

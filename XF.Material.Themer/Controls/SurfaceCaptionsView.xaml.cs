@@ -76,8 +76,8 @@ namespace XF.Material.Themer.Controls
       SetProperty<IList<SurfaceCaption>>(bindable, newValue,
         (view, propertyValue) =>
         {
-          view.SurfaceCaptions = propertyValue;
-          view.CaptionsCollection.ItemsSource = propertyValue;
+          // update the binding
+          view.CaptionsCollection.ItemsSource = view.SurfaceCaptions;
         });
     }
 

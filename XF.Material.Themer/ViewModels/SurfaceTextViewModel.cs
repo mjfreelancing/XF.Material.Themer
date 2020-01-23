@@ -16,13 +16,13 @@ namespace XF.Material.Themer.ViewModels
     {
       // todo - Create a factory to create these theme colors as it is being performed in multiple places
       var lightTheme = new LightThemeColors();
-      LightItems = CreateSurfaceItems(lightTheme);
+      LightItems = CreateSurfaceItems(lightTheme, ElevationLevel.dp00);
 
       var darkTheme = new DarkThemeColors();
-      DarkItems = CreateSurfaceItems(darkTheme);
+      DarkItems = CreateSurfaceItems(darkTheme, ElevationLevel.dp00, ElevationLevel.dp24);
     }
 
-    private static IList<SurfaceCaptions> CreateSurfaceItems(IThemeColors themeColors)
+    private static IList<SurfaceCaptions> CreateSurfaceItems(IThemeColors themeColors, params ElevationLevel[] elevations)
     {
       var errorCaption = new SurfaceCaption
       {
@@ -33,27 +33,30 @@ namespace XF.Material.Themer.ViewModels
         ContrastRatioColor = themeColors.OnError
       };
 
-      return new List<SurfaceCaptions>
-      {
-        CreateSurfaceItems("Default Surface", "OnSurface Text", themeColors.OnSurface, themeColors.Surface, themeColors.Surface, errorCaption),
-        CreateSurfaceItems("Default Surface", "Branded Text", themeColors.Primary, themeColors.Surface, themeColors.Surface, errorCaption),
-        CreateSurfaceItems("Branded Surface", "OnSurface Text", themeColors.OnSurface, themeColors.BrandedSurface, themeColors.BrandedSurface, errorCaption),
-        CreateSurfaceItems("Branded Surface", "Branded Text", themeColors.Primary, themeColors.BrandedSurface, themeColors.BrandedSurface, errorCaption)
-      };
+      return (from elevation in elevations
+          let surfaceElevation = new SurfaceElevation(elevation, themeColors)
+          select new[]
+          {
+            CreateSurfaceItems($"Default Surface at {elevation}", "OnSurface Text", themeColors.OnSurface, surfaceElevation.SurfaceColor, errorCaption),
+            CreateSurfaceItems($"Default Surface at {elevation}", "Branded Text", themeColors.Primary, surfaceElevation.SurfaceColor, errorCaption),
+            CreateSurfaceItems($"Branded Surface at {elevation}", "OnSurface Text", themeColors.OnSurface, surfaceElevation.BrandedSurfaceColor, errorCaption),
+            CreateSurfaceItems($"Branded Surface at {elevation}", "Branded Text", themeColors.Primary, surfaceElevation.BrandedSurfaceColor, errorCaption)
+          })
+        .SelectMany(item => item)
+        .ToList();
     }
 
-    private static SurfaceCaptions CreateSurfaceItems(string title, string caption, Color captionColor,
-      Color captionBackgroundColor, Color backgroundColor, SurfaceCaption errorCaption)
+    private static SurfaceCaptions CreateSurfaceItems(string title, string caption, Color captionColor, Color backgroundColor, SurfaceCaption errorCaption)
     {
       return new SurfaceCaptions(
         title,
-        CreateGeneralCaptions(caption, captionColor, captionBackgroundColor, backgroundColor)
-          .Concat(new[] {errorCaption})
+        CreateGeneralCaptions(caption, captionColor, backgroundColor)
+          .Concat(new[] { errorCaption })
           .ToList()
       );
     }
 
-    private static IEnumerable<SurfaceCaption> CreateGeneralCaptions(string caption, Color captionColor, Color captionBackgroundColor, Color backgroundColor)
+    private static IEnumerable<SurfaceCaption> CreateGeneralCaptions(string caption, Color captionColor, Color backgroundColor)
     {
       var emphasis = new EmphasisColor(captionColor);
 
@@ -69,7 +72,7 @@ namespace XF.Material.Themer.ViewModels
       {
         Caption = item.Caption,
         CaptionColor = item.Color,
-        BackgroundColor = captionBackgroundColor,
+        BackgroundColor = backgroundColor,
         ContrastRatio = ColorHelper.GetContrastRatio(item.Color, backgroundColor),
         ContrastRatioColor = captionColor
       });
