@@ -11,6 +11,7 @@
   xmlns:viewModels="clr-namespace:XF.Material.Themer.ViewModels;assembly=XF.Material.Themer"
   Title="Elevations"
   x:DataType="viewModels:ElevationsViewModel"
+  BackgroundColor="#121212"
   mc:Ignorable="d">
   <ContentPage.BindingContext>
     <viewModels:ElevationsViewModel />
@@ -45,7 +46,7 @@
     </Grid.RowDefinitions>
     <Grid
       Grid.Row="0"
-      BackgroundColor="{StaticResource GridLightBackgroundColor}"
+      BackgroundColor="Black"
       Style="{StaticResource GridStyle}">
       <CarouselView ItemsLayout="{StaticResource CarouselItemsLayout}" Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
@@ -63,7 +64,7 @@
     <Grid
       Grid.Row="1"
       Grid.Column="0"
-      BackgroundColor="{StaticResource GridDarkBackgroundColor}"
+      BackgroundColor="Black"
       Style="{StaticResource GridStyle}">
       <CarouselView ItemsLayout="{StaticResource CarouselItemsLayout}" Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
