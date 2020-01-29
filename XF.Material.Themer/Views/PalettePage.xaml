@@ -7,6 +7,7 @@
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:models="clr-namespace:XF.Material.Themer.Models"
+  xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
   xmlns:viewModels="clr-namespace:XF.Material.Themer.ViewModels;assembly=XF.Material.Themer"
   Title="Palette"
   x:DataType="viewModels:PaletteViewModel"
@@ -43,7 +44,9 @@
         <Setter Property="ItemTemplate">
           <Setter.Value>
             <DataTemplate>
-              <controls:PaletteItemView Style="{StaticResource PaletteItemStyle}" />
+              <pancake:PancakeView CornerRadius="20" IsClippedToBounds="True">
+                <controls:PaletteItemView Style="{StaticResource PaletteItemStyle}" />
+              </pancake:PancakeView>
             </DataTemplate>
           </Setter.Value>
         </Setter>

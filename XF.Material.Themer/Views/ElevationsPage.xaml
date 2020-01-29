@@ -8,6 +8,7 @@
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:models="clr-namespace:XF.Material.Themer.Models"
+  xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
   xmlns:viewModels="clr-namespace:XF.Material.Themer.ViewModels;assembly=XF.Material.Themer"
   Title="Elevations"
   x:DataType="viewModels:ElevationsViewModel"
@@ -49,11 +50,13 @@
       <CarouselView ItemsLayout="{StaticResource CarouselItemsLayout}" Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>
-            <controls:PaletteItemView
-              x:DataType="models:SurfaceElevation"
-              Caption="{Binding Elevation, Converter={StaticResource ElevationLevelConverter}}"
-              ColorHex="{Binding SurfaceColor, Converter={StaticResource ColorToHex}}"
-              ThemeColor="{Binding SurfaceColor}" />
+            <pancake:PancakeView CornerRadius="20" IsClippedToBounds="True">
+              <controls:PaletteItemView
+                x:DataType="models:SurfaceElevation"
+                Caption="{Binding Elevation, Converter={StaticResource ElevationLevelConverter}}"
+                ColorHex="{Binding SurfaceColor, Converter={StaticResource ColorToHex}}"
+                ThemeColor="{Binding SurfaceColor}" />
+            </pancake:PancakeView>
           </DataTemplate>
         </CarouselView.ItemTemplate>
       </CarouselView>
@@ -66,11 +69,13 @@
       <CarouselView ItemsLayout="{StaticResource CarouselItemsLayout}" Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>
-            <controls:PaletteItemView
-              x:DataType="models:SurfaceElevation"
-              Caption="{Binding Elevation, Converter={StaticResource ElevationLevelConverter}}"
-              ColorHex="{Binding BrandedSurfaceColor, Converter={StaticResource ColorToHex}}"
-              ThemeColor="{Binding BrandedSurfaceColor}" />
+            <pancake:PancakeView CornerRadius="20" IsClippedToBounds="True">
+              <controls:PaletteItemView
+                x:DataType="models:SurfaceElevation"
+                Caption="{Binding Elevation, Converter={StaticResource ElevationLevelConverter}}"
+                ColorHex="{Binding BrandedSurfaceColor, Converter={StaticResource ColorToHex}}"
+                ThemeColor="{Binding BrandedSurfaceColor}" />
+            </pancake:PancakeView>
           </DataTemplate>
         </CarouselView.ItemTemplate>
       </CarouselView>

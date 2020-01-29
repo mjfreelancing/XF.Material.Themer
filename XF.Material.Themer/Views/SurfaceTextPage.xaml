@@ -50,6 +50,7 @@
       <RowDefinition Height="*" />
       <RowDefinition Height="Auto" />
     </Grid.RowDefinitions>
+
     <Grid
       Grid.Row="0"
       BackgroundColor="{StaticResource GridLightBackgroundColor}"
@@ -60,10 +61,12 @@
         Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>
-            <controls:SurfaceCaptionsView
-              Style="{StaticResource SurfaceCaptionsStyle}"
-              TitleBackgroundColor="White"
-              TitleColor="Black" />
+            <pancake:PancakeView CornerRadius="20" IsClippedToBounds="True">
+              <controls:SurfaceCaptionsView
+                BackgroundColor="White"
+                Style="{StaticResource SurfaceCaptionsStyle}"
+                TitleColor="Black" />
+            </pancake:PancakeView>
           </DataTemplate>
         </CarouselView.ItemTemplate>
       </CarouselView>
@@ -79,18 +82,21 @@
         Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>
-            <controls:SurfaceCaptionsView
-              Style="{StaticResource SurfaceCaptionsStyle}"
-              TitleBackgroundColor="Black"
-              TitleColor="White" />
+            <pancake:PancakeView CornerRadius="20" IsClippedToBounds="True">
+              <controls:SurfaceCaptionsView
+                BackgroundColor="Black"
+                Style="{StaticResource SurfaceCaptionsStyle}"
+                TitleColor="White" />
+            </pancake:PancakeView>
           </DataTemplate>
         </CarouselView.ItemTemplate>
       </CarouselView>
     </Grid>
 
+    <!--  BackgroundColor="#343038"  -->
     <pancake:PancakeView
       Grid.Row="2"
-      BackgroundColor="#343038"
+      BackgroundColor="#10FFFFFF"
       CornerRadius="60,60,0,0"
       HorizontalOptions="FillAndExpand"
       IsClippedToBounds="True">

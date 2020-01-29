@@ -11,7 +11,6 @@ namespace XF.Material.Themer.Controls
   {
     public static readonly BindableProperty TitleProperty = BindableProperty.Create(nameof(Title), typeof(string), typeof(SurfaceCaptionsView), default(string), propertyChanged: OnTitlePropertyChanged);
     public static readonly BindableProperty TitleColorProperty = BindableProperty.Create(nameof(TitleColor), typeof(Color), typeof(SurfaceCaptionsView), default(Color), propertyChanged: OnTitleColorPropertyChanged);
-    public static readonly BindableProperty TitleBackgroundColorProperty = BindableProperty.Create(nameof(TitleBackgroundColor), typeof(Color), typeof(SurfaceCaptionsView), default(Color), propertyChanged: OnTitleBackgroundColorPropertyChanged);
     public static readonly BindableProperty SurfaceCaptionsProperty = BindableProperty.Create(nameof(SurfaceCaptions), typeof(IList<SurfaceCaption>), typeof(SurfaceCaptionsView), default(IList<SurfaceCaption>), propertyChanged: OnSurfaceCaptionsPropertyChanged);
 
     public string Title
@@ -24,12 +23,6 @@ namespace XF.Material.Themer.Controls
     {
       get => (Color)GetValue(TitleColorProperty);
       set => SetValue(TitleColorProperty, value);
-    }
-
-    public Color TitleBackgroundColor
-    {
-      get => (Color)GetValue(TitleBackgroundColorProperty);
-      set => SetValue(TitleBackgroundColorProperty, value);
     }
 
     public IList<SurfaceCaption> SurfaceCaptions
@@ -59,15 +52,6 @@ namespace XF.Material.Themer.Controls
         {
           view.TitleLabel.TextColor = propertyValue;
           view.TitleLine.Color = propertyValue;
-        });
-    }
-
-    private static void OnTitleBackgroundColorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
-    {
-      SetProperty<Color>(bindable, newValue,
-        (view, propertyValue) =>
-        {
-          view.TitleLabel.BackgroundColor = propertyValue;
         });
     }
 
