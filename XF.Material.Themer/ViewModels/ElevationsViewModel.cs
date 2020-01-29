@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using XF.Material.Themer.Helpers;
 using XF.Material.Themer.Models;
 using XF.Material.Themer.Models.ThemeColors;
 
@@ -13,7 +13,7 @@ namespace XF.Material.Themer.ViewModels
     public ElevationsViewModel()
     {
       // temp for now
-      var elevations = ((ElevationLevel[])Enum.GetValues(typeof(ElevationLevel)));
+      var elevations = EnumHelper.GetValueList<ElevationLevel>();
       var darkTheme = new DarkThemeColors();
 
       DarkElevations = elevations

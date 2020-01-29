@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
+using System.Collections.ObjectModel;
 using System.Linq;
+using Xamarin.Forms;
 using XF.Material.Themer.Helpers;
 using XF.Material.Themer.Models;
 using XF.Material.Themer.Models.ThemeColors;
@@ -9,20 +10,29 @@ namespace XF.Material.Themer.ViewModels
 {
   public class SurfaceTextViewModel : ViewModelBase
   {
-    public IList<SurfaceCaptions> LightItems { get; }
-    public IList<SurfaceCaptions> DarkItems { get; }
+    public IReadOnlyCollection<ElevationLevel> ElevationLevels { get; } = EnumHelper.GetValueList<ElevationLevel>();
+
+    public ObservableCollection<SurfaceCaptions> LightItems { get; } = new ObservableCollection<SurfaceCaptions>();
+    public ObservableCollection<SurfaceCaptions> DarkItems { get; } = new ObservableCollection<SurfaceCaptions>();
 
     public SurfaceTextViewModel()
     {
       // todo - Create a factory to create these theme colors as it is being performed in multiple places
       var lightTheme = new LightThemeColors();
-      LightItems = CreateSurfaceItems(lightTheme, ElevationLevel.dp00);
+      PopulateSurfaceCaptions(LightItems, lightTheme, ElevationLevel.dp00);
 
-      var darkTheme = new DarkThemeColors();
-      DarkItems = CreateSurfaceItems(darkTheme, ElevationLevel.dp00, ElevationLevel.dp24);
+      SetDarkElevationLevel(ElevationLevel.dp00);
     }
 
-    private static IList<SurfaceCaptions> CreateSurfaceItems(IThemeColors themeColors, params ElevationLevel[] elevations)
+    public void SetDarkElevationLevel(ElevationLevel elevation)
+    {
+      var darkTheme = new DarkThemeColors();
+
+      DarkItems.Clear();
+      PopulateSurfaceCaptions(DarkItems, darkTheme, elevation);
+    }
+
+    private static void PopulateSurfaceCaptions(ICollection<SurfaceCaptions> themeItems, IThemeColors themeColors, ElevationLevel elevation)
     {
       var errorCaption = new SurfaceCaption
       {
@@ -33,27 +43,25 @@ namespace XF.Material.Themer.ViewModels
         ContrastRatioColor = themeColors.OnError
       };
 
-      return (from elevation in elevations
-          let surfaceElevation = new SurfaceElevation(elevation, themeColors)
-          select new[]
-          {
-            CreateSurfaceItems($"Default Surface at {elevation}", "OnSurface Text", themeColors.OnSurface, surfaceElevation.SurfaceColor, errorCaption),
-            CreateSurfaceItems($"Default Surface at {elevation}", "Branded Text", themeColors.Primary, surfaceElevation.SurfaceColor, errorCaption),
-            CreateSurfaceItems($"Branded Surface at {elevation}", "OnSurface Text", themeColors.OnSurface, surfaceElevation.BrandedSurfaceColor, errorCaption),
-            CreateSurfaceItems($"Branded Surface at {elevation}", "Branded Text", themeColors.Primary, surfaceElevation.BrandedSurfaceColor, errorCaption)
-          })
-        .SelectMany(item => item)
-        .ToList();
+      var surfaceElevation = new SurfaceElevation(elevation, themeColors);
+
+      AddSurfaceCaption(themeItems, $"Default Surface at {elevation}", "OnSurface Text", themeColors.OnSurface, surfaceElevation.SurfaceColor, errorCaption);
+      AddSurfaceCaption(themeItems, $"Default Surface at {elevation}", "Branded Text", themeColors.Primary, surfaceElevation.SurfaceColor, errorCaption);
+      AddSurfaceCaption(themeItems, $"Branded Surface at {elevation}", "OnSurface Text", themeColors.OnSurface, surfaceElevation.BrandedSurfaceColor, errorCaption);
+      AddSurfaceCaption(themeItems, $"Branded Surface at {elevation}", "Branded Text", themeColors.Primary, surfaceElevation.BrandedSurfaceColor, errorCaption);
     }
 
-    private static SurfaceCaptions CreateSurfaceItems(string title, string caption, Color captionColor, Color backgroundColor, SurfaceCaption errorCaption)
+    private static void AddSurfaceCaption(ICollection<SurfaceCaptions> themeItems, string title, string caption, Color captionColor,
+      Color backgroundColor, SurfaceCaption errorCaption)
     {
-      return new SurfaceCaptions(
+      var surfaceCaption = new SurfaceCaptions(
         title,
         CreateGeneralCaptions(caption, captionColor, backgroundColor)
           .Concat(new[] { errorCaption })
           .ToList()
       );
+
+      themeItems.Add(surfaceCaption);
     }
 
     private static IEnumerable<SurfaceCaption> CreateGeneralCaptions(string caption, Color captionColor, Color backgroundColor)

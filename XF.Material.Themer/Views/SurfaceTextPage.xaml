@@ -7,9 +7,11 @@
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:models="clr-namespace:XF.Material.Themer.Models;assembly=XF.Material.Themer"
+  xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
   xmlns:viewModels="clr-namespace:XF.Material.Themer.ViewModels;assembly=XF.Material.Themer"
   Title="Surface Text"
   x:DataType="viewModels:SurfaceTextViewModel"
+  BackgroundColor="{StaticResource GridDarkBackgroundColor}"
   mc:Ignorable="d">
   <ContentPage.BindingContext>
     <viewModels:SurfaceTextViewModel />
@@ -42,14 +44,14 @@
       </Style>
     </ResourceDictionary>
   </ContentPage.Resources>
-  <Grid>
+  <Grid RowSpacing="0">
     <Grid.RowDefinitions>
       <RowDefinition Height="*" />
       <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
     </Grid.RowDefinitions>
     <Grid
       Grid.Row="0"
-      Grid.Column="0"
       BackgroundColor="{StaticResource GridLightBackgroundColor}"
       Style="{StaticResource GridStyle}">
       <CarouselView
@@ -69,7 +71,6 @@
 
     <Grid
       Grid.Row="1"
-      Grid.Column="0"
       BackgroundColor="{StaticResource GridDarkBackgroundColor}"
       Style="{StaticResource GridStyle}">
       <CarouselView
@@ -86,5 +87,26 @@
         </CarouselView.ItemTemplate>
       </CarouselView>
     </Grid>
+
+    <pancake:PancakeView
+      Grid.Row="2"
+      BackgroundColor="#343038"
+      CornerRadius="60,60,0,0"
+      HorizontalOptions="FillAndExpand"
+      IsClippedToBounds="True">
+      <StackLayout Margin="30,20,30,0" Padding="0">
+        <Slider
+          HorizontalOptions="Fill"
+          MaximumTrackColor="#CF6679"
+          MinimumTrackColor="#121212"
+          ValueChanged="SetElevationLevel" />
+        <Label
+          Padding="18,0,0,18"
+          FontAttributes="Bold"
+          FontSize="16"
+          Text="Elevation"
+          TextColor="{StaticResource MediumEmphasis}" />
+      </StackLayout>
+    </pancake:PancakeView>
   </Grid>
 </ContentPage>
