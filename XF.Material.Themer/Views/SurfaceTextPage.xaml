@@ -97,8 +97,8 @@
       <StackLayout Margin="30,20,30,0" Padding="0">
         <Slider
           HorizontalOptions="Fill"
-          MaximumTrackColor="#CF6679"
-          MinimumTrackColor="#121212"
+          MaximumTrackColor="#121212"
+          MinimumTrackColor="#CF6679"
           ValueChanged="SetElevationLevel" />
         <Label
           Padding="18,0,0,18"
