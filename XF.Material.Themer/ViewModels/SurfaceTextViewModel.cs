@@ -11,7 +11,7 @@ namespace XF.Material.Themer.ViewModels
 {
   public class SurfaceTextViewModel : ViewModelBase
   {
-    private IThemeColorsFactory ThemeColorsFactory { get; } = DependencyService.Resolve<IThemeColorsFactory>();
+    private readonly IThemeColorsFactory _themeColorsFactory = DependencyService.Resolve<IThemeColorsFactory>();
 
     public ObservableCollection<SurfaceCaptions> LightItems { get; } = new ObservableCollection<SurfaceCaptions>();
     public ObservableCollection<SurfaceCaptions> DarkItems { get; } = new ObservableCollection<SurfaceCaptions>();
@@ -19,19 +19,22 @@ namespace XF.Material.Themer.ViewModels
 
     public SurfaceTextViewModel()
     {
-      // todo - Create a factory to create these theme colors as it is being performed in multiple places
-      var lightTheme = ThemeColorsFactory.CreateThemeColors(Theme.Light);
-      PopulateSurfaceCaptions(LightItems, lightTheme, ElevationLevel.dp00);
-
-      SetDarkElevationLevel(ElevationLevel.dp00);
+      SetLightTheme();
+      SetDarkTheme(ElevationLevel.dp00);
     }
 
-    public void SetDarkElevationLevel(ElevationLevel elevation)
+    public void SetDarkTheme(ElevationLevel elevation)
     {
-      var darkTheme = ThemeColorsFactory.CreateThemeColors(Theme.Dark);
+      var darkTheme = _themeColorsFactory.CreateThemeColors(Theme.Dark);
 
       DarkItems.Clear();
       PopulateSurfaceCaptions(DarkItems, darkTheme, elevation);
+    }
+
+    private void SetLightTheme()
+    {
+      var lightTheme = _themeColorsFactory.CreateThemeColors(Theme.Light);
+      PopulateSurfaceCaptions(LightItems, lightTheme, ElevationLevel.dp00);
     }
 
     private static void PopulateSurfaceCaptions(ICollection<SurfaceCaptions> themeItems, IThemeColors themeColors, ElevationLevel elevation)
