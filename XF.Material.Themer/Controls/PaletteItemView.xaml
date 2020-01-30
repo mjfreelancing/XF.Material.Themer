@@ -12,14 +12,14 @@
   </Grid.RowDefinitions>
   <Label
     x:Name="CaptionLabel"
-    Padding="10,10,0,0"
+    Padding="16,16,0,0"
     FontAttributes="Bold"
     FontSize="24"
     HorizontalOptions="Start"
     VerticalOptions="Start" />
   <Label
     x:Name="ColorHexLabel"
-    Padding="0,0,10,10"
+    Padding="0,0,16,16"
     FontAttributes="Bold"
     FontSize="18"
     HorizontalOptions="End"
