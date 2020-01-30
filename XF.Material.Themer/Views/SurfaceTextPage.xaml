@@ -61,7 +61,7 @@
         Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>
-            <pancake:PancakeView CornerRadius="20" IsClippedToBounds="True">
+            <pancake:PancakeView Style="{StaticResource PancakeStyle}">
               <controls:SurfaceCaptionsView
                 BackgroundColor="White"
                 Style="{StaticResource SurfaceCaptionsStyle}"
@@ -82,7 +82,7 @@
         Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>
-            <pancake:PancakeView CornerRadius="20" IsClippedToBounds="True">
+            <pancake:PancakeView Style="{StaticResource PancakeStyle}">
               <controls:SurfaceCaptionsView
                 BackgroundColor="Black"
                 Style="{StaticResource SurfaceCaptionsStyle}"
@@ -98,7 +98,7 @@
       Grid.Row="2"
       BackgroundColor="#10FFFFFF"
       CornerRadius="60,60,0,0"
-      HorizontalOptions="FillAndExpand"
+      HorizontalOptions="Fill"
       IsClippedToBounds="True">
       <StackLayout Margin="30,20,30,0" Padding="0">
         <Slider

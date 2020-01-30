@@ -6,6 +6,7 @@
   xmlns:converters="clr-namespace:XF.Material.Themer.Converters;assembly=XF.Material.Themer"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
   mc:Ignorable="d">
   <Application.Resources>
     <ResourceDictionary>
@@ -16,8 +17,14 @@
       <Color x:Key="MediumEmphasis">#99FFFFFF</Color>
       <Color x:Key="DisabledEmphasis">#61FFFFFF</Color>
 
+      <Style x:Key="PancakeStyle" TargetType="pancake:PancakeView">
+        <Setter Property="CornerRadius" Value="20" />
+        <Setter Property="IsClippedToBounds" Value="True" />
+        <Setter Property="HorizontalOptions" Value="Fill" />
+      </Style>
+
       <!--  20000000 overlaying FFFFFF  -->
-      <Color x:Key="GridLightBackgroundColor">#DFDFDF</Color>
+      <Color x:Key="GridLightBackgroundColor">#EFEFEF</Color>
       <Color x:Key="GridDarkBackgroundColor">#272423</Color>
 
       <Style x:Key="ThemeHeader" TargetType="Label">
