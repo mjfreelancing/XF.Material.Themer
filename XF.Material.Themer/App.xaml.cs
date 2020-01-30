@@ -1,4 +1,5 @@
 ﻿using Xamarin.Forms;
+using XF.Material.Themer.Factories;
 
 namespace XF.Material.Themer
 {
@@ -8,6 +9,8 @@ namespace XF.Material.Themer
     public App()
     {
       InitializeComponent();
+
+      DependencyService.Register<IThemeColorsFactory, ThemeColorsFactory>();
 
       MainPage = new AppShell();
     }

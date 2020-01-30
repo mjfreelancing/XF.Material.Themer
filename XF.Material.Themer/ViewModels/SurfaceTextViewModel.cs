@@ -2,23 +2,25 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using Xamarin.Forms;
+using XF.Material.Themer.Factories;
 using XF.Material.Themer.Helpers;
 using XF.Material.Themer.Models;
-using XF.Material.Themer.Models.ThemeColors;
+using XF.Material.Themer.Models.Themes;
 
 namespace XF.Material.Themer.ViewModels
 {
   public class SurfaceTextViewModel : ViewModelBase
   {
-    public IReadOnlyCollection<ElevationLevel> ElevationLevels { get; } = EnumHelper.GetValueList<ElevationLevel>();
+    private IThemeColorsFactory ThemeColorsFactory { get; } = DependencyService.Resolve<IThemeColorsFactory>();
 
     public ObservableCollection<SurfaceCaptions> LightItems { get; } = new ObservableCollection<SurfaceCaptions>();
     public ObservableCollection<SurfaceCaptions> DarkItems { get; } = new ObservableCollection<SurfaceCaptions>();
+    public IReadOnlyCollection<ElevationLevel> ElevationLevels { get; } = EnumHelper.GetValueList<ElevationLevel>();
 
     public SurfaceTextViewModel()
     {
       // todo - Create a factory to create these theme colors as it is being performed in multiple places
-      var lightTheme = new LightThemeColors();
+      var lightTheme = ThemeColorsFactory.CreateThemeColors(Theme.Light);
       PopulateSurfaceCaptions(LightItems, lightTheme, ElevationLevel.dp00);
 
       SetDarkElevationLevel(ElevationLevel.dp00);
@@ -26,7 +28,7 @@ namespace XF.Material.Themer.ViewModels
 
     public void SetDarkElevationLevel(ElevationLevel elevation)
     {
-      var darkTheme = new DarkThemeColors();
+      var darkTheme = ThemeColorsFactory.CreateThemeColors(Theme.Dark);
 
       DarkItems.Clear();
       PopulateSurfaceCaptions(DarkItems, darkTheme, elevation);

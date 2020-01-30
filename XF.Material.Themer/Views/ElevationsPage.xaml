@@ -22,7 +22,7 @@
       <converters:EnumToStringConverter x:Key="ElevationLevelConverter" x:TypeArguments="models:ElevationLevel" />
 
       <Style x:Key="GridStyle" TargetType="Grid">
-        <Setter Property="Padding" Value="16,28" />
+        <Setter Property="Padding" Value="0,20" />
         <Setter Property="BackgroundColor" Value="Black" />
       </Style>
 
@@ -62,10 +62,7 @@
       </CarouselView>
     </Grid>
 
-    <Grid
-      Grid.Row="1"
-      Grid.Column="0"
-      Style="{StaticResource GridStyle}">
+    <Grid Grid.Row="1" Style="{StaticResource GridStyle}">
       <CarouselView ItemsLayout="{StaticResource CarouselItemsLayout}" Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>

@@ -2,7 +2,7 @@
 using System.Linq;
 using XF.Material.Themer.Helpers;
 using XF.Material.Themer.Models;
-using XF.Material.Themer.Models.ThemeColors;
+using XF.Material.Themer.Models.Themes;
 
 namespace XF.Material.Themer.ViewModels
 {

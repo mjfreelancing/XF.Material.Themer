@@ -1,5 +1,5 @@
 ﻿using Xamarin.Forms;
-using XF.Material.Themer.Models.ThemeColors;
+using XF.Material.Themer.Models.Themes;
 
 namespace XF.Material.Themer.Models
 {

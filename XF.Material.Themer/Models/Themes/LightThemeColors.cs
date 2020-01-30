@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace XF.Material.Themer.Models.ThemeColors
+namespace XF.Material.Themer.Models.Themes
 {
   public class LightThemeColors : ThemeColorsBase
   {

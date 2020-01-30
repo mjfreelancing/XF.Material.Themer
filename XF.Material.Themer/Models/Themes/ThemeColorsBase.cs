@@ -1,7 +1,7 @@
 ﻿using Xamarin.Forms;
 using XF.Material.Themer.Helpers;
 
-namespace XF.Material.Themer.Models.ThemeColors
+namespace XF.Material.Themer.Models.Themes
 {
   public abstract class ThemeColorsBase : IThemeColors
   {
