@@ -1,6 +1,7 @@
 ﻿using Xamarin.Forms;
+using XF.Material.Themer.Helpers;
 
-namespace XF.Material.Themer.Helpers
+namespace XF.Material.Themer.Models
 {
   public class EmphasisColor
   {

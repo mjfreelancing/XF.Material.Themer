@@ -29,13 +29,13 @@ namespace XF.Material.Themer.Models.Themes
 
     public Color GetSurfaceColor(ElevationLevel elevation)
     {
-      var opacity = (double)elevation / 100;
+      var opacity = ElevationHelper.GetOverlayOpacity(elevation);
       return ColorHelper.CombineColors(Background, Color.White, opacity);
     }
 
     public Color GetBrandedSurfaceColor(ElevationLevel elevation)
     {
-      var opacity = (double)elevation / 100;
+      var opacity = ElevationHelper.GetOverlayOpacity(elevation);
       return ColorHelper.CombineColors(BrandedBackground, Color.White, opacity);
     }
   }

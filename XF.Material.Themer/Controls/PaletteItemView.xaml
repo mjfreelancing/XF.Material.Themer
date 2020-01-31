@@ -10,19 +10,20 @@
   <Grid.RowDefinitions>
     <RowDefinition Height="*" />
   </Grid.RowDefinitions>
-  <Label
-    x:Name="CaptionLabel"
-    Padding="16,16,0,0"
-    FontAttributes="Bold"
-    FontSize="24"
-    HorizontalOptions="Start"
-    VerticalOptions="Start" />
+  <StackLayout Margin="16" Orientation="Vertical">
+    <Label
+      x:Name="CaptionLabel"
+      FontAttributes="Bold"
+      FontSize="24" />
+    <BoxView
+      x:Name="Divider"
+      HeightRequest="1"
+      HorizontalOptions="Fill" />
+  </StackLayout>
   <Label
     x:Name="ColorHexLabel"
-    Padding="0,0,16,16"
+    Margin="16"
     FontAttributes="Bold"
     FontSize="18"
-    HorizontalOptions="End"
-    HorizontalTextAlignment="End"
     VerticalOptions="End" />
 </Grid>

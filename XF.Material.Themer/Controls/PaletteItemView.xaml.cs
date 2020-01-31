@@ -79,7 +79,12 @@ namespace XF.Material.Themer.Controls
         (view, propertyValue) =>
         {
           view.BackgroundColor = propertyValue;
-          view.TextColor = ColorHelper.GetHighestContrastColor(propertyValue, Color.White, Color.Black);
+
+          // determine if white or black will provide the best contrast for the displayed information
+          var color = ColorHelper.GetHighestContrastColor(propertyValue, Color.White, Color.Black);
+
+          view.TextColor = color;
+          view.Divider.BackgroundColor = color;
         });
     }
 
