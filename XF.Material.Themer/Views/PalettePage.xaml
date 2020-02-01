@@ -61,9 +61,9 @@
         Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>
-            <ContentView ControlTemplate="{StaticResource LightCardTemplate}">
+            <controls:CarouselCard BorderColor="{StaticResource LightCardBorderColor}">
               <controls:PaletteItemView Style="{StaticResource PaletteItemStyle}" />
-            </ContentView>
+            </controls:CarouselCard>
           </DataTemplate>
         </CarouselView.ItemTemplate>
       </CarouselView>
@@ -79,9 +79,9 @@
         Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>
-            <ContentView ControlTemplate="{StaticResource DarkCardTemplate}">
+            <controls:CarouselCard BorderColor="{StaticResource DarkCardBorderColor}">
               <controls:PaletteItemView Style="{StaticResource PaletteItemStyle}" />
-            </ContentView>
+            </controls:CarouselCard>
           </DataTemplate>
         </CarouselView.ItemTemplate>
       </CarouselView>

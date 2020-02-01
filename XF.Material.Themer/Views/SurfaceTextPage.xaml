@@ -62,12 +62,12 @@
         Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>
-            <ContentView ControlTemplate="{StaticResource LightCardTemplate}">
+            <controls:CarouselCard BorderColor="{StaticResource LightCardBorderColor}">
               <controls:SurfaceCaptionsView
                 BackgroundColor="White"
                 Style="{StaticResource SurfaceCaptionsStyle}"
                 TitleColor="Black" />
-            </ContentView>
+            </controls:CarouselCard>
           </DataTemplate>
         </CarouselView.ItemTemplate>
       </CarouselView>
@@ -83,18 +83,17 @@
         Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>
-            <ContentView ControlTemplate="{StaticResource DarkCardTemplate}">
+            <controls:CarouselCard BorderColor="{StaticResource DarkCardBorderColor}">
               <controls:SurfaceCaptionsView
                 BackgroundColor="Black"
                 Style="{StaticResource SurfaceCaptionsStyle}"
                 TitleColor="White" />
-            </ContentView>
+            </controls:CarouselCard>
           </DataTemplate>
         </CarouselView.ItemTemplate>
       </CarouselView>
     </Grid>
 
-    <!--  BackgroundColor="#343038"  -->
     <pancake:PancakeView
       Grid.Row="2"
       BackgroundColor="#10FFFFFF"

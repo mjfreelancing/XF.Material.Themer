@@ -17,6 +17,9 @@
       <Color x:Key="MediumEmphasis">#99FFFFFF</Color>
       <Color x:Key="DisabledEmphasis">#61FFFFFF</Color>
 
+      <Color x:Key="LightCardBorderColor">#61000000</Color>
+      <Color x:Key="DarkCardBorderColor">#61FFFFFF</Color>
+
       <Style x:Key="PancakeStyle" TargetType="pancake:PancakeView">
         <Setter Property="CornerRadius" Value="20" />
         <Setter Property="IsClippedToBounds" Value="True" />
