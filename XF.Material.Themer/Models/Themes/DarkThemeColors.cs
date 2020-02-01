@@ -27,7 +27,12 @@ namespace XF.Material.Themer.Models.Themes
    https://material.io/develop/android/theming/dark/
    https://material.io/design/color/dark-theme.html
    .
+   Discusses when to test for 4.5:1 or 15.8:1 ratios
    https://blog.prototypr.io/how-to-design-a-dark-theme-for-your-android-app-3daeb264637
+   .
+   .
+   A guide to implementing a dark theme
+   https://www.youtube.com/watch?v=FSxgFKlbV9Y
    .
    .
    contrast checker: https://webaim.org/resources/contrastchecker/
