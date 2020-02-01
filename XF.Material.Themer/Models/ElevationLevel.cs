@@ -3,13 +3,13 @@
   // https://material.io/design/environment/elevation.html
   public enum ElevationLevel
   {
-    dp00,
-    dp01,
-    dp02,
-    dp03,
-    dp04,
-    dp06,
-    dp08,
+    dp0,
+    dp1,
+    dp2,
+    dp3,
+    dp4,
+    dp6,
+    dp8,
     dp12,
     dp16,
     dp24,

@@ -20,7 +20,7 @@ namespace XF.Material.Themer.ViewModels
     public SurfaceTextViewModel()
     {
       SetLightTheme();
-      SetDarkTheme(ElevationLevel.dp00);
+      SetDarkTheme(ElevationLevel.dp0);
     }
 
     public void SetDarkTheme(ElevationLevel elevation)
@@ -34,7 +34,7 @@ namespace XF.Material.Themer.ViewModels
     private void SetLightTheme()
     {
       var lightTheme = _themeColorsFactory.CreateThemeColors(Theme.Light);
-      PopulateSurfaceCaptions(LightItems, lightTheme, ElevationLevel.dp00);
+      PopulateSurfaceCaptions(LightItems, lightTheme, ElevationLevel.dp0);
     }
 
     private static void PopulateSurfaceCaptions(ICollection<SurfaceCaptions> themeItems, IThemeColors themeColors, ElevationLevel elevation)
