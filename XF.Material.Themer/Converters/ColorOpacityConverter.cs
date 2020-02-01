@@ -5,14 +5,14 @@ using XF.Material.Themer.Helpers;
 
 namespace XF.Material.Themer.Converters
 {
-  public class ColorOverlayConverter
+  public class ColorOpacityConverter
     : IValueConverter
   {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
       // todo: input validation checking
       var color = (Color)value;
-      var opacity = (double)parameter;
+      var opacity = double.Parse((string)parameter);
 
       return ColorHelper.FromHexWithOpacity(color.ToHex(), opacity);
     }

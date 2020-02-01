@@ -27,7 +27,7 @@
         TargetType="controls:PaletteItemView">
         <Setter Property="Caption" Value="{Binding Caption}" />
         <Setter Property="ThemeColor" Value="{Binding ThemeColor}" />
-        <Setter Property="ColorHex" Value="{Binding ThemeColor, Converter={StaticResource ColorToHex}}" />
+        <Setter Property="ColorHex" Value="{Binding ThemeColor, Converter={StaticResource ColorToHexConverter}}" />
       </Style>
 
       <LinearItemsLayout

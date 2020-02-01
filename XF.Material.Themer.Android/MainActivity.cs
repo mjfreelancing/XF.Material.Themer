@@ -3,6 +3,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
+using Xamarin.Forms;
 
 namespace XF.Material.Themer.Droid
 {
@@ -16,9 +17,9 @@ namespace XF.Material.Themer.Droid
 
       base.OnCreate(savedInstanceState);
 
-      Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
+      Forms.SetFlags("IndicatorView_Experimental");
       Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-      Xamarin.Forms.Forms.Init(this, savedInstanceState);
+      Forms.Init(this, savedInstanceState);
 
       LoadApplication(new App());
     }

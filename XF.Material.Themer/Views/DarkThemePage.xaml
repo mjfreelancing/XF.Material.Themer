@@ -5,9 +5,14 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:viewModels="clr-namespace:XF.Material.Themer.ViewModels;assembly=XF.Material.Themer"
   Title="Dark Theme"
+  x:DataType="viewModels:DarkThemeViewModel"
   BackgroundColor="#121212"
   mc:Ignorable="d">
+  <ContentPage.BindingContext>
+    <viewModels:DarkThemeViewModel />
+  </ContentPage.BindingContext>
   <ContentPage.Content>
     <StackLayout>
       <Label

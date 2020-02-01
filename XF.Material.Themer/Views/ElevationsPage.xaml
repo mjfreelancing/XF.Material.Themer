@@ -54,7 +54,7 @@
               <controls:PaletteItemView
                 x:DataType="models:SurfaceElevation"
                 Caption="{Binding Elevation, Converter={StaticResource ElevationLevelConverter}}"
-                ColorHex="{Binding SurfaceColor, Converter={StaticResource ColorToHex}}"
+                ColorHex="{Binding SurfaceColor, Converter={StaticResource ColorToHexConverter}}"
                 ThemeColor="{Binding SurfaceColor}" />
             </controls:CarouselCard>
           </DataTemplate>
@@ -70,7 +70,7 @@
               <controls:PaletteItemView
                 x:DataType="models:SurfaceElevation"
                 Caption="{Binding Elevation, Converter={StaticResource ElevationLevelConverter}}"
-                ColorHex="{Binding BrandedSurfaceColor, Converter={StaticResource ColorToHex}}"
+                ColorHex="{Binding BrandedSurfaceColor, Converter={StaticResource ColorToHexConverter}}"
                 ThemeColor="{Binding BrandedSurfaceColor}" />
             </controls:CarouselCard>
           </DataTemplate>

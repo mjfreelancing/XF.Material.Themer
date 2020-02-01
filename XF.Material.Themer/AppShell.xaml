@@ -13,16 +13,6 @@
   mc:Ignorable="d">
   <Shell.Resources>
     <ResourceDictionary>
-      <!--
-        https://materialdesignicons.com
-        Has a cheat sheet link that goes to https://cdn.materialdesignicons.com/4.7.95/
-      -->
-      <OnPlatform x:Key="MaterialFontFamily" x:TypeArguments="x:String">
-        <On Platform="iOS" Value="Material Design Icons" />
-        <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons" />
-        <On Platform="UWP" Value="Assets/Fonts/materialdesignicons-webfont.ttf#Material Design Icons" />
-      </OnPlatform>
-
       <Style x:Key="BaseStyle" TargetType="Element">
         <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
         <Setter Property="Shell.ForegroundColor" Value="{StaticResource HighEmphasis}" />

@@ -4,17 +4,65 @@
   xmlns="http://xamarin.com/schemas/2014/forms"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+  xmlns:font="clr-namespace:XF.Material.Themer.Helpers;assembly=XF.Material.Themer"
+  xmlns:lightThemes="clr-namespace:XF.Material.Themer.Views.LightThemes;assembly=XF.Material.Themer"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+  xmlns:viewModels="clr-namespace:XF.Material.Themer.ViewModels;assembly=XF.Material.Themer"
   Title="Light Theme"
+  x:DataType="viewModels:LightThemeViewModel"
   mc:Ignorable="d">
-  <ContentPage.Content>
-    <StackLayout>
-      <Label
-        FontSize="24"
-        HorizontalOptions="CenterAndExpand"
-        Text="Light Theme - Coming Soon"
-        TextColor="Black"
-        VerticalOptions="CenterAndExpand" />
+  <ContentPage.BindingContext>
+    <viewModels:LightThemeViewModel />
+  </ContentPage.BindingContext>
+
+  <ContentPage.Resources>
+    <DataTemplate x:Key="Light1">
+      <lightThemes:Light1View />
+    </DataTemplate>
+
+    <DataTemplate x:Key="Light2">
+      <lightThemes:Light2View />
+    </DataTemplate>
+
+    <DataTemplate x:Key="Light3">
+      <lightThemes:Light3View />
+    </DataTemplate>
+  </ContentPage.Resources>
+
+  <pancake:PancakeView
+    Margin="16"
+    BackgroundColor="{Binding ThemeColors.Background}"
+    BorderColor="Black"
+    Style="{StaticResource PancakeStyle}">
+    <StackLayout Orientation="Vertical" Spacing="0">
+      <CarouselView x:Name="CarouselView" ItemsSource="{Binding Pages}">
+        <CarouselView.ItemsLayout>
+          <LinearItemsLayout
+            Orientation="Horizontal"
+            SnapPointsAlignment="Center"
+            SnapPointsType="Mandatory" />
+        </CarouselView.ItemsLayout>
+      </CarouselView>
+      <pancake:PancakeView
+        Margin="8,0"
+        BackgroundColor="{Binding ThemeColors.Primary}"
+        CornerRadius="80,80,0,0"
+        HorizontalOptions="Fill"
+        IsClippedToBounds="True">
+        <IndicatorView
+          Margin="0,16"
+          HorizontalOptions="Center"
+          IndicatorColor="{Binding ThemeColors.Background, Converter={StaticResource OpacityConverter}, ConverterParameter=0.38}"
+          IndicatorSize="16"
+          ItemsSourceBy="CarouselView"
+          SelectedIndicatorColor="{Binding ThemeColors.Background}" />
+
+        <!--  "{Binding ThemeColors.Background, Converter={StaticResource ColorOverlay}, ConverterParameter=0.38}"  -->
+
+
+      </pancake:PancakeView>
     </StackLayout>
-  </ContentPage.Content>
+  </pancake:PancakeView>
+
 </ContentPage>

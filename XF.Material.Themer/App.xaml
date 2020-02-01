@@ -10,7 +10,18 @@
   mc:Ignorable="d">
   <Application.Resources>
     <ResourceDictionary>
-      <converters:ColorToHexConverter x:Key="ColorToHex" />
+      <!--
+        https://materialdesignicons.com
+        Has a cheat sheet link that goes to https://cdn.materialdesignicons.com/4.7.95/
+      -->
+      <OnPlatform x:Key="MaterialFontFamily" x:TypeArguments="x:String">
+        <On Platform="iOS" Value="Material Design Icons" />
+        <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons" />
+        <On Platform="UWP" Value="Assets/Fonts/materialdesignicons-webfont.ttf#Material Design Icons" />
+      </OnPlatform>
+
+      <converters:ColorToHexConverter x:Key="ColorToHexConverter" />
+      <converters:ColorOpacityConverter x:Key="OpacityConverter" />
 
       <Color x:Key="NavigationPrimary">#2c2928</Color>
       <Color x:Key="HighEmphasis">#DEFFFFFF</Color>
@@ -22,6 +33,7 @@
 
       <Style x:Key="PancakeStyle" TargetType="pancake:PancakeView">
         <Setter Property="CornerRadius" Value="20" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="IsClippedToBounds" Value="True" />
         <Setter Property="HorizontalOptions" Value="Fill" />
       </Style>
@@ -43,19 +55,13 @@
       </Style>
 
       <ControlTemplate x:Key="LightCardTemplate">
-        <pancake:PancakeView
-          BorderColor="#60000000"
-          BorderThickness="1"
-          Style="{StaticResource PancakeStyle}">
+        <pancake:PancakeView BorderColor="#60000000" Style="{StaticResource PancakeStyle}">
           <ContentPresenter HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
         </pancake:PancakeView>
       </ControlTemplate>
 
       <ControlTemplate x:Key="DarkCardTemplate">
-        <pancake:PancakeView
-          BorderColor="#60FFFFFF"
-          BorderThickness="1"
-          Style="{StaticResource PancakeStyle}">
+        <pancake:PancakeView BorderColor="#60FFFFFF" Style="{StaticResource PancakeStyle}">
           <ContentPresenter HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
         </pancake:PancakeView>
       </ControlTemplate>
