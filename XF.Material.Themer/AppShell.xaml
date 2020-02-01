@@ -10,7 +10,6 @@
   Title="XF.Material.Themer"
   FlyoutBackgroundColor="#232323"
   FlyoutBehavior="Flyout"
-  Visual="Material"
   mc:Ignorable="d">
   <Shell.Resources>
     <ResourceDictionary>
