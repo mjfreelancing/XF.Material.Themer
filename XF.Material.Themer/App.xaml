@@ -41,23 +41,19 @@
 
       <ControlTemplate x:Key="LightCardTemplate">
         <pancake:PancakeView
-          Padding="1"
-          BackgroundColor="#60000000"
+          BorderColor="#60000000"
+          BorderThickness="1"
           Style="{StaticResource PancakeStyle}">
-          <pancake:PancakeView Style="{StaticResource PancakeStyle}">
-            <ContentPresenter HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-          </pancake:PancakeView>
+          <ContentPresenter HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
         </pancake:PancakeView>
       </ControlTemplate>
 
       <ControlTemplate x:Key="DarkCardTemplate">
         <pancake:PancakeView
-          Padding="1"
-          BackgroundColor="#60FFFFFF"
+          BorderColor="#60FFFFFF"
+          BorderThickness="1"
           Style="{StaticResource PancakeStyle}">
-          <pancake:PancakeView Style="{StaticResource PancakeStyle}">
-            <ContentPresenter HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-          </pancake:PancakeView>
+          <ContentPresenter HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
         </pancake:PancakeView>
       </ControlTemplate>
 
