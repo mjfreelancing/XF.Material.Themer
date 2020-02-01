@@ -50,13 +50,13 @@
       <CarouselView ItemsLayout="{StaticResource CarouselItemsLayout}" Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>
-            <pancake:PancakeView Style="{StaticResource PancakeStyle}">
+            <ContentView ControlTemplate="{StaticResource DarkCardTemplate}">
               <controls:PaletteItemView
                 x:DataType="models:SurfaceElevation"
                 Caption="{Binding Elevation, Converter={StaticResource ElevationLevelConverter}}"
                 ColorHex="{Binding SurfaceColor, Converter={StaticResource ColorToHex}}"
                 ThemeColor="{Binding SurfaceColor}" />
-            </pancake:PancakeView>
+            </ContentView>
           </DataTemplate>
         </CarouselView.ItemTemplate>
       </CarouselView>
@@ -66,13 +66,13 @@
       <CarouselView ItemsLayout="{StaticResource CarouselItemsLayout}" Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>
-            <pancake:PancakeView Style="{StaticResource PancakeStyle}">
+            <ContentView ControlTemplate="{StaticResource DarkCardTemplate}">
               <controls:PaletteItemView
                 x:DataType="models:SurfaceElevation"
                 Caption="{Binding Elevation, Converter={StaticResource ElevationLevelConverter}}"
                 ColorHex="{Binding BrandedSurfaceColor, Converter={StaticResource ColorToHex}}"
                 ThemeColor="{Binding BrandedSurfaceColor}" />
-            </pancake:PancakeView>
+            </ContentView>
           </DataTemplate>
         </CarouselView.ItemTemplate>
       </CarouselView>

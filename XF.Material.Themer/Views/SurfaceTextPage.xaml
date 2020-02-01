@@ -42,6 +42,7 @@
         <Setter Property="PeekAreaInsets" Value="40" />
         <!--<Setter Property="ItemsLayout" Value="{StaticResource CarouselItemsLayout}" />-->
       </Style>
+
     </ResourceDictionary>
   </ContentPage.Resources>
   <Grid RowSpacing="0">
@@ -61,12 +62,12 @@
         Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>
-            <pancake:PancakeView Style="{StaticResource PancakeStyle}">
+            <ContentView ControlTemplate="{StaticResource LightCardTemplate}">
               <controls:SurfaceCaptionsView
                 BackgroundColor="White"
                 Style="{StaticResource SurfaceCaptionsStyle}"
                 TitleColor="Black" />
-            </pancake:PancakeView>
+            </ContentView>
           </DataTemplate>
         </CarouselView.ItemTemplate>
       </CarouselView>
@@ -82,12 +83,12 @@
         Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>
-            <pancake:PancakeView Style="{StaticResource PancakeStyle}">
+            <ContentView ControlTemplate="{StaticResource DarkCardTemplate}">
               <controls:SurfaceCaptionsView
                 BackgroundColor="Black"
                 Style="{StaticResource SurfaceCaptionsStyle}"
                 TitleColor="White" />
-            </pancake:PancakeView>
+            </ContentView>
           </DataTemplate>
         </CarouselView.ItemTemplate>
       </CarouselView>

@@ -41,16 +41,8 @@
         <Setter Property="PeekAreaInsets" Value="40" />
         <!--  This should work, but doesn't : https://github.com/xamarin/Xamarin.Forms/issues/9280  -->
         <!--<Setter Property="ItemsLayout" Value="{StaticResource CarouselItemsLayout}" />-->
-        <Setter Property="ItemTemplate">
-          <Setter.Value>
-            <DataTemplate>
-              <pancake:PancakeView Style="{StaticResource PancakeStyle}">
-                <controls:PaletteItemView Style="{StaticResource PaletteItemStyle}" />
-              </pancake:PancakeView>
-            </DataTemplate>
-          </Setter.Value>
-        </Setter>
       </Style>
+
     </ResourceDictionary>
   </ContentPage.Resources>
 
@@ -66,7 +58,15 @@
       <CarouselView
         ItemsLayout="{StaticResource CarouselItemsLayout}"
         ItemsSource="{Binding LightThemeColorElements}"
-        Style="{StaticResource CarouselStyle}" />
+        Style="{StaticResource CarouselStyle}">
+        <CarouselView.ItemTemplate>
+          <DataTemplate>
+            <ContentView ControlTemplate="{StaticResource LightCardTemplate}">
+              <controls:PaletteItemView Style="{StaticResource PaletteItemStyle}" />
+            </ContentView>
+          </DataTemplate>
+        </CarouselView.ItemTemplate>
+      </CarouselView>
     </Grid>
 
     <Grid
@@ -76,7 +76,15 @@
       <CarouselView
         ItemsLayout="{StaticResource CarouselItemsLayout}"
         ItemsSource="{Binding DarkThemeColorElements}"
-        Style="{StaticResource CarouselStyle}" />
+        Style="{StaticResource CarouselStyle}">
+        <CarouselView.ItemTemplate>
+          <DataTemplate>
+            <ContentView ControlTemplate="{StaticResource DarkCardTemplate}">
+              <controls:PaletteItemView Style="{StaticResource PaletteItemStyle}" />
+            </ContentView>
+          </DataTemplate>
+        </CarouselView.ItemTemplate>
+      </CarouselView>
     </Grid>
   </Grid>
 </ContentPage>
