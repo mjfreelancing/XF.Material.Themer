@@ -19,31 +19,32 @@
     Spacing="0">
     <Label
       x:Name="TitleLabel"
-      Padding="10,4"
+      Padding="0,8,0,4"
       FontAttributes="Bold"
       FontSize="24"
       HorizontalOptions="Fill"
+      HorizontalTextAlignment="Center"
       VerticalOptions="Fill"
       VerticalTextAlignment="Center" />
     <BoxView
       x:Name="TitleLine"
-      Margin="0"
+      Margin="0,2,0,2"
       HeightRequest="1" />
   </StackLayout>
-  <!--  the margin on the CollectionView results in a small gap between the top header and the content below  -->
   <CollectionView
     x:Name="CaptionsCollection"
     Grid.Row="1"
-    Margin="0,8,0,0">
+    Margin="0,8">
     <CollectionView.Resources>
       <ResourceDictionary>
         <Style x:DataType="models:SurfaceCaption" TargetType="Label">
-          <Setter Property="Padding" Value="10,10" />
           <Setter Property="FontAttributes" Value="Bold" />
           <Setter Property="FontSize" Value="18" />
+          <Setter Property="HeightRequest" Value="36" />
           <Setter Property="VerticalTextAlignment" Value="Center" />
           <Setter Property="BackgroundColor" Value="{Binding BackgroundColor}" />
-          <Setter Property="HorizontalOptions" Value="Fill" />
+          <Setter Property="VerticalOptions" Value="FillAndExpand" />
+          <Setter Property="HorizontalOptions" Value="FillAndExpand" />
         </Style>
       </ResourceDictionary>
     </CollectionView.Resources>
@@ -52,23 +53,25 @@
         <Grid
           Margin="0"
           Padding="0"
-          ColumnSpacing="0"
-          RowSpacing="8">
+          ColumnSpacing="0">
           <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="75" />
           </Grid.ColumnDefinitions>
           <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="40" />
           </Grid.RowDefinitions>
           <Label
             Grid.Row="0"
             Grid.Column="0"
+            Padding="12,0,0,0"
             Text="{Binding Caption}"
             TextColor="{Binding CaptionColor}" />
           <Label
             Grid.Row="0"
             Grid.Column="1"
+            Padding="0,0,12,0"
+            HorizontalTextAlignment="End"
             Text="{Binding Path=ContrastRatio, StringFormat='{0:F2}'}"
             TextColor="{Binding ContrastRatioColor}" />
         </Grid>
