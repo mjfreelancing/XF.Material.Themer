@@ -132,4 +132,24 @@
     </ShellContent>
   </FlyoutItem>
 
+  <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+    <Tab Title="Light Theme">
+      <Tab.Icon>
+        <FontImageSource
+          FontFamily="{StaticResource MaterialFontFamily}"
+          Glyph="{x:Static font:IconFont.LightbulbOnOutline}"
+          Color="{StaticResource HighEmphasis}" />
+      </Tab.Icon>
+      <ShellContent ContentTemplate="{DataTemplate views:LightThemePage}" />
+    </Tab>
+    <Tab Title="Dark Theme">
+      <Tab.Icon>
+        <FontImageSource
+          FontFamily="{StaticResource MaterialFontFamily}"
+          Glyph="{x:Static font:IconFont.Lightbulb}"
+          Color="{StaticResource HighEmphasis}" />
+      </Tab.Icon>
+      <ShellContent ContentTemplate="{DataTemplate views:DarkThemePage}" />
+    </Tab>
+  </FlyoutItem>
 </Shell>

@@ -903,7 +903,7 @@
     //public const string LibraryBooks = "\uf332";
     //public const string LibraryMusic = "\uf333";
     //public const string LibraryPlus = "\uf334";
-    //public const string Lightbulb = "\uf335";
+    public const string Lightbulb = "\uf335";
     //public const string LightbulbOutline = "\uf336";
     //public const string Link = "\uf337";
     //public const string LinkOff = "\uf338";
@@ -1844,7 +1844,7 @@
     //public const string LanguageTypescript = "\uf6e5";
     //public const string LaptopOff = "\uf6e6";
     //public const string LightbulbOn = "\uf6e7";
-    //public const string LightbulbOnOutline = "\uf6e8";
+    public const string LightbulbOnOutline = "\uf6e8";
     //public const string LockPattern = "\uf6e9";
     //public const string FolderZip = "\uf6ea";
     //public const string MagnifyMinusOutline = "\uf6eb";
