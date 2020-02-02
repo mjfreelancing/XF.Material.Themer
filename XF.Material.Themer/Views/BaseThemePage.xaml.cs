@@ -24,5 +24,20 @@ namespace XF.Material.Themer.Views
           select new ThemePage(resource.Key, resource.Value as DataTemplate)
         ).ToList();
     }
+
+    protected static void SetThemeStyles(ResourceDictionary themeResources)
+    {
+      var currentResources = Application.Current.Resources;
+
+      foreach (var key in themeResources.Keys)
+      {
+        currentResources[key] = themeResources[key];
+      }
+
+      foreach (var themeMergedDictionary in themeResources.MergedDictionaries)
+      {
+        currentResources.MergedDictionaries.Add(themeMergedDictionary);
+      }
+    }
   }
 }

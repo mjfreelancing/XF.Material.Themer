@@ -6,10 +6,5 @@
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   mc:Ignorable="d">
-  <Label
-    FontAttributes="Bold"
-    FontSize="32"
-    HorizontalOptions="Center"
-    Text="Light3"
-    VerticalOptions="Center" />
+  <Label Style="{DynamicResource ThemedSampleLabel}" Text="Sample 3" />
 </ContentView>

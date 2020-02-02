@@ -1,6 +1,7 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.Material.Themer.DataTemplateSelectors;
+using XF.Material.Themer.Themes;
 
 namespace XF.Material.Themer.Views
 {
@@ -9,13 +10,20 @@ namespace XF.Material.Themer.Views
   {
     public DarkThemePage()
     {
-      InitializeComponent();// collect all DataTemplates
+      InitializeComponent();
 
       var themePages = GetThemePages();
       ViewModel.AddThemePages(themePages);
 
       // and hand them over to the theme DataTemplate selector
       CarouselView.ItemTemplate = new ThemeDataTemplateSelector(themePages);
+    }
+
+    protected override void OnAppearing()
+    {
+      SetThemeStyles(new DarkThemeStyles()); 
+      
+      base.OnAppearing();
     }
   }
 }
