@@ -21,7 +21,8 @@
       </OnPlatform>
 
       <converters:ColorToHexConverter x:Key="ColorToHexConverter" />
-      <converters:ColorOpacityConverter x:Key="OpacityConverter" />
+      <converters:ColorOpacityConverter x:Key="ColorOpacityConverter" />
+      <converters:SurfaceElevationConverter x:Key="SurfaceElevationConverter" />
 
       <Color x:Key="NavigationPrimary">#2c2928</Color>
       <Color x:Key="HighEmphasis">#DEFFFFFF</Color>

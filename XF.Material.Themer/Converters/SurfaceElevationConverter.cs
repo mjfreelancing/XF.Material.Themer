@@ -2,18 +2,20 @@
 using System.Globalization;
 using Xamarin.Forms;
 using XF.Material.Themer.Helpers;
+using XF.Material.Themer.Models;
 
 namespace XF.Material.Themer.Converters
 {
-  public class ColorOpacityConverter
+  public class SurfaceElevationConverter
     : IValueConverter
   {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-      var color = GetColor(value);
-      var opacity = GetOpacity(parameter);
+      var color = GetColor(value);    // assumed to be the theme's surface color
+      var elevation = GetElevationLevel(parameter);
 
-      return ColorHelper.FromHexWithOpacity(color.ToHex(), opacity);
+      var opacity = ElevationHelper.GetOverlayOpacity(elevation);
+      return ColorHelper.CombineColors(color, Color.White, opacity);
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -36,18 +38,15 @@ namespace XF.Material.Themer.Converters
       }
     }
 
-    private static double GetOpacity(object parameter)
+    private static ElevationLevel GetElevationLevel(object value)
     {
-      switch (parameter)
+      switch (value)
       {
         case null:
-          return 1.0d;
-
-        case double asDouble:
-          return asDouble;
+          return ElevationLevel.dp0;
 
         case string asString:
-          return double.Parse(asString);
+          return EnumHelper.AsEnum<ElevationLevel>(asString);
 
         default:
           throw new NotSupportedException();

@@ -19,7 +19,7 @@
   </ContentPage.BindingContext>
   <ContentPage.Resources>
     <ResourceDictionary>
-      <converters:EnumToStringConverter x:Key="ElevationLevelConverter" x:TypeArguments="models:ElevationLevel" />
+      <converters:EnumToStringConverter x:Key="ElevationLevelToStringConverter" x:TypeArguments="models:ElevationLevel" />
 
       <Style x:Key="GridStyle" TargetType="Grid">
         <Setter Property="Padding" Value="0,20" />
@@ -53,7 +53,7 @@
             <controls:CarouselCard BorderColor="{StaticResource DarkCardBorderColor}">
               <controls:PaletteItemView
                 x:DataType="models:SurfaceElevation"
-                Caption="{Binding Elevation, Converter={StaticResource ElevationLevelConverter}}"
+                Caption="{Binding Elevation, Converter={StaticResource ElevationLevelToStringConverter}}"
                 ColorHex="{Binding SurfaceColor, Converter={StaticResource ColorToHexConverter}}"
                 ThemeColor="{Binding SurfaceColor}" />
             </controls:CarouselCard>
@@ -69,7 +69,7 @@
             <controls:CarouselCard BorderColor="{StaticResource DarkCardBorderColor}">
               <controls:PaletteItemView
                 x:DataType="models:SurfaceElevation"
-                Caption="{Binding Elevation, Converter={StaticResource ElevationLevelConverter}}"
+                Caption="{Binding Elevation, Converter={StaticResource ElevationLevelToStringConverter}}"
                 ColorHex="{Binding BrandedSurfaceColor, Converter={StaticResource ColorToHexConverter}}"
                 ThemeColor="{Binding BrandedSurfaceColor}" />
             </controls:CarouselCard>

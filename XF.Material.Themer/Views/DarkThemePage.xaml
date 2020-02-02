@@ -1,26 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
+<views:BaseThemePage
   x:Class="XF.Material.Themer.Views.DarkThemePage"
   xmlns="http://xamarin.com/schemas/2014/forms"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
   xmlns:viewModels="clr-namespace:XF.Material.Themer.ViewModels;assembly=XF.Material.Themer"
+  xmlns:views="clr-namespace:XF.Material.Themer.Views;assembly=XF.Material.Themer"
   Title="Dark Theme"
   x:DataType="viewModels:DarkThemeViewModel"
-  BackgroundColor="#121212"
+  BackgroundColor="Black"
   mc:Ignorable="d">
   <ContentPage.BindingContext>
     <viewModels:DarkThemeViewModel />
   </ContentPage.BindingContext>
-  <ContentPage.Content>
-    <StackLayout>
-      <Label
-        FontSize="24"
-        HorizontalOptions="CenterAndExpand"
-        Text="Dark Theme - Coming Soon"
-        TextColor="{StaticResource HighEmphasis}"
-        VerticalOptions="CenterAndExpand" />
+
+  <ContentPage.Resources>
+
+    <Style x:Key="IndicatorViewPanelStyle" TargetType="pancake:PancakeView">
+      <Setter Property="Margin" Value="8,0" />
+      <Setter Property="CornerRadius" Value="80,80,0,0" />
+      <Setter Property="HorizontalOptions" Value="Fill" />
+      <Setter Property="IsClippedToBounds" Value="True" />
+      <Setter Property="BackgroundColor" Value="{Binding ThemeColors.Surface, Converter={StaticResource SurfaceElevationConverter}, ConverterParameter=dp6}" />
+    </Style>
+
+    <Style
+      x:Key="IndicatorViewStyle"
+      x:DataType="viewModels:DarkThemeViewModel"
+      TargetType="IndicatorView">
+      <Setter Property="IndicatorColor" Value="{Binding ThemeColors.Surface}" />
+      <Setter Property="SelectedIndicatorColor" Value="{Binding ThemeColors.OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter=0.87}" />
+      <Setter Property="Margin" Value="0,16" />
+      <Setter Property="HorizontalOptions" Value="Center" />
+      <Setter Property="IndicatorSize" Value="12" />
+      <Setter Property="ItemsSourceBy" Value="CarouselView" />
+    </Style>
+
+    <LinearItemsLayout
+      x:Key="CarouselItemsLayout"
+      Orientation="Horizontal"
+      SnapPointsAlignment="Center"
+      SnapPointsType="Mandatory" />
+
+    <Color x:Key="ThemeBorderColor">White</Color>
+
+    <Style
+      x:Key="ThemeViewStyle"
+      BasedOn="{StaticResource PancakeStyle}"
+      TargetType="pancake:PancakeView">
+      <Setter Property="Margin" Value="16" />
+      <Setter Property="BackgroundColor" Value="{Binding ThemeColors.Background}" />
+      <Setter Property="BorderColor" Value="{StaticResource ThemeBorderColor}" />
+    </Style>
+
+  </ContentPage.Resources>
+
+  <pancake:PancakeView Style="{StaticResource ThemeViewStyle}">
+    <StackLayout Orientation="Vertical" Spacing="0">
+      <CarouselView
+        x:Name="CarouselView"
+        ItemsLayout="{StaticResource CarouselItemsLayout}"
+        ItemsSource="{Binding Pages}" />
+      <pancake:PancakeView Style="{StaticResource IndicatorViewPanelStyle}">
+        <IndicatorView Style="{StaticResource IndicatorViewStyle}" />
+      </pancake:PancakeView>
     </StackLayout>
-  </ContentPage.Content>
-</ContentPage>
+  </pancake:PancakeView>
+
+</views:BaseThemePage>

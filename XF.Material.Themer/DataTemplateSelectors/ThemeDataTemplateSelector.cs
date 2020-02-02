@@ -9,9 +9,9 @@ namespace XF.Material.Themer.DataTemplateSelectors
   {
     private readonly IDictionary<string, DataTemplate> _dataTemplates;
 
-    public ThemeDataTemplateSelector(IEnumerable<(string key, DataTemplate dataTemplate)> dataTemplates)
+    public ThemeDataTemplateSelector(IEnumerable<ThemePage> themePages)
     {
-      _dataTemplates = dataTemplates.ToDictionary(item => item.key, item => item.dataTemplate);
+      _dataTemplates = themePages.ToDictionary(item => item.Key, item => item.DataTemplate);
     }
 
     protected override DataTemplate OnSelectTemplate(object item, BindableObject container)

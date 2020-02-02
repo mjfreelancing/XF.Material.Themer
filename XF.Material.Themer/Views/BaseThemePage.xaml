@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+  x:Class="XF.Material.Themer.Views.BaseThemePage"
+  xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+  xmlns:themes="clr-namespace:XF.Material.Themer.Views.Themes;assembly=XF.Material.Themer"
+  mc:Ignorable="d">
+  <ContentPage.Resources>
+
+    <DataTemplate x:Key="ThemeView1">
+      <themes:ThemeView1 />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ThemeView2">
+      <themes:ThemeView2 />
+    </DataTemplate>
+
+    <DataTemplate x:Key="ThemeView3">
+      <themes:ThemeView3 />
+    </DataTemplate>
+
+  </ContentPage.Resources>
+</ContentPage>

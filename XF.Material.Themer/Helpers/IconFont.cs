@@ -942,7 +942,7 @@
     //public const string Maxcdn = "\uf359";
     //public const string Medium = "\uf35a";
     //public const string Memory = "\uf35b";
-    //public const string Menu = "\uf35c";
+    public const string Menu = "\uf35c";
     //public const string MenuDown = "\uf35d";
     //public const string MenuLeft = "\uf35e";
     //public const string MenuRight = "\uf35f";
