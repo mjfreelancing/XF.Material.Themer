@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -9,6 +10,7 @@ namespace XF.Material.Themer.Views
   [XamlCompilation(XamlCompilationOptions.Compile)]
   public partial class BaseThemePage : ContentPage
   {
+    private readonly IDictionary<string, Func<object>> StyleRegistry = new Dictionary<string, Func<object>>();
     protected BaseThemeViewModel ViewModel => BindingContext as BaseThemeViewModel;
 
     public BaseThemePage()
@@ -25,18 +27,16 @@ namespace XF.Material.Themer.Views
         ).ToList();
     }
 
-    protected static void SetThemeStyles(ResourceDictionary themeResources)
+    protected void RegisterDynamicResource(string key, Func<object> valueResolver)
     {
-      var currentResources = Application.Current.Resources;
+      StyleRegistry.Add(key, valueResolver);
+    }
 
-      foreach (var key in themeResources.Keys)
+    protected void ApplyDynamicResources()
+    {
+      foreach (var style in StyleRegistry)
       {
-        currentResources[key] = themeResources[key];
-      }
-
-      foreach (var themeMergedDictionary in themeResources.MergedDictionaries)
-      {
-        currentResources.MergedDictionaries.Add(themeMergedDictionary);
+        Application.Current.Resources[style.Key] = style.Value.Invoke();
       }
     }
   }

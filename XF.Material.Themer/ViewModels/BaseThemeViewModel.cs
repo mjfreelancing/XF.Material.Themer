@@ -6,18 +6,6 @@ using XF.Material.Themer.Models.Themes;
 
 namespace XF.Material.Themer.ViewModels
 {
-  public class ThemePage
-  {
-    public string Key { get; }
-    public DataTemplate DataTemplate { get; }
-
-    public ThemePage(string key, DataTemplate dataTemplate)
-    {
-      Key = key;
-      DataTemplate = dataTemplate;
-    }
-  }
-
   public class BaseThemeViewModel : ViewModelBase
   {
     private readonly IThemeColorsFactory _themeColorsFactory = DependencyService.Resolve<IThemeColorsFactory>();

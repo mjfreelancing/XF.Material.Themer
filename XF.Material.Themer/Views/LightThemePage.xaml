@@ -55,10 +55,43 @@
       <Setter Property="BorderColor" Value="{StaticResource ThemeBorderColor}" />
     </Style>
 
+    <Style x:Key="TopNavPanelStyle" TargetType="StackLayout">
+      <Setter Property="Orientation" Value="Horizontal" />
+      <Setter Property="HeightRequest" Value="60" />
+      <Setter Property="BackgroundColor" Value="{Binding ThemeColors.Primary}" />
+    </Style>
+
+    <Style x:Key="HamburgerMenuStyle" TargetType="Image">
+      <Setter Property="Margin" Value="16,0,0,0" />
+      <Setter Property="HeightRequest" Value="60" />
+      <Setter Property="HorizontalOptions" Value="Start" />
+      <Setter Property="VerticalOptions" Value="Center" />
+      <Setter Property="Source">
+        <Setter.Value>
+          <FontImageSource
+            FontFamily="{StaticResource MaterialFontFamily}"
+            Glyph="{x:Static font:IconFont.FormatLineWeight}"
+            Color="{Binding ThemeColors.Surface}" />
+        </Setter.Value>
+      </Setter>
+    </Style>
+
+    <Style x:Key="TopNavPanelTitleStyle" TargetType="Label">
+      <Setter Property="Padding" Value="16,0,0,0" />
+      <Setter Property="FontAttributes" Value="Bold" />
+      <Setter Property="FontSize" Value="28" />
+      <Setter Property="VerticalOptions" Value="Center" />
+      <Setter Property="TextColor" Value="{Binding ThemeColors.OnPrimary}" />
+    </Style>
+
   </ContentPage.Resources>
 
   <pancake:PancakeView Style="{StaticResource ThemeViewStyle}">
     <StackLayout Orientation="Vertical" Spacing="0">
+      <StackLayout Style="{StaticResource TopNavPanelStyle}">
+        <Image Style="{StaticResource HamburgerMenuStyle}" />
+        <Label Style="{StaticResource TopNavPanelTitleStyle}" Text="Light Theme Samples" />
+      </StackLayout>
       <CarouselView
         x:Name="CarouselView"
         ItemsLayout="{StaticResource CarouselItemsLayout}"

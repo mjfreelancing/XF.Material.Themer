@@ -7,12 +7,16 @@
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   mc:Ignorable="d">
 
+
+
   <Style x:Key="ThemedSampleLabel" TargetType="Label">
     <Setter Property="FontSize" Value="32" />
     <Setter Property="FontAttributes" Value="Bold" />
-    <Setter Property="TextColor" Value="Black" />
+    <Setter Property="TextColor" Value="{DynamicResource ThemedSampleLabelTextColor}" />
     <Setter Property="HorizontalOptions" Value="Center" />
     <Setter Property="VerticalOptions" Value="Center" />
   </Style>
+
+
 
 </ResourceDictionary>

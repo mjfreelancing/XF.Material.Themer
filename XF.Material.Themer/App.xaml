@@ -67,22 +67,6 @@
         </pancake:PancakeView>
       </ControlTemplate>
 
-      <!--#region Styles as used by the light/dark sample views-->
-
-      <!--<Style x:Key="ThemedTopNavBar">
-
-      </Style>-->
-
-      <!--<Style x:Key="ThemedSampleLabel" TargetType="Label">
-        <Setter Property="FontSize" Value="32" />
-        <Setter Property="FontAttributes" Value="Bold" />
-        <Setter Property="TextColor" Value="Black" />
-        <Setter Property="HorizontalOptions" Value="Center" />
-        <Setter Property="VerticalOptions" Value="Center" />
-      </Style>-->
-
-      <!--#endregion-->
-
     </ResourceDictionary>
   </Application.Resources>
 </Application>

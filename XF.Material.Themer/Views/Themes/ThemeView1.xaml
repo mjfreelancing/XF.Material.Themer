@@ -8,6 +8,8 @@
   xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
   mc:Ignorable="d">
   <pancake:PancakeView Style="{StaticResource PancakeStyle}">
-    <Label Style="{DynamicResource ThemedSampleLabel}" Text="Sample 1" />
+    <StackLayout Orientation="Vertical" VerticalOptions="Center">
+      <Label Style="{DynamicResource ThemedSampleLabel}" Text="Sample 1" />
+    </StackLayout>
   </pancake:PancakeView>
 </ContentView>
