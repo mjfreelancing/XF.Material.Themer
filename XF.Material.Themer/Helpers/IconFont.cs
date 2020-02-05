@@ -1373,7 +1373,7 @@
     //public const string TextToSpeechOff = "\uf50b";
     //public const string Texture = "\uf50c";
     //public const string Theater = "\uf50d";
-    //public const string ThemeLightDark = "\uf50e";
+    public const string ThemeLightDark = "\uf50e";
     //public const string Thermometer = "\uf50f";
     //public const string ThermometerLines = "\uf510";
     //public const string ThumbDown = "\uf511";

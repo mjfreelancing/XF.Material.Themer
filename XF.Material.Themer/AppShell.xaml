@@ -88,7 +88,6 @@
     </DataTemplate>
   </Shell.ItemTemplate>
 
-  <!--  the icons do not appear without using 'AsMultipleItems'  -->
   <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
     <ShellContent Title="Palette" ContentTemplate="{DataTemplate views:PalettePage}">
       <ShellContent.Icon>
@@ -122,7 +121,13 @@
     </ShellContent>
   </FlyoutItem>
 
-  <FlyoutItem Title="Samples" FlyoutDisplayOptions="AsSingleItem">
+  <FlyoutItem Title="Theme Samples" FlyoutDisplayOptions="AsSingleItem">
+    <FlyoutItem.FlyoutIcon>
+      <FontImageSource
+        FontFamily="{StaticResource MaterialFontFamily}"
+        Glyph="{x:Static font:IconFont.ThemeLightDark}"
+        Color="{StaticResource HighEmphasis}" />
+    </FlyoutItem.FlyoutIcon>
     <Tab Title="Light Theme">
       <Tab.Icon>
         <FontImageSource
