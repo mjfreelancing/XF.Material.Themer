@@ -17,7 +17,7 @@ namespace XF.Material.Themer.ViewModels
       var darkTheme = new DarkThemeColors();
 
       DarkElevations = elevations
-        .Select(elevation => new SurfaceElevation(elevation, darkTheme))
+        .Select(elevation => new SurfaceElevation(darkTheme, elevation))
         .ToList();
     }
   }

@@ -48,7 +48,7 @@ namespace XF.Material.Themer.ViewModels
         ContrastRatioColor = themeColors.OnError
       };
 
-      var surfaceElevation = new SurfaceElevation(elevation, themeColors);
+      var surfaceElevation = new SurfaceElevation(themeColors, elevation);
 
       AddSurfaceCaption(themeItems, $"Default Surface at {elevation}", "OnSurface Text", themeColors.OnSurface, surfaceElevation.SurfaceColor, errorCaption);
       AddSurfaceCaption(themeItems, $"Default Surface at {elevation}", "Branded Text", themeColors.Primary, surfaceElevation.SurfaceColor, errorCaption);

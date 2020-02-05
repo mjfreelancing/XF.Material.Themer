@@ -57,13 +57,13 @@
 
     <Style x:Key="TopNavPanelStyle" TargetType="StackLayout">
       <Setter Property="Orientation" Value="Horizontal" />
-      <Setter Property="HeightRequest" Value="60" />
+      <Setter Property="HeightRequest" Value="64" />
       <Setter Property="BackgroundColor" Value="{Binding ThemeColors.Primary}" />
     </Style>
 
     <Style x:Key="HamburgerMenuStyle" TargetType="Image">
       <Setter Property="Margin" Value="16,0,0,0" />
-      <Setter Property="HeightRequest" Value="60" />
+      <Setter Property="HeightRequest" Value="64" />
       <Setter Property="HorizontalOptions" Value="Start" />
       <Setter Property="VerticalOptions" Value="Center" />
       <Setter Property="Source">

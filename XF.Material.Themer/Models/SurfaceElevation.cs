@@ -5,15 +5,15 @@ namespace XF.Material.Themer.Models
 {
   public class SurfaceElevation
   {
-    public ElevationLevel Elevation { get; }
-    public Color SurfaceColor { get; }
-    public Color BrandedSurfaceColor { get; }
+    private readonly IThemeColors _themeColors;
+    public ElevationLevel Elevation { get; set; }
+    public Color SurfaceColor => _themeColors.GetSurfaceColor(Elevation);
+    public Color BrandedSurfaceColor => _themeColors.GetBrandedSurfaceColor(Elevation);
 
-    public SurfaceElevation(ElevationLevel elevation, IThemeColors themeColors)
+    public SurfaceElevation(IThemeColors themeColors, ElevationLevel elevation = ElevationLevel.dp0)
     {
+      _themeColors = themeColors;
       Elevation = elevation;
-      SurfaceColor = themeColors.GetSurfaceColor(elevation);
-      BrandedSurfaceColor = themeColors.GetBrandedSurfaceColor(elevation);
     }
   }
 }
