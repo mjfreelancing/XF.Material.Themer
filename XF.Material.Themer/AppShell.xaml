@@ -122,7 +122,7 @@
     </ShellContent>
   </FlyoutItem>
 
-  <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+  <FlyoutItem Title="Samples" FlyoutDisplayOptions="AsSingleItem">
     <Tab Title="Light Theme">
       <Tab.Icon>
         <FontImageSource

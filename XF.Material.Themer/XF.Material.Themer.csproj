@@ -18,6 +18,9 @@
     <Compile Update="Controls\PaletteItemView.xaml.cs">
       <DependentUpon>PaletteItemView.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Themes\LightThemeStyles.xaml.cs">
+      <DependentUpon>LightThemeStyles.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ElevationsPage.xaml.cs">
       <DependentUpon>ElevationsPage.xaml</DependentUpon>
     </Compile>

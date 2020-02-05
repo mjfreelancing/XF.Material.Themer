@@ -9,7 +9,8 @@
   mc:Ignorable="d">
   <pancake:PancakeView Style="{StaticResource PancakeStyle}">
     <StackLayout Orientation="Vertical" VerticalOptions="Center">
-      <Label Style="{DynamicResource ThemedSampleLabel}" Text="Sample 1" />
+      <Label Style="{DynamicResource ThemedSampleLabel1}" Text="Sample 1" />
+      <Label Style="{DynamicResource ThemedSampleLabel2}" Text="Sample 2" />
     </StackLayout>
   </pancake:PancakeView>
 </ContentView>

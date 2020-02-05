@@ -9,10 +9,18 @@
 
 
 
-  <Style x:Key="ThemedSampleLabel" TargetType="Label">
+  <Style x:Key="ThemedSampleLabel1" TargetType="Label">
     <Setter Property="FontSize" Value="32" />
     <Setter Property="FontAttributes" Value="Bold" />
-    <Setter Property="TextColor" Value="{DynamicResource ThemedSampleLabelTextColor}" />
+    <Setter Property="TextColor" Value="{DynamicResource ThemeColorsPrimaryVariant}" />
+    <Setter Property="HorizontalOptions" Value="Center" />
+    <Setter Property="VerticalOptions" Value="Center" />
+  </Style>
+
+  <Style x:Key="ThemedSampleLabel2" TargetType="Label">
+    <Setter Property="FontSize" Value="32" />
+    <Setter Property="FontAttributes" Value="Bold" />
+    <Setter Property="TextColor" Value="{DynamicResource ThemeColorsError}" />
     <Setter Property="HorizontalOptions" Value="Center" />
     <Setter Property="VerticalOptions" Value="Center" />
   </Style>
