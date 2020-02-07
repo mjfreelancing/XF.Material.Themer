@@ -25,7 +25,7 @@ namespace XF.Material.Themer.ViewModels
 
     public void SetDarkTheme(ElevationLevel elevation)
     {
-      var darkTheme = _themeColorsFactory.CreateThemeColors(Theme.Dark);
+      var darkTheme = _themeColorsFactory.GetThemeColors(Theme.Dark);
 
       DarkItems.Clear();
       PopulateSurfaceCaptions(DarkItems, darkTheme, elevation);
@@ -33,7 +33,7 @@ namespace XF.Material.Themer.ViewModels
 
     private void SetLightTheme()
     {
-      var lightTheme = _themeColorsFactory.CreateThemeColors(Theme.Light);
+      var lightTheme = _themeColorsFactory.GetThemeColors(Theme.Light);
       PopulateSurfaceCaptions(LightItems, lightTheme, ElevationLevel.dp0);
     }
 

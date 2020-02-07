@@ -5,7 +5,9 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:font="clr-namespace:XF.Material.Themer.Helpers;assembly=XF.Material.Themer"
+  xmlns:local="clr-namespace:XF.Material.Themer;assembly=XF.Material.Themer"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:models="clr-namespace:XF.Material.Themer.Models;assembly=XF.Material.Themer"
   xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
   xmlns:viewModels="clr-namespace:XF.Material.Themer.ViewModels;assembly=XF.Material.Themer"
   xmlns:views="clr-namespace:XF.Material.Themer.Views;assembly=XF.Material.Themer"
@@ -24,7 +26,7 @@
       <Setter Property="CornerRadius" Value="80,80,0,0" />
       <Setter Property="HorizontalOptions" Value="Fill" />
       <Setter Property="IsClippedToBounds" Value="True" />
-      <Setter Property="BackgroundColor" Value="{Binding ThemeColors.Surface, Converter={StaticResource SurfaceElevationConverter}, ConverterParameter=dp8}" />
+      <Setter Property="BackgroundColor" Value="{Binding ThemeColors.Surface, Converter={StaticResource SurfaceElevationConverter}, ConverterParameter={x:Static models:ElevationLevel.dp8}}" />
     </Style>
 
     <Style
@@ -32,7 +34,7 @@
       x:DataType="viewModels:DarkThemeViewModel"
       TargetType="IndicatorView">
       <Setter Property="IndicatorColor" Value="{Binding ThemeColors.Surface}" />
-      <Setter Property="SelectedIndicatorColor" Value="{Binding ThemeColors.OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter=0.87}" />
+      <Setter Property="SelectedIndicatorColor" Value="{Binding ThemeColors.OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
       <Setter Property="Margin" Value="0,16" />
       <Setter Property="HorizontalOptions" Value="Center" />
       <Setter Property="IndicatorSize" Value="12" />
@@ -59,7 +61,7 @@
     <Style x:Key="TopNavPanelStyle" TargetType="StackLayout">
       <Setter Property="Orientation" Value="Horizontal" />
       <Setter Property="HeightRequest" Value="64" />
-      <Setter Property="BackgroundColor" Value="{Binding ThemeColors.Surface, Converter={StaticResource SurfaceElevationConverter}, ConverterParameter=dp4}" />
+      <Setter Property="BackgroundColor" Value="{Binding ThemeColors.Surface, Converter={StaticResource SurfaceElevationConverter}, ConverterParameter={x:Static models:ElevationLevel.dp4}}" />
     </Style>
 
     <Style x:Key="HamburgerMenuStyle" TargetType="Image">
@@ -72,7 +74,7 @@
           <FontImageSource
             FontFamily="{StaticResource MaterialFontFamily}"
             Glyph="{x:Static font:IconFont.FormatLineWeight}"
-            Color="{Binding ThemeColors.OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter=0.87}" />
+            Color="{Binding ThemeColors.OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
         </Setter.Value>
       </Setter>
     </Style>
@@ -82,7 +84,7 @@
       <Setter Property="FontAttributes" Value="Bold" />
       <Setter Property="FontSize" Value="28" />
       <Setter Property="VerticalOptions" Value="Center" />
-      <Setter Property="TextColor" Value="{Binding ThemeColors.OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter=0.87}" />
+      <Setter Property="TextColor" Value="{Binding ThemeColors.OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
     </Style>
 
   </ContentPage.Resources>

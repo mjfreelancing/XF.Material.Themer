@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Xamarin.Forms;
+using XF.Material.Themer.Factories;
 using XF.Material.Themer.Models;
 using XF.Material.Themer.Models.Themes;
 
@@ -7,6 +8,8 @@ namespace XF.Material.Themer.ViewModels
 {
   public class PaletteViewModel : ViewModelBase
   {
+    private IThemeColorsFactory ThemeColorsFactory { get; } = DependencyService.Resolve<IThemeColorsFactory>();
+
     private IDictionary<int, Color> _primaryTones = new Dictionary<int, Color>
     {
       {900, Color.FromHex("ff7221")},
@@ -53,15 +56,8 @@ namespace XF.Material.Themer.ViewModels
 
     public PaletteViewModel()
     {
-      _lightTheme = new LightThemeColors();
-
-      _darkTheme = new DarkThemeColors
-      {
-        //Primary = _primaryTones[300],
-        //PrimaryVariant = _primaryTones[900],
-        //Secondary = _secondaryTones[300]
-      };
-
+      _lightTheme = ThemeColorsFactory.GetThemeColors(Theme.Light);
+      _darkTheme = ThemeColorsFactory.GetThemeColors(Theme.Dark);
 
       LightThemeColorElements = new List<PaletteElement>
       {
@@ -98,7 +94,6 @@ namespace XF.Material.Themer.ViewModels
         new PaletteElement {Caption="On Surface", ThemeColor=DarkTheme.OnSurface},
         new PaletteElement {Caption="On Error", ThemeColor=DarkTheme.OnError}
       };
-
     }
 
     private static string ToDisplayHex(Color color)

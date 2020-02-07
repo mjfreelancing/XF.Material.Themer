@@ -3,26 +3,26 @@
   x:Class="XF.Material.Themer.Themes.DarkThemeStyles"
   xmlns="http://xamarin.com/schemas/2014/forms"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:converters="clr-namespace:XF.Material.Themer.Converters;assembly=XF.Material.Themer"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:models="clr-namespace:XF.Material.Themer.Models;assembly=XF.Material.Themer"
+  xmlns:themes="clr-namespace:XF.Material.Themer.Models.Themes;assembly=XF.Material.Themer"
   mc:Ignorable="d">
 
-  <Style x:Key="ThemedSampleLabel2" TargetType="Label">
-    <Setter Property="FontSize" Value="32" />
-    <Setter Property="FontAttributes" Value="Bold" />
-    <Setter Property="TextColor" Value="{DynamicResource ThemeColorSecondary}" />
-    <Setter Property="HorizontalOptions" Value="Center" />
-    <Setter Property="VerticalOptions" Value="Center" />
+  <converters:ColorOpacityConverter x:Key="ColorOpacityConverter" />
+  <converters:SurfaceElevationConverter x:Key="SurfaceElevationConverter" />
+
+  <Style x:Key="ThemedFrame" TargetType="Frame">
+    <Setter Property="BackgroundColor" Value="{Binding Source={x:Static themes:CurrentTheme.Instance}, Path=Surface, Converter={StaticResource SurfaceElevationConverter}, ConverterParameter={x:Static models:ElevationLevel.dp1}}" />
+    <Setter Property="BorderColor" Value="{Binding Source={x:Static themes:CurrentTheme.Instance}, Path=Surface, Converter={StaticResource SurfaceElevationConverter}, ConverterParameter={x:Static models:ElevationLevel.dp24}}" />
+    <Setter Property="CornerRadius" Value="8" />
   </Style>
 
-  <Style x:Key="ThemedSampleLabel3" TargetType="Label">
-    <Setter Property="FontSize" Value="32" />
+  <Style x:Key="ThemedTitle" TargetType="Label">
     <Setter Property="FontAttributes" Value="Bold" />
-    <Setter Property="TextColor" Value="{DynamicResource ThemeColorError}" />
-    <Setter Property="HorizontalOptions" Value="Center" />
-    <Setter Property="VerticalOptions" Value="Center" />
+    <Setter Property="FontSize" Value="24" />
+    <Setter Property="TextColor" Value="{Binding Source={x:Static themes:CurrentTheme.Instance}, Path=Error, Converter={StaticResource ColorOpacityConverter}, ConverterParameter=0.38}" />
   </Style>
-
-
 
 </ResourceDictionary>

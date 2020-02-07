@@ -16,7 +16,7 @@ namespace XF.Material.Themer.ViewModels
 
     protected BaseThemeViewModel(Theme theme)
     {
-      ThemeColors = _themeColorsFactory.CreateThemeColors(theme);
+      ThemeColors = _themeColorsFactory.GetThemeColors(theme);
       Pages = new ObservableCollection<ThemePage>();
     }
 

@@ -6,14 +6,12 @@
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+  xmlns:themes="clr-namespace:XF.Material.Themer.Models.Themes;assembly=XF.Material.Themer"
   mc:Ignorable="d">
   <pancake:PancakeView Style="{StaticResource PancakeStyle}">
     <StackLayout Orientation="Vertical">
-      <!--<Label Style="{DynamicResource ThemedSampleLabel1}" Text="Sample 1" />
-      <Label Style="{DynamicResource ThemedSampleLabel2}" Text="Sample 2" />-->
-
       <Grid
-        BackgroundColor="{DynamicResource ThemeColorBackground}"
+        BackgroundColor="{Binding Source={x:Static themes:CurrentTheme.Instance}, Path=Background}"
         RowSpacing="0"
         VerticalOptions="FillAndExpand">
         <Grid.RowDefinitions>
@@ -23,26 +21,24 @@
         <Label
           Grid.Row="0"
           Padding="20"
-          FontAttributes="Bold"
-          FontSize="24"
-          Text="Current Statistics"
-          TextColor="{DynamicResource ThemeColorOnBackground}" />
+          Style="{DynamicResource ThemedTitle}"
+          Text="Current Statistics" />
         <Frame
           Grid.Row="1"
           Margin="20,0,20,20"
-          BackgroundColor="{DynamicResource ThemeColorSurfacedp1}"
-          BorderColor="{DynamicResource ThemeColorSurfacedp24}"
-          CornerRadius="8"
+          Style="{DynamicResource ThemedFrame}"
           VerticalOptions="FillAndExpand">
           <Grid>
             <Grid.RowDefinitions>
               <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
+            <StackLayout>
+              <Button Clicked="Button_OnLightClicked" Text="Light" />
+              <Button Clicked="Button_OnDarkClicked" Text="Dark" />
+            </StackLayout>
           </Grid>
         </Frame>
       </Grid>
-
-
     </StackLayout>
   </pancake:PancakeView>
 </ContentView>

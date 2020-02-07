@@ -48,6 +48,9 @@ namespace XF.Material.Themer.Converters
         case string asString:
           return EnumHelper.AsEnum<ElevationLevel>(asString);
 
+        case ElevationLevel asElevationLevel:
+          return asElevationLevel;
+
         default:
           throw new NotSupportedException();
       }

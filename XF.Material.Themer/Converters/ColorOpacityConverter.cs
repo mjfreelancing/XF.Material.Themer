@@ -5,8 +5,7 @@ using XF.Material.Themer.Helpers;
 
 namespace XF.Material.Themer.Converters
 {
-  public class ColorOpacityConverter
-    : IValueConverter
+  public class ColorOpacityConverter : IValueConverter
   {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {

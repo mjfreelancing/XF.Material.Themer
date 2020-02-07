@@ -5,7 +5,9 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:font="clr-namespace:XF.Material.Themer.Helpers;assembly=XF.Material.Themer"
+  xmlns:local="clr-namespace:XF.Material.Themer;assembly=XF.Material.Themer"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:models="clr-namespace:XF.Material.Themer.Models;assembly=XF.Material.Themer"
   xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
   xmlns:viewModels="clr-namespace:XF.Material.Themer.ViewModels;assembly=XF.Material.Themer"
   xmlns:views="clr-namespace:XF.Material.Themer.Views;assembly=XF.Material.Themer"
@@ -30,7 +32,7 @@
       x:Key="IndicatorViewStyle"
       x:DataType="viewModels:LightThemeViewModel"
       TargetType="IndicatorView">
-      <Setter Property="IndicatorColor" Value="{Binding ThemeColors.Surface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter=0.38}" />
+      <Setter Property="IndicatorColor" Value="{Binding ThemeColors.Surface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.DisabledEmphasisOpacity}}" />
       <Setter Property="SelectedIndicatorColor" Value="{Binding ThemeColors.Surface}" />
       <Setter Property="Margin" Value="0,16" />
       <Setter Property="HorizontalOptions" Value="Center" />

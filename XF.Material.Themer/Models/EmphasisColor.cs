@@ -6,9 +6,9 @@ namespace XF.Material.Themer.Models
   public class EmphasisColor
   {
     public Color Color { get; }
-    public Color HighEmphasisColor => ColorHelper.FromColorWithOpacity(Color, 0.87);
-    public Color MediumEmphasisColor => ColorHelper.FromColorWithOpacity(Color, 0.60);
-    public Color DisabledEmphasisColor => ColorHelper.FromColorWithOpacity(Color, 0.38);
+    public Color HighEmphasisColor => ColorHelper.FromColorWithOpacity(Color, Constants.HighEmphasisOpacity);
+    public Color MediumEmphasisColor => ColorHelper.FromColorWithOpacity(Color, Constants.MediumEmphasisOpacity);
+    public Color DisabledEmphasisColor => ColorHelper.FromColorWithOpacity(Color, Constants.DisabledEmphasisOpacity);
 
     public EmphasisColor(Color color)
     {

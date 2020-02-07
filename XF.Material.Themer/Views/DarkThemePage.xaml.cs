@@ -8,6 +8,8 @@ namespace XF.Material.Themer.Views
   [XamlCompilation(XamlCompilationOptions.Compile)]
   public partial class DarkThemePage : BaseThemePage
   {
+    private readonly ResourceDictionary _styles = new DarkThemeStyles();
+
     public DarkThemePage()
     {
       InitializeComponent();
@@ -20,7 +22,7 @@ namespace XF.Material.Themer.Views
 
     protected override void OnAppearing()
     {
-      SetCurrentTheme(new DarkThemeStyles());
+      SetCurrentTheme(ViewModel.ThemeColors, _styles);
 
       base.OnAppearing();
     }

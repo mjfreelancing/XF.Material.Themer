@@ -6,15 +6,15 @@ namespace XF.Material.Themer.Factories
 {
   public class ThemeColorsFactory : IThemeColorsFactory
   {
-    private IDictionary<Theme, Func<IThemeColors>> _registry = new Dictionary<Theme, Func<IThemeColors>>
+    private readonly IDictionary<Theme, Lazy<IThemeColors>> _registry = new Dictionary<Theme, Lazy<IThemeColors>>
     {
-      {Theme.Light, () => new LightThemeColors()},
-      {Theme.Dark, () => new DarkThemeColors()}
+      {Theme.Light, new Lazy<IThemeColors>(() => new LightThemeColors())},
+      {Theme.Dark, new Lazy<IThemeColors>(() => new DarkThemeColors())}
     };
 
-    public IThemeColors CreateThemeColors(Theme theme)
+    public IThemeColors GetThemeColors(Theme theme)
     {
-      return _registry[theme].Invoke();
+      return _registry[theme].Value;
     }
   }
 }

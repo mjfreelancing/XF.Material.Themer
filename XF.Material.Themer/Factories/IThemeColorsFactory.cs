@@ -4,6 +4,6 @@ namespace XF.Material.Themer.Factories
 {
   public interface IThemeColorsFactory
   {
-    IThemeColors CreateThemeColors(Theme theme);
+    IThemeColors GetThemeColors(Theme theme);
   }
 }
