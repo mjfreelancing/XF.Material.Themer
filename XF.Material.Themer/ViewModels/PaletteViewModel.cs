@@ -8,7 +8,7 @@ namespace XF.Material.Themer.ViewModels
 {
   public class PaletteViewModel : ViewModelBase
   {
-    private IThemeColorsFactory ThemeColorsFactory { get; } = DependencyService.Resolve<IThemeColorsFactory>();
+    private readonly IThemeColorsFactory _themeColorsFactory = DependencyService.Resolve<IThemeColorsFactory>();
 
     private IDictionary<int, Color> _primaryTones = new Dictionary<int, Color>
     {
@@ -38,26 +38,15 @@ namespace XF.Material.Themer.ViewModels
       {50, Color.FromHex("e2f6ff")},
     };
 
-
-    private readonly IThemeColors _lightTheme;
-    private readonly IThemeColors _darkTheme;
-
-    // todo: make these notifiable
-    public IThemeColors LightTheme => _lightTheme;
-    public IThemeColors DarkTheme => _darkTheme;
-
-
-
+    public IThemeColors LightTheme { get; }
+    public IThemeColors DarkTheme { get; }
     public IList<PaletteElement> LightThemeColorElements { get; }
     public IList<PaletteElement> DarkThemeColorElements { get; }
 
-
-    // dark theme testing
-
     public PaletteViewModel()
     {
-      _lightTheme = ThemeColorsFactory.GetThemeColors(Theme.Light);
-      _darkTheme = ThemeColorsFactory.GetThemeColors(Theme.Dark);
+      LightTheme = _themeColorsFactory.GetThemeColors(Theme.Light);
+      DarkTheme = _themeColorsFactory.GetThemeColors(Theme.Dark);
 
       LightThemeColorElements = new List<PaletteElement>
       {

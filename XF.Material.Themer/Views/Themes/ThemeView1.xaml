@@ -6,12 +6,12 @@
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-  xmlns:themes="clr-namespace:XF.Material.Themer.Models.Themes;assembly=XF.Material.Themer"
+  xmlns:themeModels="clr-namespace:XF.Material.Themer.Models.Themes;assembly=XF.Material.Themer"
   mc:Ignorable="d">
   <pancake:PancakeView Style="{StaticResource PancakeStyle}">
     <StackLayout Orientation="Vertical">
       <Grid
-        BackgroundColor="{Binding Source={x:Static themes:CurrentTheme.Instance}, Path=Background}"
+        BackgroundColor="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Background}"
         RowSpacing="0"
         VerticalOptions="FillAndExpand">
         <Grid.RowDefinitions>

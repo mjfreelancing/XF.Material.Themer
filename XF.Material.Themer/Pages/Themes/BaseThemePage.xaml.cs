@@ -4,9 +4,9 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.Material.Themer.Helpers;
 using XF.Material.Themer.Models.Themes;
-using XF.Material.Themer.ViewModels;
+using XF.Material.Themer.ViewModels.Themes;
 
-namespace XF.Material.Themer.Views
+namespace XF.Material.Themer.Pages.Themes
 {
   [XamlCompilation(XamlCompilationOptions.Compile)]
   public partial class BaseThemePage : ContentPage
@@ -19,12 +19,12 @@ namespace XF.Material.Themer.Views
       InitializeComponent();
     }
 
-    protected IReadOnlyList<ThemePage> GetThemePages()
+    protected IReadOnlyList<ThemeDataTemplate> GetThemePages()
     {
       return
         (from resource in Resources
           where resource.Value is DataTemplate
-          select new ThemePage(resource.Key, resource.Value as DataTemplate)
+          select new ThemeDataTemplate(resource.Key, resource.Value as DataTemplate)
         ).ToList();
     }
 

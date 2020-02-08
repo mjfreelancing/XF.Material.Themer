@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Forms;
-using XF.Material.Themer.ViewModels;
+using XF.Material.Themer.ViewModels.Themes;
 
 namespace XF.Material.Themer.DataTemplateSelectors
 {
@@ -9,14 +9,14 @@ namespace XF.Material.Themer.DataTemplateSelectors
   {
     private readonly IDictionary<string, DataTemplate> _dataTemplates;
 
-    public ThemeDataTemplateSelector(IEnumerable<ThemePage> themePages)
+    public ThemeDataTemplateSelector(IEnumerable<ThemeDataTemplate> themePages)
     {
       _dataTemplates = themePages.ToDictionary(item => item.Key, item => item.DataTemplate);
     }
 
     protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
     {
-      var themePage = item as ThemePage;
+      var themePage = item as ThemeDataTemplate;
       return _dataTemplates[themePage.Key];
     }
   }

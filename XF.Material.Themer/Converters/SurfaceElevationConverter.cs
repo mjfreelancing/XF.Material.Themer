@@ -9,9 +9,10 @@ namespace XF.Material.Themer.Converters
   public class SurfaceElevationConverter
     : IValueConverter
   {
+    // applies a white overlay on top of the source color at a specified opacity
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-      var color = GetColor(value);    // assumed to be the theme's surface color
+      var color = GetColor(value);    // assumed to be the theme's surface color, but can be any color
       var elevation = GetElevationLevel(parameter);
 
       var opacity = ElevationHelper.GetOverlayOpacity(elevation);

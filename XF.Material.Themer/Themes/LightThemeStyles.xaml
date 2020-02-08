@@ -6,22 +6,21 @@
   xmlns:converters="clr-namespace:XF.Material.Themer.Converters;assembly=XF.Material.Themer"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-  xmlns:models="clr-namespace:XF.Material.Themer.Models;assembly=XF.Material.Themer"
-  xmlns:themes="clr-namespace:XF.Material.Themer.Models.Themes;assembly=XF.Material.Themer"
+  xmlns:themeModels="clr-namespace:XF.Material.Themer.Models.Themes;assembly=XF.Material.Themer"
   mc:Ignorable="d">
 
   <converters:ColorOpacityConverter x:Key="ColorOpacityConverter" />
 
   <Style x:Key="ThemedFrame" TargetType="Frame">
-    <Setter Property="BackgroundColor" Value="{Binding Source={x:Static themes:CurrentTheme.Instance}, Path=Surface}" />
-    <Setter Property="BorderColor" Value="{Binding Source={x:Static themes:CurrentTheme.Instance}, Path=Primary}" />
+    <Setter Property="BackgroundColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Surface}" />
+    <Setter Property="BorderColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Primary}" />
     <Setter Property="CornerRadius" Value="8" />
   </Style>
 
   <Style x:Key="ThemedTitle" TargetType="Label">
     <Setter Property="FontAttributes" Value="Bold" />
     <Setter Property="FontSize" Value="24" />
-    <Setter Property="TextColor" Value="{Binding Source={x:Static themes:CurrentTheme.Instance}, Path=Primary, Converter={StaticResource ColorOpacityConverter}, ConverterParameter=0.38}" />
+    <Setter Property="TextColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Primary, Converter={StaticResource ColorOpacityConverter}, ConverterParameter=0.38}" />
   </Style>
 
 </ResourceDictionary>

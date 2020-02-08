@@ -1,7 +1,7 @@
 ﻿using Xamarin.Forms.PancakeView;
 using Xamarin.Forms.Xaml;
 
-namespace XF.Material.Themer.Controls
+namespace XF.Material.Themer.Views
 {
   [XamlCompilation(XamlCompilationOptions.Compile)]
   public partial class CarouselCard : PancakeView

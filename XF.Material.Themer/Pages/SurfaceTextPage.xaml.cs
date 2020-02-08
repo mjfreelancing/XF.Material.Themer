@@ -4,7 +4,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.Material.Themer.ViewModels;
 
-namespace XF.Material.Themer.Views
+namespace XF.Material.Themer.Pages
 {
   [XamlCompilation(XamlCompilationOptions.Compile)]
   public partial class SurfaceTextPage : ContentPage

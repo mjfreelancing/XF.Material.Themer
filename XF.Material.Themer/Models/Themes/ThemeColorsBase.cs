@@ -17,15 +17,10 @@ namespace XF.Material.Themer.Models.Themes
     public abstract Color OnBackground { get; set; }
     public abstract Color OnSurface { get; set; }
     public abstract Color OnError { get; set; }
-    public double BrandOpacity { get; set; } = 0.075d;
 
+    public double BrandOpacity { get; set; } = 0.075d;
     public Color BrandedBackground => ColorHelper.CombineColors(Background, Primary, BrandOpacity);
     public Color BrandedSurface => ColorHelper.CombineColors(Surface, Primary, BrandOpacity);
-
-    protected static Color CreateColor(string hex)
-    {
-      return Color.FromHex(hex);
-    }
 
     public Color GetSurfaceColor(ElevationLevel elevation)
     {

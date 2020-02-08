@@ -1,13 +1,13 @@
 ﻿using Xamarin.Forms;
 
-namespace XF.Material.Themer.ViewModels
+namespace XF.Material.Themer.ViewModels.Themes
 {
-  public class ThemePage
+  public class ThemeDataTemplate
   {
     public string Key { get; }
     public DataTemplate DataTemplate { get; }
 
-    public ThemePage(string key, DataTemplate dataTemplate)
+    public ThemeDataTemplate(string key, DataTemplate dataTemplate)
     {
       Key = key;
       DataTemplate = dataTemplate;

@@ -4,7 +4,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.Material.Themer.Models;
 
-namespace XF.Material.Themer.Controls
+namespace XF.Material.Themer.Views
 {
   [XamlCompilation(XamlCompilationOptions.Compile)]
   public partial class SurfaceCaptionsView : Grid

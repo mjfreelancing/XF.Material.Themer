@@ -5,18 +5,18 @@ namespace XF.Material.Themer.Models.Themes
   // initialized with the 'dark theme baseline palette'.
   public class DarkThemeColors : ThemeColorsBase
   {
-    public override Color Primary { get; set; } = CreateColor("BB86FC");
-    public override Color PrimaryVariant { get; set; } = CreateColor("3700B3");
-    public override Color Secondary { get; set; } = CreateColor("03DAC6");
-    public override Color SecondaryVariant { get; set; } = CreateColor("03DAC6");
-    public override Color Background { get; set; } = CreateColor("121212");
-    public override Color Surface { get; set; } = CreateColor("121212");
-    public override Color Error { get; set; } = CreateColor("CF6679");
-    public override Color OnPrimary { get; set; } = CreateColor("000000");
-    public override Color OnSecondary { get; set; } = CreateColor("000000");
-    public override Color OnBackground { get; set; } = CreateColor("FFFFFF");
-    public override Color OnSurface { get; set; } = CreateColor("FFFFFF");
-    public override Color OnError { get; set; } = CreateColor("000000");
+    public override Color Primary { get; set; } = Color.FromHex("BB86FC");
+    public override Color PrimaryVariant { get; set; } = Color.FromHex("3700B3");
+    public override Color Secondary { get; set; } = Color.FromHex("03DAC6");
+    public override Color SecondaryVariant { get; set; } = Color.FromHex("03DAC6");
+    public override Color Background { get; set; } = Color.FromHex("121212");
+    public override Color Surface { get; set; } = Color.FromHex("121212");
+    public override Color Error { get; set; } = Color.FromHex("CF6679");
+    public override Color OnPrimary { get; set; } = Color.FromHex("000000");
+    public override Color OnSecondary { get; set; } = Color.FromHex("000000");
+    public override Color OnBackground { get; set; } = Color.FromHex("FFFFFF");
+    public override Color OnSurface { get; set; } = Color.FromHex("FFFFFF");
+    public override Color OnError { get; set; } = Color.FromHex("000000");
   }
 }
 

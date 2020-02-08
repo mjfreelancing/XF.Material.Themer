@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<views:BaseThemePage
-  x:Class="XF.Material.Themer.Views.DarkThemePage"
+<themes:BaseThemePage
+  x:Class="XF.Material.Themer.Pages.Themes.DarkThemePage"
   xmlns="http://xamarin.com/schemas/2014/forms"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -9,14 +9,14 @@
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:models="clr-namespace:XF.Material.Themer.Models;assembly=XF.Material.Themer"
   xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-  xmlns:viewModels="clr-namespace:XF.Material.Themer.ViewModels;assembly=XF.Material.Themer"
-  xmlns:views="clr-namespace:XF.Material.Themer.Views;assembly=XF.Material.Themer"
+  xmlns:themeModels="clr-namespace:XF.Material.Themer.ViewModels.Themes;assembly=XF.Material.Themer"
+  xmlns:themes="clr-namespace:XF.Material.Themer.Pages.Themes;assembly=XF.Material.Themer"
   Title="Dark Theme"
-  x:DataType="viewModels:DarkThemeViewModel"
+  x:DataType="themeModels:DarkThemeViewModel"
   BackgroundColor="Black"
   mc:Ignorable="d">
   <ContentPage.BindingContext>
-    <viewModels:DarkThemeViewModel />
+    <themeModels:DarkThemeViewModel />
   </ContentPage.BindingContext>
 
   <ContentPage.Resources>
@@ -31,7 +31,7 @@
 
     <Style
       x:Key="IndicatorViewStyle"
-      x:DataType="viewModels:DarkThemeViewModel"
+      x:DataType="themeModels:DarkThemeViewModel"
       TargetType="IndicatorView">
       <Setter Property="IndicatorColor" Value="{Binding ThemeColors.Surface}" />
       <Setter Property="SelectedIndicatorColor" Value="{Binding ThemeColors.OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
@@ -105,4 +105,4 @@
     </StackLayout>
   </pancake:PancakeView>
 
-</views:BaseThemePage>
+</themes:BaseThemePage>

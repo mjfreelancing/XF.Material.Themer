@@ -4,7 +4,7 @@ using Xamarin.Forms;
 using XF.Material.Themer.Factories;
 using XF.Material.Themer.Models.Themes;
 
-namespace XF.Material.Themer.ViewModels
+namespace XF.Material.Themer.ViewModels.Themes
 {
   public class BaseThemeViewModel : ViewModelBase
   {
@@ -12,15 +12,15 @@ namespace XF.Material.Themer.ViewModels
 
     public IThemeColors ThemeColors { get; }
 
-    public ObservableCollection<ThemePage> Pages { get; }
+    public ObservableCollection<ThemeDataTemplate> Pages { get; }
 
     protected BaseThemeViewModel(Theme theme)
     {
       ThemeColors = _themeColorsFactory.GetThemeColors(theme);
-      Pages = new ObservableCollection<ThemePage>();
+      Pages = new ObservableCollection<ThemeDataTemplate>();
     }
 
-    public void AddThemePages(IEnumerable<ThemePage> themePages)
+    public void AddThemePages(IEnumerable<ThemeDataTemplate> themePages)
     {
       foreach (var themePage in themePages)
       {

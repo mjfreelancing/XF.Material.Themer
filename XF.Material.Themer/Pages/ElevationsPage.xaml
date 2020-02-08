@@ -1,15 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-  x:Class="XF.Material.Themer.Views.ElevationsPage"
+  x:Class="XF.Material.Themer.Pages.ElevationsPage"
   xmlns="http://xamarin.com/schemas/2014/forms"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-  xmlns:controls="clr-namespace:XF.Material.Themer.Controls;assembly=XF.Material.Themer"
   xmlns:converters="clr-namespace:XF.Material.Themer.Converters;assembly=XF.Material.Themer"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:models="clr-namespace:XF.Material.Themer.Models"
-  xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
   xmlns:viewModels="clr-namespace:XF.Material.Themer.ViewModels;assembly=XF.Material.Themer"
+  xmlns:views="clr-namespace:XF.Material.Themer.Views;assembly=XF.Material.Themer"
   Title="Elevations"
   x:DataType="viewModels:ElevationsViewModel"
   BackgroundColor="#121212"
@@ -50,13 +49,13 @@
       <CarouselView ItemsLayout="{StaticResource CarouselItemsLayout}" Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>
-            <controls:CarouselCard BorderColor="{StaticResource DarkCardBorderColor}">
-              <controls:PaletteItemView
+            <views:CarouselCard BorderColor="{StaticResource DarkCardBorderColor}">
+              <views:PaletteItemView
                 x:DataType="models:SurfaceElevation"
                 Caption="{Binding Elevation, Converter={StaticResource ElevationLevelToStringConverter}}"
                 ColorHex="{Binding SurfaceColor, Converter={StaticResource ColorToHexConverter}}"
                 ThemeColor="{Binding SurfaceColor}" />
-            </controls:CarouselCard>
+            </views:CarouselCard>
           </DataTemplate>
         </CarouselView.ItemTemplate>
       </CarouselView>
@@ -66,13 +65,13 @@
       <CarouselView ItemsLayout="{StaticResource CarouselItemsLayout}" Style="{StaticResource CarouselStyle}">
         <CarouselView.ItemTemplate>
           <DataTemplate>
-            <controls:CarouselCard BorderColor="{StaticResource DarkCardBorderColor}">
-              <controls:PaletteItemView
+            <views:CarouselCard BorderColor="{StaticResource DarkCardBorderColor}">
+              <views:PaletteItemView
                 x:DataType="models:SurfaceElevation"
                 Caption="{Binding Elevation, Converter={StaticResource ElevationLevelToStringConverter}}"
                 ColorHex="{Binding BrandedSurfaceColor, Converter={StaticResource ColorToHexConverter}}"
                 ThemeColor="{Binding BrandedSurfaceColor}" />
-            </controls:CarouselCard>
+            </views:CarouselCard>
           </DataTemplate>
         </CarouselView.ItemTemplate>
       </CarouselView>

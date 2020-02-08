@@ -9,7 +9,7 @@ namespace XF.Material.Themer.Views.Themes
   [XamlCompilation(XamlCompilationOptions.Compile)]
   public partial class ThemeView1 : ContentView
   {
-    private IThemeColorsFactory ThemeColorsFactory { get; } = DependencyService.Resolve<IThemeColorsFactory>();
+    private readonly IThemeColorsFactory _themeColorsFactory = DependencyService.Resolve<IThemeColorsFactory>();
 
     public ThemeView1()
     {
@@ -18,13 +18,13 @@ namespace XF.Material.Themer.Views.Themes
 
     private void Button_OnLightClicked(object sender, EventArgs e)
     {
-      CurrentTheme.Instance.ThemeColors = ThemeColorsFactory.GetThemeColors(Theme.Light);
+      CurrentTheme.Instance.ThemeColors = _themeColorsFactory.GetThemeColors(Theme.Light);
 
     }
 
     private void Button_OnDarkClicked(object sender, EventArgs e)
     {
-      CurrentTheme.Instance.ThemeColors = ThemeColorsFactory.GetThemeColors(Theme.Dark);
+      CurrentTheme.Instance.ThemeColors = _themeColorsFactory.GetThemeColors(Theme.Dark);
     }
   }
 }

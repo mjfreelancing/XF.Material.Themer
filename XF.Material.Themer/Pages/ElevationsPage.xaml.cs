@@ -1,12 +1,12 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace XF.Material.Themer.Views
+namespace XF.Material.Themer.Pages
 {
   [XamlCompilation(XamlCompilationOptions.Compile)]
-  public partial class PalettePage : ContentPage
+  public partial class ElevationsPage : ContentPage
   {
-    public PalettePage()
+    public ElevationsPage()
     {
       InitializeComponent();
     }

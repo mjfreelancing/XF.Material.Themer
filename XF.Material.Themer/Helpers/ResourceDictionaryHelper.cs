@@ -7,7 +7,7 @@ namespace XF.Material.Themer.Helpers
   {
     public static void MergeIntoApplicationResources(ResourceDictionary resources)
     {
-      MergeDictionaryIntoApplicationResources(resources);
+      MergeIntoApplicationResources((IDictionary<string, object>) resources);
 
       var currentResources = Application.Current.Resources;
 
@@ -17,12 +17,7 @@ namespace XF.Material.Themer.Helpers
       }
     }
 
-    public static void MergeIntoApplicationResources(IDictionary<string, object> resources)
-    {
-      MergeDictionaryIntoApplicationResources(resources);
-    }
-
-    private static void MergeDictionaryIntoApplicationResources(IDictionary<string, object> resources)
+    private static void MergeIntoApplicationResources(IDictionary<string, object> resources)
     {
       var currentResources = Application.Current.Resources;
 

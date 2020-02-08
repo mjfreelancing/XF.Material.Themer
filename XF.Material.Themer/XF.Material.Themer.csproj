@@ -12,16 +12,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Controls\SurfaceCaptionsView.xaml.cs">
+    <Compile Update="Views\SurfaceCaptionsView.xaml.cs">
       <DependentUpon>SurfaceCaptionsView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Controls\PaletteItemView.xaml.cs">
+    <Compile Update="Views\PaletteItemView.xaml.cs">
       <DependentUpon>PaletteItemView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Themes\LightThemeStyles.xaml.cs">
       <DependentUpon>LightThemeStyles.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\ElevationsPage.xaml.cs">
+    <Compile Update="Pages\ElevationsPage.xaml.cs">
       <DependentUpon>ElevationsPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Themes\ThemeView3.xaml.cs">
@@ -33,16 +33,16 @@
     <Compile Update="Views\Themes\ThemeView1.xaml.cs">
       <DependentUpon>ThemeView1.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\PalettePage.xaml.cs">
+    <Compile Update="Pages\PalettePage.xaml.cs">
       <DependentUpon>PalettePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Controls\CarouselCard.xaml">
+    <EmbeddedResource Update="Views\CarouselCard.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Controls\SurfaceCaptionsView.xaml">
+    <EmbeddedResource Update="Views\SurfaceCaptionsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Themes\DarkThemeStyles.xaml">
@@ -51,13 +51,13 @@
     <EmbeddedResource Update="Themes\LightThemeStyles.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\BaseThemePage.xaml">
+    <EmbeddedResource Update="Pages\Themes\BaseThemePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\DarkThemePage.xaml">
+    <EmbeddedResource Update="Pages\Themes\DarkThemePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\LightThemePage.xaml">
+    <EmbeddedResource Update="Pages\Themes\LightThemePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Themes\ThemeView1.xaml">
@@ -69,10 +69,10 @@
     <EmbeddedResource Update="Views\Themes\ThemeView3.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\SurfaceTextPage.xaml">
+    <EmbeddedResource Update="Pages\SurfaceTextPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ElevationsPage.xaml">
+    <EmbeddedResource Update="Pages\ElevationsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
