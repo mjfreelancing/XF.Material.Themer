@@ -5,6 +5,7 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:converters="clr-namespace:XF.Material.Themer.Converters;assembly=XF.Material.Themer"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+  xmlns:font="clr-namespace:XF.Material.Themer.Helpers;assembly=XF.Material.Themer"
   xmlns:local="clr-namespace:XF.Material.Themer;assembly=XF.Material.Themer"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:models="clr-namespace:XF.Material.Themer.Models;assembly=XF.Material.Themer"
@@ -19,7 +20,7 @@
     <Setter Property="Padding" Value="0" />
     <Setter Property="BackgroundColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Surface, Converter={StaticResource SurfaceElevationConverter}, ConverterParameter={x:Static models:ElevationLevel.dp1}}" />
     <Setter Property="BorderColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Surface, Converter={StaticResource SurfaceElevationConverter}, ConverterParameter={x:Static models:ElevationLevel.dp24}}" />
-    <Setter Property="CornerRadius" Value="8" />
+    <Setter Property="CornerRadius" Value="0" />
   </Style>
 
   <Style x:Key="ThemedTitle" TargetType="Label">
@@ -35,12 +36,37 @@
     <Setter Property="BackgroundColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource SurfaceElevationConverter}, ConverterParameter={x:Static models:ElevationLevel.dp24}}" />
   </Style>
 
-  <Style x:Key="ThemedTimeZoneSelectedContentStyle" TargetType="BoxView">
-    <Setter Property="BackgroundColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Surface, Converter={StaticResource SurfaceElevationConverter}, ConverterParameter={x:Static models:ElevationLevel.dp8}}" />
+  <Style x:Key="ThemedTimeZoneCarouselPancakeStyle" TargetType="pancake:PancakeView">
+    <Setter Property="Padding" Value="8" />
+    <Setter Property="CornerRadius" Value="8" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="BackgroundColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Surface, Converter={StaticResource SurfaceElevationConverter}, ConverterParameter={x:Static models:ElevationLevel.dp1}}" />
+    <Setter Property="BorderColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.DisabledEmphasisOpacity}}" />
+    <Setter Property="IsClippedToBounds" Value="True" />
   </Style>
 
-  <Style x:Key="ThemedTimeZoneUnselectedContentStyle" TargetType="BoxView">
-    <Setter Property="BackgroundColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Surface, Converter={StaticResource SurfaceElevationConverter}, ConverterParameter={x:Static models:ElevationLevel.dp1}}" />
+  <Style x:Key="ThemedTimeZoneContentStyle" TargetType="pancake:PancakeView">
+    <Setter Property="CornerRadius" Value="0" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="IsClippedToBounds" Value="True" />
+    <Setter Property="VisualStateManager.VisualStateGroups">
+      <VisualStateGroupList>
+        <VisualStateGroup x:Name="CommonStates">
+          <VisualState x:Name="Normal">
+            <VisualState.Setters>
+              <Setter Property="BackgroundColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Surface, Converter={StaticResource SurfaceElevationConverter}, ConverterParameter={x:Static models:ElevationLevel.dp1}}" />
+              <Setter Property="BorderColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.DisabledEmphasisOpacity}}" />
+            </VisualState.Setters>
+          </VisualState>
+          <VisualState x:Name="Selected">
+            <VisualState.Setters>
+              <Setter Property="BackgroundColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Surface, Converter={StaticResource SurfaceElevationConverter}, ConverterParameter={x:Static models:ElevationLevel.dp8}}" />
+              <Setter Property="BorderColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+            </VisualState.Setters>
+          </VisualState>
+        </VisualStateGroup>
+      </VisualStateGroupList>
+    </Setter>
   </Style>
 
   <Style x:Key="ThemedSecondaryFabStyle" TargetType="pancake:PancakeView">
@@ -48,7 +74,19 @@
     <Setter Property="IsClippedToBounds" Value="True" />
     <Setter Property="WidthRequest" Value="52" />
     <Setter Property="HeightRequest" Value="52" />
+    <Setter Property="HasShadow" Value="True" />
     <Setter Property="BackgroundColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Secondary}" />
+    <Setter Property="Content">
+      <Setter.Value>
+        <Image HorizontalOptions="Center" VerticalOptions="Center">
+          <Image.Source>
+            <FontImageSource
+              FontFamily="{StaticResource MaterialFontFamily}"
+              Glyph="{x:Static font:IconFont.HomeMapMarker}"
+              Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSecondary, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+          </Image.Source>
+        </Image>
+      </Setter.Value>
+    </Setter>
   </Style>
-
 </ResourceDictionary>

@@ -5,21 +5,20 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-  xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-  xmlns:themes="clr-namespace:XF.Material.Themer.Views.Themes;assembly=XF.Material.Themer"
+  xmlns:views="clr-namespace:XF.Material.Themer.Samples.Views;assembly=XF.Material.Themer"
   mc:Ignorable="d">
   <ContentPage.Resources>
 
     <DataTemplate x:Key="ThemeView1">
-      <themes:ThemeView1 />
+      <views:ThemeView1 />
     </DataTemplate>
 
     <DataTemplate x:Key="ThemeView2">
-      <themes:ThemeView2 />
+      <views:ThemeView2 />
     </DataTemplate>
 
     <DataTemplate x:Key="ThemeView3">
-      <themes:ThemeView3 />
+      <views:ThemeView3 />
     </DataTemplate>
 
   </ContentPage.Resources>

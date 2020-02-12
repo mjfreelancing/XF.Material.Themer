@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+  x:Class="XF.Material.Themer.Samples.Views.ThemeView1"
+  xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:converters="clr-namespace:XF.Material.Themer.Samples.Converters;assembly=XF.Material.Themer"
+  xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+  xmlns:local="clr-namespace:XF.Material.Themer;assembly=XF.Material.Themer"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+  xmlns:system="clr-namespace:System;assembly=netstandard"
+  xmlns:themeModels="clr-namespace:XF.Material.Themer.Models.Themes;assembly=XF.Material.Themer"
+  mc:Ignorable="d">
+  <ContentView.Resources>
+    <converters:TimeSpanToGmtConverter x:Key="TimeSpanToGmtConverter" />
+    <converters:CurrentTimeConverter x:Key="CurrentTimeConverter" />
+    <converters:ItemsSourceNullConverter x:Key="ItemsSourceNullConverter" />
+
+    <Style x:Key="TextHighEmphasisStyle" TargetType="Label">
+      <Setter Property="TextColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+    </Style>
+
+    <Style x:Key="TextMediumEmphasisStyle" TargetType="Label">
+      <Setter Property="TextColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.MediumEmphasisOpacity}}" />
+    </Style>
+  </ContentView.Resources>
+
+  <StackLayout Orientation="Vertical">
+    <Grid
+      BackgroundColor="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Background}"
+      RowSpacing="0"
+      VerticalOptions="FillAndExpand">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Label
+        Grid.Row="0"
+        Padding="20,20,20,12"
+        Style="{DynamicResource ThemedTitle}"
+        Text="Time Zones" />
+      <Frame
+        Grid.Row="1"
+        Margin="20,0,20,20"
+        Padding="0"
+        BorderColor="Transparent"
+        Style="{DynamicResource ThemedFrame}"
+        VerticalOptions="FillAndExpand">
+        <pancake:PancakeView Style="{DynamicResource ThemedTimeZoneCarouselPancakeStyle}">
+          <CollectionView x:Name="CollectionView" SelectionMode="Single">
+            <CollectionView.EmptyView>
+              <StackLayout>
+                <Label
+                  FontSize="24"
+                  HorizontalOptions="Center"
+                  Style="{StaticResource TextHighEmphasisStyle}"
+                  Text="Load Time Zones"
+                  VerticalOptions="CenterAndExpand">
+                  <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LoadTimeZones" />
+                  </Label.GestureRecognizers>
+                </Label>
+              </StackLayout>
+            </CollectionView.EmptyView>
+            <CollectionView.ItemsLayout>
+              <LinearItemsLayout ItemSpacing="20" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+              <DataTemplate x:DataType="system:TimeZoneInfo">
+                <pancake:PancakeView Style="{DynamicResource ThemedTimeZoneContentStyle}">
+                  <Grid Margin="16" HorizontalOptions="Fill">
+                    <Grid.RowDefinitions>
+                      <RowDefinition Height="Auto" />
+                      <RowDefinition Height="52" />
+                    </Grid.RowDefinitions>
+                    <Label
+                      FontSize="24"
+                      Style="{StaticResource TextHighEmphasisStyle}"
+                      Text="{Binding DisplayName}"
+                      VerticalOptions="Start" />
+                    <Label
+                      Grid.Row="1"
+                      FontSize="18"
+                      Style="{StaticResource TextMediumEmphasisStyle}"
+                      Text="{Binding ., Converter={StaticResource CurrentTimeConverter}}"
+                      VerticalOptions="Start" />
+                    <Label
+                      Grid.Row="1"
+                      FontSize="18"
+                      Style="{StaticResource TextMediumEmphasisStyle}"
+                      Text="{Binding BaseUtcOffset, Converter={StaticResource TimeSpanToGmtConverter}}"
+                      VerticalOptions="End" />
+                  </Grid>
+                </pancake:PancakeView>
+              </DataTemplate>
+            </CollectionView.ItemTemplate>
+          </CollectionView>
+        </pancake:PancakeView>
+      </Frame>
+      <pancake:PancakeView
+        Grid.Row="1"
+        HorizontalOptions="End"
+        Style="{DynamicResource ThemedSecondaryFabStyle}"
+        TranslationX="-12"
+        TranslationY="-12"
+        VerticalOptions="End">
+        <pancake:PancakeView.GestureRecognizers>
+          <TapGestureRecognizer Tapped="ScrollToLocalTimeZone" />
+        </pancake:PancakeView.GestureRecognizers>
+        <pancake:PancakeView.Triggers>
+          <DataTrigger
+            Binding="{Binding Source={x:Reference CollectionView}, Path=ItemsSource, Converter={StaticResource ItemsSourceNullConverter}}"
+            TargetType="pancake:PancakeView"
+            Value="True">
+            <Setter Property="IsVisible" Value="False" />
+          </DataTrigger>
+        </pancake:PancakeView.Triggers>
+      </pancake:PancakeView>
+    </Grid>
+  </StackLayout>
+</ContentView>

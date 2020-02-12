@@ -1605,7 +1605,7 @@
     //public const string GoogleMaps = "\uf5f5";
     //public const string HeartPulse = "\uf5f6";
     //public const string Highway = "\uf5f7";
-    //public const string HomeMapMarker = "\uf5f8";
+    public const string HomeMapMarker = "\uf5f8";
     //public const string Incognito = "\uf5f9";
     //public const string Kettle = "\uf5fa";
     //public const string LockPlus = "\uf5fb";
