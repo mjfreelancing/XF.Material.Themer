@@ -146,4 +146,44 @@
     <Setter Property="TextColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnPrimary, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.MediumEmphasisOpacity}}" />
   </Style>
 
+  <Style x:Key="ThemedWeatherForecastStyle" TargetType="Frame">
+    <Setter Property="BackgroundColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Surface}" />
+  </Style>
+
+  <Style x:Key="ThemedForecastTextStyle" TargetType="Label">
+    <Setter Property="FontSize" Value="16" />
+  </Style>
+
+  <Style
+    x:Key="ThemedForecastHighTextStyle"
+    BasedOn="{StaticResource ThemedForecastTextStyle}"
+    TargetType="Label">
+    <Setter Property="TextColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+  </Style>
+
+  <Style
+    x:Key="ThemedForecastMediumTextStyle"
+    BasedOn="{StaticResource ThemedForecastTextStyle}"
+    TargetType="Label">
+    <Setter Property="TextColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.MediumEmphasisOpacity}}" />
+  </Style>
+
+  <FontImageSource
+    x:Key="ThemedForecastWindy"
+    FontFamily="{StaticResource MaterialFontFamily}"
+    Glyph="{x:Static font:IconFont.WeatherWindy}"
+    Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+
+  <FontImageSource
+    x:Key="ThemedForecastWater"
+    FontFamily="{StaticResource MaterialFontFamily}"
+    Glyph="{x:Static font:IconFont.Water}"
+    Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+
+  <FontImageSource
+    x:Key="ThemedForecastThermometer"
+    FontFamily="{StaticResource MaterialFontFamily}"
+    Glyph="{x:Static font:IconFont.Thermometer}"
+    Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+
 </ResourceDictionary>

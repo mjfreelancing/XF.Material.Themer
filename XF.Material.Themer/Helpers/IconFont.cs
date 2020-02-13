@@ -1374,7 +1374,7 @@
     //public const string Texture = "\uf50c";
     //public const string Theater = "\uf50d";
     public const string ThemeLightDark = "\uf50e";
-    //public const string Thermometer = "\uf50f";
+    public const string Thermometer = "\uf50f";
     //public const string ThermometerLines = "\uf510";
     //public const string ThumbDown = "\uf511";
     //public const string ThumbDownOutline = "\uf512";
@@ -1500,7 +1500,7 @@
     public const string Water = "\uf58c";
     //public const string WaterOff = "\uf58d";
     //public const string WaterPercent = "\uf58e";
-    //public const string WaterPump = "\uf58f";
+    //public const string WaterPump = "\uf58f";t
     //public const string WeatherCloudy = "\uf590";
     //public const string WeatherFog = "\uf591";
     //public const string WeatherHail = "\uf592";
