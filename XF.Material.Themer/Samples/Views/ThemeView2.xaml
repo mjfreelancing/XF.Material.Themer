@@ -5,6 +5,22 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+  xmlns:themeModels="clr-namespace:XF.Material.Themer.Models.Themes;assembly=XF.Material.Themer"
   mc:Ignorable="d">
-  <Label Style="{DynamicResource ThemedSampleLabel2}" Text="Sample 2" />
+  <Grid
+    BackgroundColor="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Background}"
+    RowSpacing="0"
+    VerticalOptions="FillAndExpand">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    <Label
+      Grid.Row="0"
+      Padding="20,20,20,12"
+      Style="{DynamicResource ThemedTitle}"
+      Text="Your Weather, Today" />
+
+  </Grid>
 </ContentView>
