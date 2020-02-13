@@ -4,23 +4,185 @@
   xmlns="http://xamarin.com/schemas/2014/forms"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+  xmlns:font="clr-namespace:XF.Material.Themer.Helpers;assembly=XF.Material.Themer"
+  xmlns:local="clr-namespace:XF.Material.Themer;assembly=XF.Material.Themer"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
   xmlns:themeModels="clr-namespace:XF.Material.Themer.Models.Themes;assembly=XF.Material.Themer"
+  Style="{DynamicResource ThemedWeatherBackgroundStyle}"
   mc:Ignorable="d">
-  <Grid
-    BackgroundColor="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Background}"
-    RowSpacing="0"
-    VerticalOptions="FillAndExpand">
-    <Grid.RowDefinitions>
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="*" />
-    </Grid.RowDefinitions>
+  <StackLayout Spacing="0">
     <Label
-      Grid.Row="0"
-      Padding="20,20,20,12"
-      Style="{DynamicResource ThemedTitle}"
-      Text="Your Weather, Today" />
+      Margin="20,20,20,0"
+      HorizontalTextAlignment="Start"
+      Style="{DynamicResource ThemedWeatherTitle}"
+      Text="Weather, Somewhere" />
+    <Grid Style="{DynamicResource ThemedWeatherContentStyle}">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" />
+      </Grid.ColumnDefinitions>
+      <Image
+        Grid.Row="1"
+        Grid.Column="0"
+        Margin="20,20,0,0"
+        HeightRequest="90"
+        HorizontalOptions="Start"
+        Source="{DynamicResource ThemedWeatherCloudStorm}"
+        Style="{DynamicResource ThemeWeatherImageStyle}"
+        VerticalOptions="Start"
+        WidthRequest="90" />
+      <StackLayout
+        Grid.Row="1"
+        Grid.Column="1"
+        Margin="0,20,20,0">
+        <Label
+          FontSize="40"
+          Style="{DynamicResource ThemedWeatherHighTextStyle}"
+          Text="24.3&#x00B0;C" />
+        <Label
+          FontSize="16"
+          Style="{DynamicResource ThemedWeatherHighTextStyle}"
+          Text="Feels like 25.9&#x00B0;C" />
+        <Label
+          FontSize="16"
+          Style="{DynamicResource ThemedWeatherHighTextStyle}"
+          Text="As of 6 min ago" />
+      </StackLayout>
+    </Grid>
 
-  </Grid>
+    <!--  support for binding the colors is not currently available in XAML  -->
+    <pancake:PancakeView
+      x:Name="WeatherInfo"
+      BackgroundGradientStops="{DynamicResource ThemedWeatherBackgroundGradients}"
+      VerticalOptions="FillAndExpand">
+      <Grid Margin="0,12,0,0">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackLayout
+          Grid.Column="0"
+          Margin="20,20,0,0"
+          Padding="0"
+          Spacing="0">
+          <Label
+            FontSize="18"
+            Style="{DynamicResource ThemedWeatherHighTextStyle}"
+            Text="21&#x00B0;C" />
+          <Label
+            FontSize="18"
+            Style="{DynamicResource ThemedWeatherHighTextStyle}"
+            Text="Tonight" />
+        </StackLayout>
+        <StackLayout
+          Grid.Column="1"
+          Margin="8,20,0,0"
+          Padding="0"
+          Spacing="0">
+          <Label
+            FontSize="18"
+            Style="{DynamicResource ThemedWeatherMediumTextStyle}"
+            Text="28&#x00B0;C" />
+          <Label
+            FontSize="18"
+            Style="{DynamicResource ThemedWeatherMediumTextStyle}"
+            Text="Tomorrow" />
+        </StackLayout>
+
+        <StackLayout
+          Grid.Column="2"
+          Margin="0,20,20,0"
+          Padding="0"
+          HorizontalOptions="EndAndExpand"
+          Orientation="Vertical"
+          Spacing="4">
+          <!--  wind  -->
+          <StackLayout Orientation="Horizontal" Spacing="8">
+            <Image
+              HeightRequest="28"
+              HorizontalOptions="Start"
+              Source="{DynamicResource ThemedWeatherWindy}"
+              Style="{DynamicResource ThemeWeatherImageStyle}"
+              VerticalOptions="Start"
+              WidthRequest="28" />
+            <Label
+              FontSize="18"
+              Style="{DynamicResource ThemedWeatherHighTextStyle}"
+              Text="SSW 15"
+              VerticalTextAlignment="Center" />
+            <Label
+              FontSize="18"
+              Style="{DynamicResource ThemedWeatherMediumTextStyle}"
+              Text="km/h"
+              VerticalTextAlignment="Center" />
+          </StackLayout>
+
+          <!--  humidity  -->
+          <StackLayout Orientation="Horizontal" Spacing="8">
+            <Image
+              HeightRequest="28"
+              HorizontalOptions="Start"
+              Source="{DynamicResource ThemedWeatherWater}"
+              Style="{DynamicResource ThemeWeatherImageStyle}"
+              VerticalOptions="Start"
+              WidthRequest="28" />
+            <Label
+              FontSize="18"
+              Style="{DynamicResource ThemedWeatherHighTextStyle}"
+              Text="89%"
+              VerticalTextAlignment="Center" />
+            <Label
+              FontSize="18"
+              Style="{DynamicResource ThemedWeatherMediumTextStyle}"
+              Text="humidity"
+              VerticalTextAlignment="Center" />
+          </StackLayout>
+
+          <!--  rain  -->
+          <StackLayout Orientation="Horizontal" Spacing="8">
+            <Image
+              HeightRequest="28"
+              HorizontalOptions="Start"
+              Source="{DynamicResource ThemedWeatherPouring}"
+              Style="{DynamicResource ThemeWeatherImageStyle}"
+              VerticalOptions="Start"
+              WidthRequest="28" />
+            <Label
+              FontSize="18"
+              Style="{DynamicResource ThemedWeatherHighTextStyle}"
+              Text="14mm"
+              VerticalTextAlignment="Center" />
+            <Label
+              FontSize="18"
+              Style="{DynamicResource ThemedWeatherMediumTextStyle}"
+              Text="rain"
+              VerticalTextAlignment="Center" />
+          </StackLayout>
+
+        </StackLayout>
+
+
+      </Grid>
+
+
+    </pancake:PancakeView>
+
+
+    <!--<Grid
+      BackgroundColor="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Background}"
+      RowSpacing="0"
+      VerticalOptions="FillAndExpand">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+    </Grid>-->
+
+  </StackLayout>
 </ContentView>

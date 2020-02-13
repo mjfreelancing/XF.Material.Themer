@@ -148,7 +148,7 @@
     //public const string ArrangeSendBackward = "\uf03f";
     //public const string ArrangeSendToBack = "\uf040";
     //public const string ArrowAll = "\uf041";
-    //public const string ArrowBottomLeft = "\uf042";
+    //wpublic const string ArrowBottomLeft = "\uf042";
     //public const string ArrowBottomRight = "\uf043";
     //public const string ArrowCollapseAll = "\uf044";
     //public const string ArrowDown = "\uf045";
@@ -1497,7 +1497,7 @@
     //public const string Watch = "\uf589";
     //public const string WatchExport = "\uf58a";
     //public const string WatchImport = "\uf58b";
-    //public const string Water = "\uf58c";
+    public const string Water = "\uf58c";
     //public const string WaterOff = "\uf58d";
     //public const string WaterPercent = "\uf58e";
     //public const string WaterPump = "\uf58f";
@@ -1507,14 +1507,14 @@
     //public const string WeatherLightning = "\uf593";
     //public const string WeatherNight = "\uf594";
     //public const string WeatherPartlyCloudy = "\uf595";
-    //public const string WeatherPouring = "\uf596";
+    public const string WeatherPouring = "\uf596";
     //public const string WeatherRainy = "\uf597";
     //public const string WeatherSnowy = "\uf598";
     //public const string WeatherSunny = "\uf599";
     //public const string WeatherSunset = "\uf59a";
     //public const string WeatherSunsetDown = "\uf59b";
     //public const string WeatherSunsetUp = "\uf59c";
-    //public const string WeatherWindy = "\uf59d";
+    public const string WeatherWindy = "\uf59d";
     //public const string WeatherWindyVariant = "\uf59e";
     //public const string Web = "\uf59f";
     //public const string Webcam = "\uf5a0";
@@ -1737,7 +1737,7 @@
     //public const string FlashRedEye = "\uf67a";
     //public const string Oar = "\uf67b";
     //public const string Piano = "\uf67c";
-    //public const string WeatherLightningRainy = "\uf67d";
+    public const string WeatherLightningRainy = "\uf67d";
     //public const string WeatherSnowyRainy = "\uf67e";
     //public const string YinYang = "\uf67f";
     //public const string TowerBeach = "\uf680";

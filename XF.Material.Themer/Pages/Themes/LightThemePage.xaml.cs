@@ -22,7 +22,7 @@ namespace XF.Material.Themer.Pages.Themes
 
     protected override void OnAppearing()
     {
-      SetCurrentTheme(ViewModel.ThemeColors, _styles);
+      SetCurrentTheme(ViewModel.Theme, ViewModel.ThemeColors, _styles);
 
       base.OnAppearing();
     }

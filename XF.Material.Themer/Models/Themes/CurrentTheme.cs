@@ -109,10 +109,18 @@ namespace XF.Material.Themer.Models.Themes
       set => SetValue(OnErrorProperty, value);
     }
 
+    public Theme Theme { get; private set; }
+
     public static CurrentTheme Instance { get; } = new CurrentTheme();
 
     private CurrentTheme()
     {
+    }
+
+    public static void SetTheme(Theme theme, IThemeColorsBase themeColors)
+    {
+      Instance.Theme = theme;
+      Instance.ThemeColors = themeColors;
     }
 
     public IThemeColorsBase ThemeColors

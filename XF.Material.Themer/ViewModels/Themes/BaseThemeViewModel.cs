@@ -10,12 +10,14 @@ namespace XF.Material.Themer.ViewModels.Themes
   {
     private readonly IThemeColorsFactory _themeColorsFactory = DependencyService.Resolve<IThemeColorsFactory>();
 
+    public Theme Theme { get; }
     public IThemeColors ThemeColors { get; }
 
     public ObservableCollection<ThemeDataTemplate> Pages { get; }
 
     protected BaseThemeViewModel(Theme theme)
     {
+      Theme = theme;
       ThemeColors = _themeColorsFactory.GetThemeColors(theme);
       Pages = new ObservableCollection<ThemeDataTemplate>();
     }

@@ -27,7 +27,7 @@
     <Label
       Grid.Row="0"
       Padding="20,20,20,12"
-      Style="{DynamicResource ThemedTitle}"
+      Style="{DynamicResource ThemedTimeZoneTitle}"
       Text="Time Zones" />
     <Frame
       Grid.Row="1"

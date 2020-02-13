@@ -11,7 +11,6 @@ namespace XF.Material.Themer.Pages.Themes
   [XamlCompilation(XamlCompilationOptions.Compile)]
   public partial class BaseThemePage : ContentPage
   {
-    private const string ThemeKeyPrefix = "ThemeColor";
     protected BaseThemeViewModel ViewModel => BindingContext as BaseThemeViewModel;
 
     public BaseThemePage()
@@ -28,10 +27,11 @@ namespace XF.Material.Themer.Pages.Themes
         ).ToList();
     }
 
-    protected static void SetCurrentTheme(IThemeColorsBase themeColors, ResourceDictionary themeResources)
+    protected static void SetCurrentTheme(Theme theme, IThemeColorsBase themeColors, ResourceDictionary themeResources)
     {
       // set the current theme colors that will be referenced by the theme styles
-      CurrentTheme.Instance.ThemeColors = themeColors;
+      //CurrentTheme.Instance.ThemeColors = themeColors;
+      CurrentTheme.SetTheme(theme, themeColors);
 
       // merge the XAML based light/dark theme set of styles
       ResourceDictionaryHelper.MergeIntoApplicationResources(themeResources);

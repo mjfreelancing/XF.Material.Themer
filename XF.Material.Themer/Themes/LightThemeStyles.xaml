@@ -20,7 +20,7 @@
     <Setter Property="CornerRadius" Value="0" />
   </Style>
 
-  <Style x:Key="ThemedTitle" TargetType="Label">
+  <Style x:Key="ThemedTimeZoneTitle" TargetType="Label">
     <Setter Property="FontAttributes" Value="Bold" />
     <Setter Property="FontSize" Value="24" />
     <Setter Property="TextColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface}" />
@@ -86,4 +86,64 @@
       </Setter.Value>
     </Setter>
   </Style>
+
+  <Style x:Key="ThemedWeatherBackgroundStyle" TargetType="ContentView">
+    <Setter Property="BackgroundColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Primary}" />
+  </Style>
+
+  <Style x:Key="ThemedWeatherTitle" TargetType="Label">
+    <Setter Property="FontAttributes" Value="Bold" />
+    <Setter Property="FontSize" Value="24" />
+    <Setter Property="TextColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnPrimary}" />
+  </Style>
+
+  <Style x:Key="ThemedWeatherContentStyle" TargetType="Grid">
+    <Setter Property="BackgroundColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Primary}" />
+  </Style>
+
+  <pancake:GradientStopCollection x:Key="ThemedWeatherBackgroundGradients">
+    <!--<pancake:GradientStop Offset="0" Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Primary}" />
+    <pancake:GradientStop Offset="0.9" Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Primary}" />
+    <pancake:GradientStop Offset="1" Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Surface}" />-->
+    <pancake:GradientStop Offset="0" Color="White" />
+    <pancake:GradientStop Offset="0.2" Color="White" />
+    <pancake:GradientStop Offset="1" Color="White" />
+  </pancake:GradientStopCollection>
+
+  <FontImageSource
+    x:Key="ThemedWeatherCloudStorm"
+    FontFamily="{StaticResource MaterialFontFamily}"
+    Glyph="{x:Static font:IconFont.WeatherLightningRainy}"
+    Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnPrimary, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+
+  <FontImageSource
+    x:Key="ThemedWeatherWindy"
+    FontFamily="{StaticResource MaterialFontFamily}"
+    Glyph="{x:Static font:IconFont.WeatherWindy}"
+    Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnPrimary, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+
+  <FontImageSource
+    x:Key="ThemedWeatherWater"
+    FontFamily="{StaticResource MaterialFontFamily}"
+    Glyph="{x:Static font:IconFont.Water}"
+    Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnPrimary, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+
+  <FontImageSource
+    x:Key="ThemedWeatherPouring"
+    FontFamily="{StaticResource MaterialFontFamily}"
+    Glyph="{x:Static font:IconFont.WeatherPouring}"
+    Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnPrimary, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+
+  <Style x:Key="ThemeWeatherImageStyle" TargetType="Image">
+    <Setter Property="Aspect" Value="AspectFit" />
+  </Style>
+
+  <Style x:Key="ThemedWeatherHighTextStyle" TargetType="Label">
+    <Setter Property="TextColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnPrimary, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+  </Style>
+
+  <Style x:Key="ThemedWeatherMediumTextStyle" TargetType="Label">
+    <Setter Property="TextColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnPrimary, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.MediumEmphasisOpacity}}" />
+  </Style>
+
 </ResourceDictionary>
