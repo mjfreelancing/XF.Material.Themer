@@ -6,7 +6,7 @@
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:models="clr-namespace:XF.Material.Themer.Models;assembly=XF.Material.Themer"
-  xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+  xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
   xmlns:viewModels="clr-namespace:XF.Material.Themer.ViewModels;assembly=XF.Material.Themer"
   xmlns:views="clr-namespace:XF.Material.Themer.Views;assembly=XF.Material.Themer"
   Title="Surface Text"
@@ -94,7 +94,7 @@
       </CarouselView>
     </Grid>
 
-    <pancake:PancakeView
+    <pancakeView:PancakeView
       Grid.Row="2"
       BackgroundColor="#10FFFFFF"
       BorderColor="#30000000"
@@ -115,6 +115,6 @@
           Text="Elevation"
           TextColor="{StaticResource MediumEmphasis}" />
       </StackLayout>
-    </pancake:PancakeView>
+    </pancakeView:PancakeView>
   </Grid>
 </ContentPage>

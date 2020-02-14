@@ -4,10 +4,10 @@
   xmlns="http://xamarin.com/schemas/2014/forms"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-  xmlns:font="clr-namespace:XF.Material.Themer.Helpers;assembly=XF.Material.Themer"
+  xmlns:iconFont="clr-namespace:XF.Material.Themer.IconFont;assembly=XF.Material.Themer"
   xmlns:local="clr-namespace:XF.Material.Themer;assembly=XF.Material.Themer"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-  xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+  xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
   xmlns:themeModels="clr-namespace:XF.Material.Themer.ViewModels.Themes;assembly=XF.Material.Themer"
   xmlns:themes="clr-namespace:XF.Material.Themer.Pages.Themes;assembly=XF.Material.Themer"
   Title="Light Theme"
@@ -19,7 +19,7 @@
 
   <ContentPage.Resources>
 
-    <Style x:Key="IndicatorViewPanelStyle" TargetType="pancake:PancakeView">
+    <Style x:Key="IndicatorViewPanelStyle" TargetType="pancakeView:PancakeView">
       <Setter Property="Margin" Value="8,0" />
       <Setter Property="CornerRadius" Value="80,80,0,0" />
       <Setter Property="HorizontalOptions" Value="Fill" />
@@ -50,7 +50,7 @@
     <Style
       x:Key="ThemeViewStyle"
       BasedOn="{StaticResource PancakeStyle}"
-      TargetType="pancake:PancakeView">
+      TargetType="pancakeView:PancakeView">
       <Setter Property="Margin" Value="16" />
       <Setter Property="BackgroundColor" Value="{Binding ThemeColors.Background}" />
       <Setter Property="BorderColor" Value="{StaticResource ThemeBorderColor}" />
@@ -71,7 +71,7 @@
         <Setter.Value>
           <FontImageSource
             FontFamily="{StaticResource MaterialFontFamily}"
-            Glyph="{x:Static font:IconFont.FormatLineWeight}"
+            Glyph="{x:Static iconFont:MaterialIconFont.FormatLineWeight}"
             Color="{Binding ThemeColors.Surface}" />
         </Setter.Value>
       </Setter>
@@ -87,7 +87,7 @@
 
   </ContentPage.Resources>
 
-  <pancake:PancakeView Style="{StaticResource ThemeViewStyle}">
+  <pancakeView:PancakeView Style="{StaticResource ThemeViewStyle}">
     <StackLayout Orientation="Vertical" Spacing="0">
       <StackLayout Style="{StaticResource TopNavPanelStyle}">
         <Image Style="{StaticResource HamburgerMenuStyle}" />
@@ -97,10 +97,10 @@
         x:Name="CarouselView"
         ItemsLayout="{StaticResource CarouselItemsLayout}"
         ItemsSource="{Binding Pages}" />
-      <pancake:PancakeView Style="{StaticResource IndicatorViewPanelStyle}">
+      <pancakeView:PancakeView Style="{StaticResource IndicatorViewPanelStyle}">
         <IndicatorView Style="{StaticResource IndicatorViewStyle}" />
-      </pancake:PancakeView>
+      </pancakeView:PancakeView>
     </StackLayout>
-  </pancake:PancakeView>
+  </pancakeView:PancakeView>
 
 </themes:BaseThemePage>

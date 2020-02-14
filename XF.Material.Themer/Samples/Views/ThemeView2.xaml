@@ -6,9 +6,9 @@
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:models="clr-namespace:XF.Material.Themer.Samples.Models;assembly=XF.Material.Themer"
-  xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+  xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
   xmlns:viewModels="clr-namespace:XF.Material.Themer.Samples.ViewModels;assembly=XF.Material.Themer"
-  Style="{DynamicResource ThemedWeatherBackgroundStyle}"
+  Style="{DynamicResource ThemedBrandedBackgroundStyle}"
   mc:Ignorable="d">
   <ContentView.BindingContext>
     <viewModels:WeatherViewModel />
@@ -58,7 +58,7 @@
     </Grid>
 
     <!--  support for binding the colors is not currently available in XAML  -->
-    <pancake:PancakeView
+    <pancakeView:PancakeView
       x:Name="WeatherInfo"
       BackgroundGradientStops="{DynamicResource ThemedWeatherBackgroundGradients}"
       VerticalOptions="FillAndExpand">
@@ -227,6 +227,6 @@
           </CollectionView.ItemTemplate>
         </CollectionView>
       </Grid>
-    </pancake:PancakeView>
+    </pancakeView:PancakeView>
   </StackLayout>
 </ContentView>

@@ -1,8 +1,8 @@
-﻿namespace XF.Material.Themer.Helpers
+﻿namespace XF.Material.Themer.IconFont
 {
   // Generated from TTF file by https://andreinitescu.github.io/IconFont2Code/
 
-  public static class IconFont
+  public static class MaterialIconFont
   {
     //public const string Numeric0 = "\u0030";
     //public const string Numeric1 = "\u0031";

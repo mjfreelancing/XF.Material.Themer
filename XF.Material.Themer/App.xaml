@@ -7,7 +7,7 @@
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:local="clr-namespace:XF.Material.Themer;assembly=XF.Material.Themer"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-  xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+  xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
   xmlns:themeModels="clr-namespace:XF.Material.Themer.Models.Themes;assembly=XF.Material.Themer"
   mc:Ignorable="d">
   <Application.Resources>
@@ -34,7 +34,7 @@
       <Color x:Key="LightCardBorderColor">#61000000</Color>
       <Color x:Key="DarkCardBorderColor">#61FFFFFF</Color>
 
-      <Style x:Key="PancakeStyle" TargetType="pancake:PancakeView">
+      <Style x:Key="PancakeStyle" TargetType="pancakeView:PancakeView">
         <Setter Property="CornerRadius" Value="20" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="IsClippedToBounds" Value="True" />
@@ -66,15 +66,15 @@
       </Style>
 
       <ControlTemplate x:Key="LightCardTemplate">
-        <pancake:PancakeView BorderColor="#60000000" Style="{StaticResource PancakeStyle}">
+        <pancakeView:PancakeView BorderColor="#60000000" Style="{StaticResource PancakeStyle}">
           <ContentPresenter HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-        </pancake:PancakeView>
+        </pancakeView:PancakeView>
       </ControlTemplate>
 
       <ControlTemplate x:Key="DarkCardTemplate">
-        <pancake:PancakeView BorderColor="#60FFFFFF" Style="{StaticResource PancakeStyle}">
+        <pancakeView:PancakeView BorderColor="#60FFFFFF" Style="{StaticResource PancakeStyle}">
           <ContentPresenter HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
-        </pancake:PancakeView>
+        </pancakeView:PancakeView>
       </ControlTemplate>
 
     </ResourceDictionary>

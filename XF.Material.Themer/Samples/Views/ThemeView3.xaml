@@ -5,6 +5,43 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  Style="{DynamicResource ThemedBackgroundStyle}"
   mc:Ignorable="d">
-  <Label Style="{DynamicResource ThemedSampleLabel3}" Text="Sample 3" />
+  <ContentView.Resources>
+    <ResourceDictionary>
+      <OnPlatform x:Key="LatoItalicFontFamily" x:TypeArguments="x:String">
+        <On Platform="iOS" Value="Lato Italic" />
+        <On Platform="Android" Value="Lato-Italic.ttf#Lato Italic" />
+        <On Platform="UWP" Value="Assets/Fonts/Lato-Italic.ttf#Lato Italic" />
+      </OnPlatform>
+      <OnPlatform x:Key="LatoBoldItalicFontFamily" x:TypeArguments="x:String">
+        <On Platform="iOS" Value="Lato BoldItalic" />
+        <On Platform="Android" Value="Lato-BoldItalic.ttf#Lato BoldItalic" />
+        <On Platform="UWP" Value="Assets/Fonts/Lato-BoldItalic.ttf#Lato BoldItalic" />
+      </OnPlatform>
+    </ResourceDictionary>
+  </ContentView.Resources>
+
+  <Grid RowSpacing="0">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    <Image
+      Grid.Row="0"
+      Grid.RowSpan="2"
+      Style="{DynamicResource SailingBackgroundImageStyle}" />
+    <Label
+      Grid.Row="0"
+      Margin="12,20"
+      FontFamily="{StaticResource LatoBoldItalicFontFamily}"
+      FontSize="28"
+      HorizontalOptions="Start"
+      Style="{DynamicResource ThemedLoginTitle}"
+      Text="Come Sailing With Us!"
+      VerticalOptions="Center" />
+  </Grid>
+
+
+
 </ContentView>

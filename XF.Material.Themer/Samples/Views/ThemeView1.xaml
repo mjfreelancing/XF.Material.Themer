@@ -7,7 +7,7 @@
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:local="clr-namespace:XF.Material.Themer;assembly=XF.Material.Themer"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-  xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+  xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
   xmlns:system="clr-namespace:System;assembly=netstandard"
   xmlns:themeModels="clr-namespace:XF.Material.Themer.Models.Themes;assembly=XF.Material.Themer"
   mc:Ignorable="d">
@@ -36,7 +36,7 @@
       BorderColor="Transparent"
       Style="{DynamicResource ThemedFrame}"
       VerticalOptions="FillAndExpand">
-      <pancake:PancakeView Style="{DynamicResource ThemedTimeZoneCarouselPancakeStyle}">
+      <pancakeView:PancakeView Style="{DynamicResource ThemedTimeZoneCarouselPancakeStyle}">
         <CollectionView x:Name="CollectionView" SelectionMode="Single">
           <CollectionView.EmptyView>
             <StackLayout>
@@ -57,7 +57,7 @@
           </CollectionView.ItemsLayout>
           <CollectionView.ItemTemplate>
             <DataTemplate x:DataType="system:TimeZoneInfo">
-              <pancake:PancakeView Style="{DynamicResource ThemedTimeZoneContentStyle}">
+              <pancakeView:PancakeView Style="{DynamicResource ThemedTimeZoneContentStyle}">
                 <Grid Margin="16" HorizontalOptions="Fill">
                   <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -81,30 +81,30 @@
                     Text="{Binding BaseUtcOffset, Converter={StaticResource TimeSpanToGmtConverter}}"
                     VerticalOptions="End" />
                 </Grid>
-              </pancake:PancakeView>
+              </pancakeView:PancakeView>
             </DataTemplate>
           </CollectionView.ItemTemplate>
         </CollectionView>
-      </pancake:PancakeView>
+      </pancakeView:PancakeView>
     </Frame>
-    <pancake:PancakeView
+    <pancakeView:PancakeView
       Grid.Row="1"
       HorizontalOptions="End"
       Style="{DynamicResource ThemedSecondaryFabStyle}"
       TranslationX="-12"
       TranslationY="-12"
       VerticalOptions="End">
-      <pancake:PancakeView.GestureRecognizers>
+      <pancakeView:PancakeView.GestureRecognizers>
         <TapGestureRecognizer Tapped="ScrollToLocalTimeZone" />
-      </pancake:PancakeView.GestureRecognizers>
-      <pancake:PancakeView.Triggers>
+      </pancakeView:PancakeView.GestureRecognizers>
+      <pancakeView:PancakeView.Triggers>
         <DataTrigger
           Binding="{Binding Source={x:Reference CollectionView}, Path=ItemsSource, Converter={StaticResource ItemsSourceNullConverter}}"
-          TargetType="pancake:PancakeView"
+          TargetType="pancakeView:PancakeView"
           Value="True">
           <Setter Property="IsVisible" Value="False" />
         </DataTrigger>
-      </pancake:PancakeView.Triggers>
-    </pancake:PancakeView>
+      </pancakeView:PancakeView.Triggers>
+    </pancakeView:PancakeView>
   </Grid>
 </ContentView>

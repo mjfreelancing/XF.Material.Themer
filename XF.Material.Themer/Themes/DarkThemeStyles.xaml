@@ -5,11 +5,12 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:converters="clr-namespace:XF.Material.Themer.Converters;assembly=XF.Material.Themer"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-  xmlns:font="clr-namespace:XF.Material.Themer.Helpers;assembly=XF.Material.Themer"
+  xmlns:iconFont="clr-namespace:XF.Material.Themer.IconFont;assembly=XF.Material.Themer"
   xmlns:local="clr-namespace:XF.Material.Themer;assembly=XF.Material.Themer"
+  xmlns:markupExtensions="clr-namespace:XF.Material.Themer.MarkupExtensions;assembly=XF.Material.Themer"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:models="clr-namespace:XF.Material.Themer.Models;assembly=XF.Material.Themer"
-  xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+  xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
   xmlns:themeModels="clr-namespace:XF.Material.Themer.Models.Themes;assembly=XF.Material.Themer"
   mc:Ignorable="d">
 
@@ -32,11 +33,11 @@
   <Style
     x:Key="ThemedTimeZoneCellStyle"
     BasedOn="{StaticResource PancakeStyle}"
-    TargetType="pancake:PancakeView">
+    TargetType="pancakeView:PancakeView">
     <Setter Property="BackgroundColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource SurfaceElevationConverter}, ConverterParameter={x:Static models:ElevationLevel.dp24}}" />
   </Style>
 
-  <Style x:Key="ThemedTimeZoneCarouselPancakeStyle" TargetType="pancake:PancakeView">
+  <Style x:Key="ThemedTimeZoneCarouselPancakeStyle" TargetType="pancakeView:PancakeView">
     <Setter Property="Padding" Value="8" />
     <Setter Property="CornerRadius" Value="8" />
     <Setter Property="BorderThickness" Value="1" />
@@ -45,7 +46,7 @@
     <Setter Property="IsClippedToBounds" Value="True" />
   </Style>
 
-  <Style x:Key="ThemedTimeZoneContentStyle" TargetType="pancake:PancakeView">
+  <Style x:Key="ThemedTimeZoneContentStyle" TargetType="pancakeView:PancakeView">
     <Setter Property="CornerRadius" Value="0" />
     <Setter Property="BorderThickness" Value="1" />
     <Setter Property="IsClippedToBounds" Value="True" />
@@ -69,7 +70,7 @@
     </Setter>
   </Style>
 
-  <Style x:Key="ThemedSecondaryFabStyle" TargetType="pancake:PancakeView">
+  <Style x:Key="ThemedSecondaryFabStyle" TargetType="pancakeView:PancakeView">
     <Setter Property="CornerRadius" Value="26" />
     <Setter Property="IsClippedToBounds" Value="True" />
     <Setter Property="WidthRequest" Value="52" />
@@ -82,7 +83,7 @@
           <Image.Source>
             <FontImageSource
               FontFamily="{StaticResource MaterialFontFamily}"
-              Glyph="{x:Static font:IconFont.HomeMapMarker}"
+              Glyph="{x:Static iconFont:MaterialIconFont.HomeMapMarker}"
               Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSecondary, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
           </Image.Source>
         </Image>
@@ -90,7 +91,7 @@
     </Setter>
   </Style>
 
-  <Style x:Key="ThemedWeatherBackgroundStyle" TargetType="ContentView">
+  <Style x:Key="ThemedBrandedBackgroundStyle" TargetType="ContentView">
     <Setter Property="BackgroundColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=BrandedSurface, Converter={StaticResource SurfaceElevationConverter}, ConverterParameter={x:Static models:ElevationLevel.dp1}}" />
   </Style>
 
@@ -100,41 +101,47 @@
     <Setter Property="TextColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
   </Style>
 
+  <Style x:Key="ThemedLoginTitle" TargetType="Label">
+    <Setter Property="FontAttributes" Value="Bold" />
+    <Setter Property="FontSize" Value="24" />
+    <Setter Property="TextColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+  </Style>
+
   <Style x:Key="ThemedWeatherContentStyle" TargetType="Grid">
     <Setter Property="BackgroundColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=BrandedSurface, Converter={StaticResource SurfaceElevationConverter}, ConverterParameter={x:Static models:ElevationLevel.dp1}}" />
   </Style>
 
-  <pancake:GradientStopCollection x:Key="ThemedWeatherBackgroundGradients">
+  <pancakeView:GradientStopCollection x:Key="ThemedWeatherBackgroundGradients">
     <!--<pancake:GradientStop Offset="0" Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Primary}" />
     <pancake:GradientStop Offset="0.9" Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Primary}" />
     <pancake:GradientStop Offset="1" Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Surface}" />-->
-    <pancake:GradientStop Offset="0" Color="White" />
-    <pancake:GradientStop Offset="0.2" Color="White" />
-    <pancake:GradientStop Offset="1" Color="White" />
-  </pancake:GradientStopCollection>
+    <pancakeView:GradientStop Offset="0" Color="White" />
+    <pancakeView:GradientStop Offset="0.2" Color="White" />
+    <pancakeView:GradientStop Offset="1" Color="White" />
+  </pancakeView:GradientStopCollection>
 
   <FontImageSource
     x:Key="ThemedWeatherCloudStorm"
     FontFamily="{StaticResource MaterialFontFamily}"
-    Glyph="{x:Static font:IconFont.WeatherLightningRainy}"
+    Glyph="{x:Static iconFont:MaterialIconFont.WeatherLightningRainy}"
     Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
 
   <FontImageSource
     x:Key="ThemedWeatherWindy"
     FontFamily="{StaticResource MaterialFontFamily}"
-    Glyph="{x:Static font:IconFont.WeatherWindy}"
+    Glyph="{x:Static iconFont:MaterialIconFont.WeatherWindy}"
     Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
 
   <FontImageSource
     x:Key="ThemedWeatherWater"
     FontFamily="{StaticResource MaterialFontFamily}"
-    Glyph="{x:Static font:IconFont.Water}"
+    Glyph="{x:Static iconFont:MaterialIconFont.Water}"
     Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
 
   <FontImageSource
     x:Key="ThemedWeatherPouring"
     FontFamily="{StaticResource MaterialFontFamily}"
-    Glyph="{x:Static font:IconFont.WeatherPouring}"
+    Glyph="{x:Static iconFont:MaterialIconFont.WeatherPouring}"
     Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
 
   <Style x:Key="ThemeWeatherImageStyle" TargetType="Image">
@@ -174,19 +181,27 @@
   <FontImageSource
     x:Key="ThemedForecastWindy"
     FontFamily="{StaticResource MaterialFontFamily}"
-    Glyph="{x:Static font:IconFont.WeatherWindy}"
+    Glyph="{x:Static iconFont:MaterialIconFont.WeatherWindy}"
     Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
 
   <FontImageSource
     x:Key="ThemedForecastWater"
     FontFamily="{StaticResource MaterialFontFamily}"
-    Glyph="{x:Static font:IconFont.Water}"
+    Glyph="{x:Static iconFont:MaterialIconFont.Water}"
     Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
 
   <FontImageSource
     x:Key="ThemedForecastThermometer"
     FontFamily="{StaticResource MaterialFontFamily}"
-    Glyph="{x:Static font:IconFont.Thermometer}"
+    Glyph="{x:Static iconFont:MaterialIconFont.Thermometer}"
     Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+
+  <Style x:Key="SailingBackgroundImageStyle" TargetType="Image">
+    <Setter Property="HorizontalOptions" Value="Fill" />
+    <Setter Property="VerticalOptions" Value="Fill" />
+    <Setter Property="Aspect" Value="AspectFill" />
+    <Setter Property="Opacity" Value="0.4" />
+    <Setter Property="Source" Value="{markupExtensions:ImageSource XF.Material.Themer.Images.sailing.png}" />
+  </Style>
 
 </ResourceDictionary>

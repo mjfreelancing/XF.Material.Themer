@@ -4,7 +4,7 @@
   xmlns="http://xamarin.com/schemas/2014/forms"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-  xmlns:font="clr-namespace:XF.Material.Themer.Helpers"
+  xmlns:iconFont="clr-namespace:XF.Material.Themer.IconFont;assembly=XF.Material.Themer"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:pages="clr-namespace:XF.Material.Themer.Pages;assembly=XF.Material.Themer"
   xmlns:themes="clr-namespace:XF.Material.Themer.Pages.Themes;assembly=XF.Material.Themer"
@@ -94,7 +94,7 @@
       <ShellContent.Icon>
         <FontImageSource
           FontFamily="{StaticResource MaterialFontFamily}"
-          Glyph="{x:Static font:IconFont.Palette}"
+          Glyph="{x:Static iconFont:MaterialIconFont.Palette}"
           Color="{StaticResource HighEmphasis}" />
       </ShellContent.Icon>
     </ShellContent>
@@ -105,7 +105,7 @@
       <ShellContent.Icon>
         <FontImageSource
           FontFamily="{StaticResource MaterialFontFamily}"
-          Glyph="{x:Static font:IconFont.FormatLineWeight}"
+          Glyph="{x:Static iconFont:MaterialIconFont.FormatLineWeight}"
           Color="{StaticResource HighEmphasis}" />
       </ShellContent.Icon>
     </ShellContent>
@@ -116,7 +116,7 @@
       <ShellContent.Icon>
         <FontImageSource
           FontFamily="{StaticResource MaterialFontFamily}"
-          Glyph="{x:Static font:IconFont.TextShadow}"
+          Glyph="{x:Static iconFont:MaterialIconFont.TextShadow}"
           Color="{StaticResource HighEmphasis}" />
       </ShellContent.Icon>
     </ShellContent>
@@ -126,14 +126,14 @@
     <FlyoutItem.FlyoutIcon>
       <FontImageSource
         FontFamily="{StaticResource MaterialFontFamily}"
-        Glyph="{x:Static font:IconFont.ThemeLightDark}"
+        Glyph="{x:Static iconFont:MaterialIconFont.ThemeLightDark}"
         Color="{StaticResource HighEmphasis}" />
     </FlyoutItem.FlyoutIcon>
     <Tab Title="Light Theme">
       <Tab.Icon>
         <FontImageSource
           FontFamily="{StaticResource MaterialFontFamily}"
-          Glyph="{x:Static font:IconFont.LightbulbOnOutline}"
+          Glyph="{x:Static iconFont:MaterialIconFont.LightbulbOnOutline}"
           Color="{StaticResource HighEmphasis}" />
       </Tab.Icon>
       <ShellContent ContentTemplate="{DataTemplate themes:LightThemePage}" />
@@ -142,7 +142,7 @@
       <Tab.Icon>
         <FontImageSource
           FontFamily="{StaticResource MaterialFontFamily}"
-          Glyph="{x:Static font:IconFont.Lightbulb}"
+          Glyph="{x:Static iconFont:MaterialIconFont.Lightbulb}"
           Color="{StaticResource HighEmphasis}" />
       </Tab.Icon>
       <ShellContent ContentTemplate="{DataTemplate themes:DarkThemePage}" />
