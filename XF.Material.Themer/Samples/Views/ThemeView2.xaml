@@ -87,6 +87,7 @@
             Style="{DynamicResource ThemedWeatherHighTextStyle}"
             Text="Tonight" />
         </StackLayout>
+
         <StackLayout
           Grid.Row="0"
           Grid.Column="1"
@@ -102,6 +103,7 @@
             Style="{DynamicResource ThemedWeatherMediumTextStyle}"
             Text="Tomorrow" />
         </StackLayout>
+
         <StackLayout
           Grid.Row="0"
           Grid.Column="2"

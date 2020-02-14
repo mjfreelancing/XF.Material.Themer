@@ -101,12 +101,6 @@
     <Setter Property="TextColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
   </Style>
 
-  <Style x:Key="ThemedLoginTitle" TargetType="Label">
-    <Setter Property="FontAttributes" Value="Bold" />
-    <Setter Property="FontSize" Value="24" />
-    <Setter Property="TextColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
-  </Style>
-
   <Style x:Key="ThemedWeatherContentStyle" TargetType="Grid">
     <Setter Property="BackgroundColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=BrandedSurface, Converter={StaticResource SurfaceElevationConverter}, ConverterParameter={x:Static models:ElevationLevel.dp1}}" />
   </Style>
@@ -196,12 +190,77 @@
     Glyph="{x:Static iconFont:MaterialIconFont.Thermometer}"
     Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
 
+  <FontImageSource
+    x:Key="ThemedSailingTwitter"
+    FontFamily="{StaticResource MaterialFontFamily}"
+    Glyph="{x:Static iconFont:MaterialIconFont.Twitter}"
+    Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+
+  <FontImageSource
+    x:Key="ThemedSailingFacebook"
+    FontFamily="{StaticResource MaterialFontFamily}"
+    Glyph="{x:Static iconFont:MaterialIconFont.Facebook}"
+    Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+
+  <FontImageSource
+    x:Key="ThemedSailingGooglePlus"
+    FontFamily="{StaticResource MaterialFontFamily}"
+    Glyph="{x:Static iconFont:MaterialIconFont.GooglePlus}"
+    Color="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+
+  <Style x:Key="ThemedSailingTitle" TargetType="Label">
+    <Setter Property="FontAttributes" Value="Bold" />
+    <Setter Property="FontSize" Value="34" />
+    <Setter Property="TextColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+  </Style>
+
   <Style x:Key="SailingBackgroundImageStyle" TargetType="Image">
     <Setter Property="HorizontalOptions" Value="Fill" />
     <Setter Property="VerticalOptions" Value="Fill" />
     <Setter Property="Aspect" Value="AspectFill" />
     <Setter Property="Opacity" Value="0.4" />
     <Setter Property="Source" Value="{markupExtensions:ImageSource XF.Material.Themer.Images.sailing.png}" />
+  </Style>
+
+  <Style x:Key="ThemedSailingSocialStyle" TargetType="pancakeView:PancakeView">
+    <Setter Property="BackgroundColor" Value="Transparent" />
+    <Setter Property="BorderColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="30" />
+    <Setter Property="HeightRequest" Value="60" />
+    <Setter Property="WidthRequest" Value="60" />
+  </Style>
+
+  <Style x:Key="ThemedSocialTextStyle" TargetType="Label">
+    <Setter Property="TextColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+    <Setter Property="HorizontalTextAlignment" Value="Center" />
+    <Setter Property="FontSize" Value="24" />
+  </Style>
+
+  <Style
+    x:Key="ThemedSocialPanelStyle"
+    BasedOn="{StaticResource PancakeStyle}"
+    TargetType="pancakeView:PancakeView">
+    <Setter Property="BorderColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
+  </Style>
+
+  <Style x:Key="ThemedSailingLoginEntryStyle" TargetType="Entry">
+    <Setter Property="PlaceholderColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.MediumEmphasisOpacity}}" />
+    <Setter Property="TextColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface}" />
+    <Setter Property="FontSize" Value="28" />
+  </Style>
+
+  <Style
+    x:Key="ThemedSailingCreateAccountBackgroundStyle"
+    BasedOn="{StaticResource PancakeStyle}"
+    TargetType="pancakeView:PancakeView">
+    <Setter Property="BackgroundColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Surface, Converter={StaticResource SurfaceElevationConverter}, ConverterParameter={x:Static models:ElevationLevel.dp0}}" />
+    <Setter Property="BorderColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.DisabledEmphasisOpacity}}" />
+    <Setter Property="Opacity" Value="0.6" />
+  </Style>
+
+  <Style x:Key="ThemedSailingHighTextStyle" TargetType="Label">
+    <Setter Property="TextColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=OnSurface, Converter={StaticResource ColorOpacityConverter}, ConverterParameter={x:Static local:Constants.HighEmphasisOpacity}}" />
   </Style>
 
 </ResourceDictionary>

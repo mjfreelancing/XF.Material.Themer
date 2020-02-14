@@ -606,7 +606,7 @@
     //public const string EyeOff = "\uf209";
     //public const string Eyedropper = "\uf20a";
     //public const string EyedropperVariant = "\uf20b";
-    //public const string Facebook = "\uf20c";
+    public const string Facebook = "\uf20c";
     //public const string FacebookBox = "\uf20d";
     //public const string FacebookMessenger = "\uf20e";
     //public const string Factory = "\uf20f";
@@ -783,7 +783,7 @@
     //public const string GooglePages = "\uf2ba";
     //public const string GooglePhysicalWeb = "\uf2bb";
     //public const string GooglePlay = "\uf2bc";
-    //public const string GooglePlus = "\uf2bd";
+    public const string GooglePlus = "\uf2bd";
     //public const string GooglePlusBox = "\uf2be";
     //public const string GoogleTranslate = "\uf2bf";
     //public const string GoogleClassroom = "\uf2c0";
@@ -1427,7 +1427,7 @@
     //public const string Tumblr = "\uf541";
     //public const string TumblrReblog = "\uf542";
     //public const string Twitch = "\uf543";
-    //public const string Twitter = "\uf544";
+    public const string Twitter = "\uf544";
     //public const string TwitterBox = "\uf545";
     //public const string TwitterCircle = "\uf546";
     //public const string TwitterRetweet = "\uf547";

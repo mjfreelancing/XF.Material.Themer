@@ -70,8 +70,8 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\materialdesignicons-webfont.ttf" />
-    <AndroidAsset Include="Assets\Lato-Italic.ttf" />
     <AndroidAsset Include="Assets\Lato-BoldItalic.ttf" />
+    <AndroidAsset Include="Assets\Lato-Regular.ttf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
