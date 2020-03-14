@@ -3,17 +3,17 @@
   x:Class="XF.Material.Themer.Themes.LightThemeStyles"
   xmlns="http://xamarin.com/schemas/2014/forms"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  xmlns:converters="clr-namespace:AllOverIt.XamarinForms.Converters;assembly=AllOverIt.XamarinForms"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:iconFont="clr-namespace:XF.Material.Themer.IconFont;assembly=XF.Material.Themer"
   xmlns:local="clr-namespace:XF.Material.Themer;assembly=XF.Material.Themer"
-  xmlns:markupExtensions="clr-namespace:Spackle.MarkupExtensions;assembly=XF.Material.Themer"
+  xmlns:markupExtensions="clr-namespace:AllOverIt.XamarinForms.MarkupExtensions;assembly=AllOverIt.XamarinForms"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-  xmlns:spackleConverters="clr-namespace:Spackle.Converters;assembly=XF.Material.Themer"
   xmlns:themeModels="clr-namespace:XF.Material.Themer.Models.Themes;assembly=XF.Material.Themer"
   mc:Ignorable="d">
 
-  <spackleConverters:ColorOpacityConverter x:Key="ColorOpacityConverter" />
+  <converters:ColorOpacityConverter x:Key="ColorOpacityConverter" />
 
   <Style x:Key="ThemedFrame" TargetType="Frame">
     <Setter Property="BackgroundColor" Value="{Binding Source={x:Static themeModels:CurrentTheme.Instance}, Path=Surface}" />

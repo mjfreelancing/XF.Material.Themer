@@ -1,4 +1,5 @@
-﻿using Spackle.Helpers;
+﻿using AllOverIt.Helpers;
+using AllOverIt.XamarinForms.Helpers;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;

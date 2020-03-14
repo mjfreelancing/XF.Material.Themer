@@ -1,5 +1,5 @@
-﻿using Spackle.Extensions;
-using Spackle.Helpers;
+﻿using AllOverIt.Extensions;
+using AllOverIt.XamarinForms.Helpers;
 using System;
 using System.Globalization;
 using Xamarin.Forms;
