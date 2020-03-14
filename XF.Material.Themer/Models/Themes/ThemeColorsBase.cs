@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Spackle.Helpers;
+using Xamarin.Forms;
 using XF.Material.Themer.Helpers;
 
 namespace XF.Material.Themer.Models.Themes

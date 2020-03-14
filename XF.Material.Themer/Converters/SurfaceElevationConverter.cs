@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Spackle.Extensions;
+using Spackle.Helpers;
+using System;
 using System.Globalization;
 using Xamarin.Forms;
 using XF.Material.Themer.Helpers;
@@ -47,7 +49,7 @@ namespace XF.Material.Themer.Converters
           return ElevationLevel.dp0;
 
         case string asString:
-          return EnumHelper.AsEnum<ElevationLevel>(asString);
+          return asString.As<ElevationLevel>();
 
         case ElevationLevel asElevationLevel:
           return asElevationLevel;

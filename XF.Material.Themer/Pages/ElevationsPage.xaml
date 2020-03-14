@@ -3,7 +3,7 @@
   x:Class="XF.Material.Themer.Pages.ElevationsPage"
   xmlns="http://xamarin.com/schemas/2014/forms"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-  xmlns:converters="clr-namespace:XF.Material.Themer.Converters;assembly=XF.Material.Themer"
+  xmlns:converters="clr-namespace:Spackle.Converters;assembly=XF.Material.Themer"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:models="clr-namespace:XF.Material.Themer.Models"
@@ -24,19 +24,6 @@
         <Setter Property="Padding" Value="0,20" />
         <Setter Property="BackgroundColor" Value="Black" />
       </Style>
-
-      <LinearItemsLayout
-        x:Key="CarouselItemsLayout"
-        ItemSpacing="12"
-        Orientation="Horizontal"
-        SnapPointsAlignment="Center"
-        SnapPointsType="Mandatory" />
-
-      <Style x:Key="CarouselStyle" TargetType="CarouselView">
-        <Setter Property="PeekAreaInsets" Value="40" />
-        <Setter Property="ItemsSource" Value="{Binding DarkElevations}" />
-        <!--<Setter Property="ItemsLayout" Value="{StaticResource CarouselItemsLayout}" />-->
-      </Style>
     </ResourceDictionary>
   </ContentPage.Resources>
 
@@ -46,7 +33,10 @@
       <RowDefinition Height="*" />
     </Grid.RowDefinitions>
     <Grid Grid.Row="0" Style="{StaticResource GridStyle}">
-      <CarouselView ItemsLayout="{StaticResource CarouselItemsLayout}" Style="{StaticResource CarouselStyle}">
+      <CarouselView
+        ItemsLayout="{StaticResource CarouselItemsLayout}"
+        ItemsSource="{Binding DarkElevations}"
+        PeekAreaInsets="40">
         <CarouselView.ItemTemplate>
           <DataTemplate>
             <views:CarouselCard BorderColor="{StaticResource DarkCardBorderColor}">
@@ -62,7 +52,10 @@
     </Grid>
 
     <Grid Grid.Row="1" Style="{StaticResource GridStyle}">
-      <CarouselView ItemsLayout="{StaticResource CarouselItemsLayout}" Style="{StaticResource CarouselStyle}">
+      <CarouselView
+        ItemsLayout="{StaticResource CarouselItemsLayout}"
+        ItemsSource="{Binding DarkElevations}"
+        PeekAreaInsets="40">
         <CarouselView.ItemTemplate>
           <DataTemplate>
             <views:CarouselCard BorderColor="{StaticResource DarkCardBorderColor}">

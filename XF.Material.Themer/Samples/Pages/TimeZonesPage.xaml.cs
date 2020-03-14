@@ -5,17 +5,17 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.Material.Themer.Samples.ViewModels;
 
-namespace XF.Material.Themer.Samples.Views
+namespace XF.Material.Themer.Samples.Pages
 {
   [XamlCompilation(XamlCompilationOptions.Compile)]
-  public partial class ThemeView1 : ContentView
+  public partial class TimeZonesPage : ContentView
   {
     private TimeZonesViewModel ViewModel { get; }
 
     public static DateTime CurrentDate { get; private set; }
     public IList<TimeZoneInfo> TimeZones => ViewModel.TimeZones;
     
-    public ThemeView1()
+    public TimeZonesPage()
     {
       // want to display the same time on all items
       CurrentDate = DateTime.UtcNow;

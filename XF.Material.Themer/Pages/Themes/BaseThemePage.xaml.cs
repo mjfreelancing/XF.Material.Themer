@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Spackle.Helpers;
+using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using XF.Material.Themer.Helpers;
 using XF.Material.Themer.Models.Themes;
 using XF.Material.Themer.ViewModels.Themes;
 

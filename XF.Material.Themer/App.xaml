@@ -8,6 +8,7 @@
   xmlns:local="clr-namespace:XF.Material.Themer;assembly=XF.Material.Themer"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+  xmlns:spackleConverters="clr-namespace:Spackle.Converters;assembly=XF.Material.Themer"
   xmlns:themeModels="clr-namespace:XF.Material.Themer.Models.Themes;assembly=XF.Material.Themer"
   mc:Ignorable="d">
   <Application.Resources>
@@ -22,8 +23,8 @@
         <On Platform="UWP" Value="Assets/Fonts/materialdesignicons-webfont.ttf#Material Design Icons" />
       </OnPlatform>
 
-      <converters:ColorToHexConverter x:Key="ColorToHexConverter" />
-      <converters:ColorOpacityConverter x:Key="ColorOpacityConverter" />
+      <spackleConverters:ColorToHexConverter x:Key="ColorToHexConverter" />
+      <spackleConverters:ColorOpacityConverter x:Key="ColorOpacityConverter" />
       <converters:SurfaceElevationConverter x:Key="SurfaceElevationConverter" />
 
       <Color x:Key="NavigationPrimary">#2c2928</Color>
@@ -76,6 +77,13 @@
           <ContentPresenter HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
         </pancakeView:PancakeView>
       </ControlTemplate>
+
+      <LinearItemsLayout
+        x:Key="CarouselItemsLayout"
+        ItemSpacing="12"
+        Orientation="Horizontal"
+        SnapPointsAlignment="Center"
+        SnapPointsType="Mandatory" />
 
     </ResourceDictionary>
   </Application.Resources>

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Globalization;
 using Xamarin.Forms;
 
-namespace XF.Material.Themer.Samples.Converters
+namespace Spackle.Converters
 {
   public class ItemsSourceNullConverter : IValueConverter
   {

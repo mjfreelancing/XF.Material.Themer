@@ -5,12 +5,12 @@ using XF.Material.Themer.Models;
 using XF.Material.Themer.Models.Themes;
 using XF.Material.Themer.Samples.ViewModels;
 
-namespace XF.Material.Themer.Samples.Views
+namespace XF.Material.Themer.Samples.Pages
 {
   [XamlCompilation(XamlCompilationOptions.Compile)]
-  public partial class ThemeView2 : ContentView
+  public partial class WeatherPage : ContentView
   {
-    public ThemeView2()
+    public WeatherPage()
     {
       InitializeComponent();
 

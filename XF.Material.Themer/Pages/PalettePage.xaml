@@ -28,20 +28,6 @@
         <Setter Property="ThemeColor" Value="{Binding ThemeColor}" />
         <Setter Property="ColorHex" Value="{Binding ThemeColor, Converter={StaticResource ColorToHexConverter}}" />
       </Style>
-
-      <LinearItemsLayout
-        x:Key="CarouselItemsLayout"
-        ItemSpacing="12"
-        Orientation="Horizontal"
-        SnapPointsAlignment="Center"
-        SnapPointsType="Mandatory" />
-
-      <Style x:Key="CarouselStyle" TargetType="CarouselView">
-        <Setter Property="PeekAreaInsets" Value="40" />
-        <!--  This should work, but doesn't : https://github.com/xamarin/Xamarin.Forms/issues/9280  -->
-        <!--<Setter Property="ItemsLayout" Value="{StaticResource CarouselItemsLayout}" />-->
-      </Style>
-
     </ResourceDictionary>
   </ContentPage.Resources>
 
@@ -57,7 +43,7 @@
       <CarouselView
         ItemsLayout="{StaticResource CarouselItemsLayout}"
         ItemsSource="{Binding LightThemeColorElements}"
-        Style="{StaticResource CarouselStyle}">
+        PeekAreaInsets="40">
         <CarouselView.ItemTemplate>
           <DataTemplate>
             <views:CarouselCard BorderColor="{StaticResource LightCardBorderColor}">
@@ -75,7 +61,7 @@
       <CarouselView
         ItemsLayout="{StaticResource CarouselItemsLayout}"
         ItemsSource="{Binding DarkThemeColorElements}"
-        Style="{StaticResource CarouselStyle}">
+        PeekAreaInsets="40">
         <CarouselView.ItemTemplate>
           <DataTemplate>
             <views:CarouselCard BorderColor="{StaticResource DarkCardBorderColor}">

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Spackle.Helpers;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using XF.Material.Themer.Helpers;
 
 namespace XF.Material.Themer.Views
 {

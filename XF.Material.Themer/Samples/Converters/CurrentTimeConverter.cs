@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using Xamarin.Forms;
-using XF.Material.Themer.Samples.Views;
+using XF.Material.Themer.Samples.Pages;
 
 namespace XF.Material.Themer.Samples.Converters
 {
@@ -11,7 +11,7 @@ namespace XF.Material.Themer.Samples.Converters
     {
       // only using a static time - it's only a sample view ;-)
       var timeZone = (TimeZoneInfo)value;
-      var newDate = TimeZoneInfo.ConvertTimeFromUtc(ThemeView1.CurrentDate, timeZone);
+      var newDate = TimeZoneInfo.ConvertTimeFromUtc(TimeZonesPage.CurrentDate, timeZone);
 
       return $"{newDate:t}";
     }

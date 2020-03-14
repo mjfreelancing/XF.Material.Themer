@@ -30,19 +30,6 @@
         <Setter Property="HorizontalOptions" Value="Fill" />
         <Setter Property="SurfaceCaptions" Value="{Binding Captions}" />
       </Style>
-
-      <LinearItemsLayout
-        x:Key="CarouselItemsLayout"
-        ItemSpacing="12"
-        Orientation="Horizontal"
-        SnapPointsAlignment="Center"
-        SnapPointsType="Mandatory" />
-
-      <Style x:Key="CarouselStyle" TargetType="CarouselView">
-        <Setter Property="PeekAreaInsets" Value="40" />
-        <!--<Setter Property="ItemsLayout" Value="{StaticResource CarouselItemsLayout}" />-->
-      </Style>
-
     </ResourceDictionary>
   </ContentPage.Resources>
   <Grid RowSpacing="0">
@@ -59,7 +46,7 @@
       <CarouselView
         ItemsLayout="{StaticResource CarouselItemsLayout}"
         ItemsSource="{Binding LightItems}"
-        Style="{StaticResource CarouselStyle}">
+        PeekAreaInsets="40">
         <CarouselView.ItemTemplate>
           <DataTemplate>
             <views:CarouselCard BorderColor="{StaticResource LightCardBorderColor}">
@@ -80,7 +67,7 @@
       <CarouselView
         ItemsLayout="{StaticResource CarouselItemsLayout}"
         ItemsSource="{Binding DarkItems}"
-        Style="{StaticResource CarouselStyle}">
+        PeekAreaInsets="40">
         <CarouselView.ItemTemplate>
           <DataTemplate>
             <views:CarouselCard BorderColor="{StaticResource DarkCardBorderColor}">

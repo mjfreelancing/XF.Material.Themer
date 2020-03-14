@@ -21,7 +21,7 @@ namespace XF.Material.Themer.Pages
       var newElevationIndex = (int)Math.Floor(eventArgs.NewValue * (elevationLevels.Count - 1));
       var newElevation = elevationLevels.ElementAt(newElevationIndex);
 
-      viewModel.SetDarkTheme(newElevation);
+      viewModel.SetDarkThemeElevation(newElevation);
     }
   }
 }

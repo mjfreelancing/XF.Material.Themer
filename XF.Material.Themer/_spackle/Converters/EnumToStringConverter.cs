@@ -2,16 +2,14 @@
 using System.Globalization;
 using Xamarin.Forms;
 
-namespace XF.Material.Themer.Converters
+namespace Spackle.Converters
 {
-  public class ColorToHexConverter
-    : IValueConverter
+  public class EnumToStringConverter<TEnum> : IValueConverter
+    where TEnum : struct
   {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-      var color = (Color) value;
-
-      return $"#{(uint)(color.R * byte.MaxValue):X2}{(uint)(color.G * byte.MaxValue):X2}{(uint)(color.B * byte.MaxValue):X2}";
+      return Enum.GetName(typeof(TEnum), value);
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

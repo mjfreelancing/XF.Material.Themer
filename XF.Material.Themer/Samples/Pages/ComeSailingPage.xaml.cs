@@ -1,12 +1,12 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace XF.Material.Themer.Samples.Views
+namespace XF.Material.Themer.Samples.Pages
 {
   [XamlCompilation(XamlCompilationOptions.Compile)]
-  public partial class ThemeView3 : ContentView
+  public partial class ComeSailingPage : ContentView
   {
-    public ThemeView3()
+    public ComeSailingPage()
     {
       InitializeComponent();
     }

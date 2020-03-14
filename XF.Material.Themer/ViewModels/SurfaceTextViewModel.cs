@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Spackle.Helpers;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Xamarin.Forms;
 using XF.Material.Themer.Factories;
-using XF.Material.Themer.Helpers;
 using XF.Material.Themer.Models;
 using XF.Material.Themer.Models.Themes;
 
@@ -11,30 +11,45 @@ namespace XF.Material.Themer.ViewModels
 {
   public class SurfaceTextViewModel : ViewModelBase
   {
-    private readonly IThemeColorsFactory _themeColorsFactory = DependencyService.Resolve<IThemeColorsFactory>();
+    private readonly IThemeColorsFactory _themeColorsFactory;
 
     public ObservableCollection<SurfaceCaptions> LightItems { get; } = new ObservableCollection<SurfaceCaptions>();
     public ObservableCollection<SurfaceCaptions> DarkItems { get; } = new ObservableCollection<SurfaceCaptions>();
-    public IReadOnlyCollection<ElevationLevel> ElevationLevels { get; } = EnumHelper.GetValueList<ElevationLevel>();
+
+    public IReadOnlyCollection<ElevationLevel> ElevationLevels { get; } = EnumHelper.GetEnumValues<ElevationLevel>();
 
     public SurfaceTextViewModel()
+      : this(DependencyService.Resolve<IThemeColorsFactory>())
     {
+    }
+
+    public SurfaceTextViewModel(IThemeColorsFactory themeColorsFactory)
+    {
+      _themeColorsFactory = themeColorsFactory;
+
       SetLightTheme();
       SetDarkTheme(ElevationLevel.dp0);
     }
 
-    public void SetDarkTheme(ElevationLevel elevation)
+    public void SetDarkThemeElevation(ElevationLevel elevation)
     {
-      var darkTheme = _themeColorsFactory.GetThemeColors(Theme.Dark);
-
-      DarkItems.Clear();
-      PopulateSurfaceCaptions(DarkItems, darkTheme, elevation);
+      SetDarkTheme(elevation);
     }
 
     private void SetLightTheme()
     {
       var lightTheme = _themeColorsFactory.GetThemeColors(Theme.Light);
+
+      LightItems.Clear();
       PopulateSurfaceCaptions(LightItems, lightTheme, ElevationLevel.dp0);
+    }
+
+    private void SetDarkTheme(ElevationLevel elevation)
+    {
+      var darkTheme = _themeColorsFactory.GetThemeColors(Theme.Dark);
+
+      DarkItems.Clear();
+      PopulateSurfaceCaptions(DarkItems, darkTheme, elevation);
     }
 
     private static void PopulateSurfaceCaptions(ICollection<SurfaceCaptions> themeItems, IThemeColors themeColors, ElevationLevel elevation)

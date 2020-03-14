@@ -1,16 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentView
-  x:Class="XF.Material.Themer.Samples.Views.ThemeView3"
+  x:Class="XF.Material.Themer.Samples.Pages.ComeSailingPage"
   xmlns="http://xamarin.com/schemas/2014/forms"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:d="http://xamarin.com/schemas/2014/forms/design"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+  xmlns:system="clr-namespace:System;assembly=netstandard"
   Style="{DynamicResource ThemedBackgroundStyle}"
   mc:Ignorable="d">
   <ContentView.Resources>
     <ResourceDictionary>
-      <OnPlatform x:Key="LatoRegularFontFamily" x:TypeArguments="x:String">
+      <OnPlatform x:Key="LatoRegularFontFamily" x:TypeArguments="system:String">
         <On Platform="iOS" Value="Lato Regular" />
         <On Platform="Android" Value="Lato-Regular.ttf#Lato Regular" />
         <On Platform="UWP" Value="Assets/Fonts/Lato-Regular.ttf#Lato Regular" />

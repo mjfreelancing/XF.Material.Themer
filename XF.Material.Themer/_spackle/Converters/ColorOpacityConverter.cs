@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Spackle.Helpers;
+using System;
 using System.Globalization;
 using Xamarin.Forms;
-using XF.Material.Themer.Helpers;
 
-namespace XF.Material.Themer.Converters
+namespace Spackle.Converters
 {
   public class ColorOpacityConverter : IValueConverter
   {

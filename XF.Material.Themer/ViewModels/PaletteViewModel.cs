@@ -8,8 +8,6 @@ namespace XF.Material.Themer.ViewModels
 {
   public class PaletteViewModel : ViewModelBase
   {
-    private readonly IThemeColorsFactory _themeColorsFactory = DependencyService.Resolve<IThemeColorsFactory>();
-
     private IDictionary<int, Color> _primaryTones = new Dictionary<int, Color>
     {
       {900, Color.FromHex("ff7221")},
@@ -44,44 +42,49 @@ namespace XF.Material.Themer.ViewModels
     public IList<PaletteElement> DarkThemeColorElements { get; }
 
     public PaletteViewModel()
+      : this(DependencyService.Resolve<IThemeColorsFactory>())
     {
-      LightTheme = _themeColorsFactory.GetThemeColors(Theme.Light);
-      DarkTheme = _themeColorsFactory.GetThemeColors(Theme.Dark);
+    }
+
+    internal PaletteViewModel(IThemeColorsFactory themeColorsFactory)
+    {
+      LightTheme = themeColorsFactory.GetThemeColors(Theme.Light);
+      DarkTheme = themeColorsFactory.GetThemeColors(Theme.Dark);
 
       LightThemeColorElements = new List<PaletteElement>
       {
-        new PaletteElement {Caption="Primary", ThemeColor=LightTheme.Primary},
-        new PaletteElement {Caption="Primary Variant", ThemeColor=LightTheme.PrimaryVariant},
-        new PaletteElement {Caption="Secondary", ThemeColor=LightTheme.Secondary},
-        new PaletteElement {Caption="Secondary Variant", ThemeColor=LightTheme.SecondaryVariant},
-        new PaletteElement {Caption="Background", ThemeColor=LightTheme.Background},
-        new PaletteElement {Caption="Branded Background", ThemeColor=LightTheme.BrandedBackground},
-        new PaletteElement {Caption="Surface", ThemeColor=LightTheme.Surface},
-        new PaletteElement {Caption="Branded Surface", ThemeColor=LightTheme.BrandedSurface},
-        new PaletteElement {Caption="Error", ThemeColor=LightTheme.Error},
-        new PaletteElement {Caption="On Primary", ThemeColor=LightTheme.OnPrimary},
-        new PaletteElement {Caption="On Secondary", ThemeColor=LightTheme.OnSecondary},
-        new PaletteElement {Caption="On Background", ThemeColor=LightTheme.OnBackground},
-        new PaletteElement {Caption="On Surface", ThemeColor=LightTheme.OnSurface},
-        new PaletteElement {Caption="On Error", ThemeColor=LightTheme.OnError}
+        new PaletteElement {Caption = "Primary", ThemeColor = LightTheme.Primary},
+        new PaletteElement {Caption = "Primary Variant", ThemeColor = LightTheme.PrimaryVariant},
+        new PaletteElement {Caption = "Secondary", ThemeColor = LightTheme.Secondary},
+        new PaletteElement {Caption = "Secondary Variant", ThemeColor = LightTheme.SecondaryVariant},
+        new PaletteElement {Caption = "Background", ThemeColor = LightTheme.Background},
+        new PaletteElement {Caption = "Branded Background", ThemeColor = LightTheme.BrandedBackground},
+        new PaletteElement {Caption = "Surface", ThemeColor = LightTheme.Surface},
+        new PaletteElement {Caption = "Branded Surface", ThemeColor = LightTheme.BrandedSurface},
+        new PaletteElement {Caption = "Error", ThemeColor = LightTheme.Error},
+        new PaletteElement {Caption = "On Primary", ThemeColor = LightTheme.OnPrimary},
+        new PaletteElement {Caption = "On Secondary", ThemeColor = LightTheme.OnSecondary},
+        new PaletteElement {Caption = "On Background", ThemeColor = LightTheme.OnBackground},
+        new PaletteElement {Caption = "On Surface", ThemeColor = LightTheme.OnSurface},
+        new PaletteElement {Caption = "On Error", ThemeColor = LightTheme.OnError}
       };
 
       DarkThemeColorElements = new List<PaletteElement>
       {
-        new PaletteElement {Caption="Primary", ThemeColor=DarkTheme.Primary},
-        new PaletteElement {Caption="Primary Variant", ThemeColor=DarkTheme.PrimaryVariant},
-        new PaletteElement {Caption="Secondary", ThemeColor=DarkTheme.Secondary},
-        new PaletteElement {Caption="Secondary Variant", ThemeColor=DarkTheme.SecondaryVariant},
-        new PaletteElement {Caption="Background", ThemeColor=DarkTheme.Background},
-        new PaletteElement {Caption="Branded Background", ThemeColor=DarkTheme.BrandedBackground},
-        new PaletteElement {Caption="Surface", ThemeColor=DarkTheme.Surface},
-        new PaletteElement {Caption="Branded Surface", ThemeColor=DarkTheme.BrandedSurface},
-        new PaletteElement {Caption="Error", ThemeColor=DarkTheme.Error},
-        new PaletteElement {Caption="On Primary", ThemeColor=DarkTheme.OnPrimary},
-        new PaletteElement {Caption="On Secondary", ThemeColor=DarkTheme.OnSecondary},
-        new PaletteElement {Caption="On Background", ThemeColor=DarkTheme.OnBackground},
-        new PaletteElement {Caption="On Surface", ThemeColor=DarkTheme.OnSurface},
-        new PaletteElement {Caption="On Error", ThemeColor=DarkTheme.OnError}
+        new PaletteElement {Caption = "Primary", ThemeColor = DarkTheme.Primary},
+        new PaletteElement {Caption = "Primary Variant", ThemeColor = DarkTheme.PrimaryVariant},
+        new PaletteElement {Caption = "Secondary", ThemeColor = DarkTheme.Secondary},
+        new PaletteElement {Caption = "Secondary Variant", ThemeColor = DarkTheme.SecondaryVariant},
+        new PaletteElement {Caption = "Background", ThemeColor = DarkTheme.Background},
+        new PaletteElement {Caption = "Branded Background", ThemeColor = DarkTheme.BrandedBackground},
+        new PaletteElement {Caption = "Surface", ThemeColor = DarkTheme.Surface},
+        new PaletteElement {Caption = "Branded Surface", ThemeColor = DarkTheme.BrandedSurface},
+        new PaletteElement {Caption = "Error", ThemeColor = DarkTheme.Error},
+        new PaletteElement {Caption = "On Primary", ThemeColor = DarkTheme.OnPrimary},
+        new PaletteElement {Caption = "On Secondary", ThemeColor = DarkTheme.OnSecondary},
+        new PaletteElement {Caption = "On Background", ThemeColor = DarkTheme.OnBackground},
+        new PaletteElement {Caption = "On Surface", ThemeColor = DarkTheme.OnSurface},
+        new PaletteElement {Caption = "On Error", ThemeColor = DarkTheme.OnError}
       };
     }
 

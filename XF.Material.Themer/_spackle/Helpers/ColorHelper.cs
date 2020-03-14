@@ -1,7 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 
-namespace XF.Material.Themer.Helpers
+namespace Spackle.Helpers
 {
   public static class ColorHelper
   {
@@ -15,7 +15,7 @@ namespace XF.Material.Themer.Helpers
         : color2;
     }
 
-    // if the foreground color contains a non-zero alpha  that will be applied against the background color
+    // if the foreground color contains a non-zero alpha that will be applied against the background color
     // before determining the contrast ratio.
     public static double GetContrastRatio(Color foregroundColor, Color backgroundColor)
     {

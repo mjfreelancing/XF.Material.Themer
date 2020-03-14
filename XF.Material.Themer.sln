@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.Material.Themer.Android"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.Material.Themer.iOS", "XF.Material.Themer.iOS\XF.Material.Themer.iOS.csproj", "{2E25853A-87A7-4035-B548-88D240FEC5E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XF.Material.Themer", "XF.Material.Themer\XF.Material.Themer.csproj", "{B7943459-97B2-433D-BD15-64AF20869C1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XF.Material.Themer", "XF.Material.Themer\XF.Material.Themer.csproj", "{B7943459-97B2-433D-BD15-64AF20869C1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
