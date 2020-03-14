@@ -36,7 +36,6 @@
       <Setter Property="Margin" Value="0,16" />
       <Setter Property="HorizontalOptions" Value="Center" />
       <Setter Property="IndicatorSize" Value="12" />
-      <Setter Property="ItemsSourceBy" Value="CarouselView" />
     </Style>
 
     <LinearItemsLayout
@@ -95,10 +94,11 @@
       </StackLayout>
       <CarouselView
         x:Name="CarouselView"
+        IndicatorView="IndicatorView"
         ItemsLayout="{StaticResource CarouselItemsLayout}"
         ItemsSource="{Binding Pages}" />
       <pancakeView:PancakeView Style="{StaticResource IndicatorViewPanelStyle}">
-        <IndicatorView Style="{StaticResource IndicatorViewStyle}" />
+        <IndicatorView x:Name="IndicatorView" Style="{StaticResource IndicatorViewStyle}" />
       </pancakeView:PancakeView>
     </StackLayout>
   </pancakeView:PancakeView>

@@ -8,8 +8,7 @@ using XF.Material.Themer.Models;
 
 namespace XF.Material.Themer.Converters
 {
-  public class SurfaceElevationConverter
-    : IValueConverter
+  public class SurfaceElevationConverter : IValueConverter
   {
     // applies a white overlay on top of the source color at a specified opacity
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -28,35 +27,23 @@ namespace XF.Material.Themer.Converters
 
     private static Color GetColor(object value)
     {
-      switch (value)
+      return value switch
       {
-        case Color asColor:
-          return asColor;
-
-        case string asString:
-          return Color.FromHex(asString);
-
-        default:
-          throw new NotSupportedException();
-      }
+        Color asColor => asColor,
+        string asString => Color.FromHex(asString),
+        _ => throw new NotSupportedException()
+      };
     }
 
     private static ElevationLevel GetElevationLevel(object value)
     {
-      switch (value)
+      return value switch
       {
-        case null:
-          return ElevationLevel.dp0;
-
-        case string asString:
-          return asString.As<ElevationLevel>();
-
-        case ElevationLevel asElevationLevel:
-          return asElevationLevel;
-
-        default:
-          throw new NotSupportedException();
-      }
+        null => ElevationLevel.dp0,
+        string asString => asString.As<ElevationLevel>(),
+        ElevationLevel asElevationLevel => asElevationLevel,
+        _ => throw new NotSupportedException()
+      };
     }
   }
 }

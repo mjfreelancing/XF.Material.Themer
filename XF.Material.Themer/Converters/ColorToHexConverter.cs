@@ -4,8 +4,7 @@ using Xamarin.Forms;
 
 namespace XF.Material.Themer.Converters
 {
-  public class ColorToHexConverter
-    : IValueConverter
+  public class ColorToHexConverter : IValueConverter
   {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
