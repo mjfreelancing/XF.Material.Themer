@@ -10,6 +10,7 @@ namespace XF.Material.Themer.Converters
     {
       var color = (Color) value;
 
+      // not using color.ToHex() as I don't want the alpha channel included
       return $"#{(uint)(color.R * byte.MaxValue):X2}{(uint)(color.G * byte.MaxValue):X2}{(uint)(color.B * byte.MaxValue):X2}";
     }
 
