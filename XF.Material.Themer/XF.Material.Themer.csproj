@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AllOverIt" Version="0.3.1" />
-    <PackageReference Include="AllOverIt.XamarinForms" Version="0.1.17" />
+    <PackageReference Include="AllOverIt" Version="0.3.2" />
+    <PackageReference Include="AllOverIt.XamarinForms" Version="0.2.2" />
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.800" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />  
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="1.4.2" />
